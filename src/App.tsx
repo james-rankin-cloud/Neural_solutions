@@ -9,6 +9,7 @@ import Index from "./pages/Index.tsx";
 import CaseStudies from "./pages/CaseStudies.tsx";
 import About from "./pages/About.tsx";
 import BookAudit from "./pages/BookAudit.tsx";
+import UICodeKit from "./pages/UICodeKit.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();

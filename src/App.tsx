@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import CustomCursor from "@/components/CustomCursor";
 import ParticleField from "@/components/ParticleField";
 import Index from "./pages/Index.tsx";
+import Services from "./pages/Services.tsx";
 import CaseStudies from "./pages/CaseStudies.tsx";
 import About from "./pages/About.tsx";
 import BookAudit from "./pages/BookAudit.tsx";

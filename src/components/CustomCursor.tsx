@@ -7,7 +7,6 @@ const CustomCursor = () => {
   const ring = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Hide on touch devices
     if ('ontouchstart' in window) return;
 
     const onMove = (e: MouseEvent) => {
@@ -36,7 +35,6 @@ const CustomCursor = () => {
     };
   }, []);
 
-  // Don't render on touch devices
   if (typeof window !== 'undefined' && 'ontouchstart' in window) return null;
 
   return (
@@ -44,12 +42,12 @@ const CustomCursor = () => {
       <div
         ref={dotRef}
         className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999]"
-        style={{ background: "hsl(270 80% 65%)" }}
+        style={{ background: "hsl(262 70% 50%)" }}
       />
       <div
         ref={ringRef}
         className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9998] border"
-        style={{ borderColor: "hsl(270 80% 65% / 0.4)" }}
+        style={{ borderColor: "hsl(262 70% 50% / 0.3)" }}
       />
     </>
   );

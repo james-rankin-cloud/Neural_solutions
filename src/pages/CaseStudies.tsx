@@ -3,44 +3,44 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 const studies = [
   {
-    title: "FinTech Analytics Platform",
-    client: "Meridian Capital Group",
-    challenge: "Legacy batch-processing pipeline couldn't keep up with real-time trading data. Reports were 6 hours stale.",
-    solution: "Event-driven architecture with Apache Kafka, real-time ML scoring, and a custom dashboard built on React + D3.",
+    title: "Ageless Living™ — Full Digital Transformation for a Multi-Location Wellness Brand",
+    industry: "Health & Wellness",
+    challenge:
+      "Ageless Living™, a wellness clinic network across Langley, Victoria, and Kelowna, BC, needed a complete digital overhaul. Their existing site was outdated, hard to maintain, and lacked online booking, e-commerce, or any intelligent features. Staff were overwhelmed with phone calls, missed inquiries, and manual admin.",
+    solution:
+      "We redesigned the entire website from the ground up with a modern, mobile-first design. We integrated Jane App for seamless online booking across all 3 locations, built a 117-product e-commerce storefront synced with Square, and implemented AI-powered site search so visitors can find treatments instantly. We also deployed AI voicemail and AI email response systems to handle client inquiries 24/7 — improving satisfaction and ensuring no lead goes unanswered. On top of that, we overhauled their SEO with JSON-LD structured data, Google Business Profile optimization, and location-specific pages.",
+    highlight: { metric: "6", label: "integrated systems in one platform" },
     results: [
-      { metric: "340%", label: "faster data processing" },
-      { metric: "$2.1M", label: "saved annually" },
-      { metric: "99.97%", label: "uptime achieved" },
+      "Full website redesign with zero front-end maintenance",
+      "Jane App booking integration across 3 clinic locations",
+      "AI-powered site search for treatments and services",
+      "AI voicemail & AI email for 24/7 client communication",
+      "117-product storefront with Square Payments & Canada Post shipping",
+      "Advanced SEO with structured data for all locations",
     ],
-    tags: ["AI/ML", "Real-time", "Cloud Architecture"],
+    tags: ["Web Development", "AI Integration", "Automation"],
   },
   {
-    title: "E-Commerce Personalization Engine",
-    client: "Bloom & Harvest",
-    challenge: "Generic product recommendations were driving high bounce rates. The existing system used static rules.",
-    solution: "Collaborative filtering + content-based hybrid recommendation engine with real-time session tracking.",
+    title: "Harrison Forbes Electrical — One-Page Website + Full Business Automation",
+    industry: "Electrical Services",
+    challenge:
+      "Harrison Forbes, a growing electrical contractor offering residential, EV charging, and solar services, had no online presence and was losing potential clients to missed calls and zero follow-up. All admin — scheduling, quoting, communication — was manual and eating into billable hours.",
+    solution:
+      "We built a clean, mobile-friendly one-page website that acts as a 24/7 digital storefront — showcasing completed projects, highlighting Google reviews, and featuring an integrated calendar with deposit-secured quote booking. Behind the scenes, we set up a full automation suite: missed call text/email rescue so no lead is ever lost, automated post-job follow-ups to drive 5-star Google reviews, and client communication flows for updates and scheduling. We also built value-add tools like grant scouting and LED energy savings calculators to help close deals on-site.",
+    highlight: { metric: "0", label: "leads lost to missed calls" },
     results: [
-      { metric: "47.2%", label: "conversion rate lift" },
-      { metric: "3.8×", label: "average session duration" },
-      { metric: "28%", label: "increase in AOV" },
+      "Missed call rescue — automatic text/email reply on every unanswered call",
+      "Online quote booking with deposit to secure commitments",
+      "Automated post-job follow-up driving more 5-star reviews",
+      "Project gallery and Google review showcase for instant trust",
+      "Grant scouting tools & LED cost-saving calculators for closing deals",
+      "Full database for client history, files, and future invoicing",
     ],
-    tags: ["Machine Learning", "E-Commerce", "Personalization"],
-  },
-  {
-    title: "Healthcare Data Pipeline",
-    client: "Vitalink Systems",
-    challenge: "Patient data scattered across 14 legacy systems with no unified view. Compliance was a nightmare.",
-    solution: "HIPAA-compliant data mesh architecture with automated ETL, real-time dashboards, and anomaly detection.",
-    results: [
-      { metric: "14→1", label: "unified data source" },
-      { metric: "92%", label: "reduction in manual reporting" },
-      { metric: "100%", label: "compliance maintained" },
-    ],
-    tags: ["Healthcare", "Data Engineering", "Compliance"],
+    tags: ["Web Development", "Automation"],
   },
 ];
 
@@ -49,7 +49,7 @@ const CaseStudies = () => (
     <Navbar />
 
     <section className="pt-32 pb-16 px-6 relative atmosphere grain">
-      <div className="absolute top-[20%] right-[10%] w-48 h-48 rounded-full bg-primary/8 blur-3xl float" />
+      <div className="absolute top-[20%] right-[10%] w-48 h-48 rounded-full bg-primary/[0.08] blur-3xl float" />
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Portfolio</span>
@@ -57,7 +57,7 @@ const CaseStudies = () => (
             Case Studies
           </h1>
           <p className="text-lg text-muted-foreground font-light max-w-2xl leading-relaxed">
-            Real projects, real metrics. Here's how we've helped businesses unlock performance through intelligent systems.
+            Real projects, real results. Here's how we've helped businesses automate operations and build custom software with AI.
           </p>
         </ScrollReveal>
       </div>
@@ -76,10 +76,10 @@ const CaseStudies = () => (
                 ))}
               </div>
 
-              <h2 className="font-display text-3xl font-bold text-foreground mb-1">{s.title}</h2>
-              <span className="font-mono text-xs text-muted-foreground">{s.client}</span>
+              <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{s.industry}</span>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mt-2 mb-8 leading-tight">{s.title}</h2>
 
-              <div className="grid md:grid-cols-[1fr_auto] gap-8 mt-8">
+              <div className="grid md:grid-cols-[1fr_auto] gap-8">
                 <div className="space-y-6">
                   <div>
                     <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-2">Challenge</span>
@@ -91,14 +91,20 @@ const CaseStudies = () => (
                   </div>
                 </div>
 
-                <div className="glass rounded-xl p-6 space-y-4 md:w-48 self-start">
-                  <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block">Results</span>
-                  {s.results.map((r) => (
-                    <div key={r.label}>
-                      <div className="font-display text-2xl font-bold text-gradient tabular-nums">{r.metric}</div>
-                      <div className="font-mono text-[10px] text-muted-foreground">{r.label}</div>
-                    </div>
-                  ))}
+                <div className="glass rounded-xl p-6 md:w-56 self-start">
+                  <div className="mb-6">
+                    <div className="font-display text-5xl font-bold text-gradient tabular-nums">{s.highlight.metric}</div>
+                    <div className="font-mono text-[10px] text-muted-foreground mt-1">{s.highlight.label}</div>
+                  </div>
+                  <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-3">Key Results</span>
+                  <ul className="space-y-2.5">
+                    {s.results.map((r) => (
+                      <li key={r} className="flex items-start gap-2 text-xs text-foreground/70 font-light leading-snug">
+                        <Check size={12} className="text-primary mt-0.5 shrink-0" />
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </article>
@@ -107,10 +113,16 @@ const CaseStudies = () => (
       </div>
 
       <ScrollReveal delay={200}>
-        <div className="text-center mt-16">
+        <div className="text-center mt-20">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Want results like these?
+          </h2>
+          <p className="text-muted-foreground font-light text-lg mb-8 max-w-xl mx-auto">
+            Let's start with a free audit — no obligations, just a clear roadmap for how AI can transform your business.
+          </p>
           <Button variant="hero" size="lg" asChild>
             <Link to="/book-audit" className="group cursor-none">
-              Start Your Project
+              Book Your Free Audit
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

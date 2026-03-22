@@ -23,15 +23,14 @@
  * - class-variance-authority (CVA) for component variants
  *
  * ============================================================================
- * DESIGN PHILOSOPHY — "Cinematic Dark Environment"
+ * DESIGN PHILOSOPHY — "Clean Light Environment"
  * ============================================================================
  *
  * This is NOT a website. It's an environment. Key principles:
  *
- * 1. ATMOSPHERE FIRST: Near-black backgrounds with layered purple gradients,
- *    animated particle field (canvas), grain texture overlays, and floating
- *    gradient orbs that drift subtly. Every section feels like you're inside
- *    something, not reading a page.
+ * 1. ATMOSPHERE FIRST: Near-white backgrounds with subtle layered purple
+ *    gradients, animated particle field (canvas), faint grain texture overlays,
+ *    and floating gradient orbs that drift subtly. Light, airy, professional.
  *
  * 2. MOTION EVERYWHERE: Staggered reveal animations on scroll, drifting
  *    decorative elements, perspective-tilt cards on hover, line-draw
@@ -44,8 +43,9 @@
  * 4. CUSTOM CURSOR: Small purple dot with a trailing ring that follows
  *    with slight delay (requestAnimationFrame lerp). Hidden on touch.
  *
- * 5. COLOR: Deep jewel-tone purple base (hsl 265-270) with near-black bg,
- *    cream/off-white text, electric purple accents. No flat whites anywhere.
+ * 5. COLOR: Light background with deep purple accents (hsl 262-275).
+ *    Near-black text on white/off-white surfaces. Purple used sparingly
+ *    for accents, gradients, and interactive elements.
  *
  * ============================================================================
  * FILE STRUCTURE
@@ -71,8 +71,9 @@
  * │   ├── CustomCursor.tsx        — Dot + trailing ring cursor (rAF lerp)
  * │   ├── ParticleField.tsx       — Canvas particle system with connections
  * │   ├── sections/
- * │   │   ├── HeroSection.tsx     — Cinematic hero with atmosphere, orbs, grid overlay
+ * │   │   ├── HeroSection.tsx     — Hero with atmosphere, subtle orbs, grid overlay
  * │   │   ├── ServicesSection.tsx  — 6-card service grid with perspective tilt
+ * │   │   ├── QuoteSection.tsx    — Peter Diamandis AI quote (blockquote)
  * │   │   ├── ProcessSection.tsx  — 3-step process with giant decorative numbers
  * │   │   ├── CaseStudiesPreview.tsx — 2 case study preview cards
  * │   │   └── CTASection.tsx      — Bottom call-to-action
@@ -107,33 +108,33 @@
  * - Body: "Outfit" (Google Fonts) — clean geometric sans
  * - Tailwind: font-display (Playfair), font-mono (Space Mono), font-sans (Outfit)
  *
- * COLOR PALETTE (HSL CSS variables in :root):
- * - --background: 265 25% 6%        (deep near-black purple)
- * - --foreground: 45 20% 90%        (warm cream)
- * - --primary: 270 80% 65%          (electric purple)
- * - --primary-foreground: 0 0% 100% (white)
- * - --accent: 280 90% 70%           (bright violet)
- * - --secondary: 265 25% 14%        (dark purple surface)
- * - --muted: 265 15% 16%            (subtle dark surface)
- * - --muted-foreground: 265 10% 55% (subdued text)
- * - --card: 265 20% 10%             (dark card surface)
- * - --border: 265 15% 16%           (subtle border)
- * - --ring: 270 80% 65%             (focus ring = primary)
+ * COLOR PALETTE (HSL CSS variables in :root) — LIGHT THEME:
+ * - --background: 0 0% 98%            (near-white)
+ * - --foreground: 240 10% 10%         (near-black text)
+ * - --primary: 262 70% 50%            (deep purple)
+ * - --primary-foreground: 0 0% 100%   (white)
+ * - --accent: 275 80% 55%             (bright violet)
+ * - --secondary: 260 20% 94%          (light purple tint surface)
+ * - --muted: 260 15% 93%              (subtle light surface)
+ * - --muted-foreground: 240 5% 45%    (medium gray text)
+ * - --card: 0 0% 100%                 (white card surface)
+ * - --border: 260 15% 88%             (light purple-gray border)
+ * - --ring: 262 70% 50%               (focus ring = primary)
  *
  * CUSTOM UTILITY CLASSES (defined in index.css @layer utilities):
- * - .atmosphere       — Layered radial gradients (purple nebula effect)
+ * - .atmosphere       — Layered radial gradients (subtle purple on white)
  * - .atmosphere-dense — Denser radial gradient variant
- * - .glass            — Glassmorphism: dark translucent bg + blur + purple border
+ * - .glass            — Glassmorphism: white translucent bg + blur + subtle purple border
  * - .shimmer          — Animated gradient text (purple → pink → purple)
- * - .text-gradient    — Static purple-pink gradient text
- * - .grain::after     — SVG noise texture overlay
+ * - .text-gradient    — Static purple gradient text
+ * - .grain::after     — SVG noise texture overlay (very faint)
  * - .gradient-border  — Gradient border using mask-composite trick
- * - .card-elevated    — Dark shadow with hover lift
+ * - .card-elevated    — Soft shadow with hover lift
  * - .float / .float-delayed / .float-slow — Floating animations
  * - .animate-drift    — Multi-axis drift animation (12s cycle)
  * - .perspective-card — CSS perspective with hover tilt
  * - .line-draw        — Underline that draws left-to-right on hover
- * - .glow-purple      — Purple glow box-shadow
+ * - .glow-purple      — Purple glow box-shadow (subtle)
  *
  * ANIMATIONS (defined in index.css @keyframes):
  * - reveal-up  — Fade in + slide up 30px + deblur (0.8s)
@@ -144,10 +145,10 @@
  * - pulse-ring — Scale pulse for status dots (3s)
  *
  * SPECIAL FEATURES:
- * - Custom scrollbar (thin, purple-tinted)
+ * - Custom scrollbar (thin, purple-tinted on light track)
  * - Smooth scroll behavior
  * - cursor: none on body (custom cursor component replaces default)
- * - ParticleField: 60 particles with connection lines (canvas, fixed z-0)
+ * - ParticleField: 60 particles with connection lines (canvas, fixed z-0, subtle on light bg)
  * - CustomCursor: dot (8px) + ring (40px) with lerp following
  *
  * ============================================================================
@@ -161,7 +162,7 @@
  *   Fires once (unobserves after reveal). Threshold: 0.15.
  *
  * Navbar:
- *   Fixed position, .glass background, z-50.
+ *   Fixed position, .glass background (white translucent), z-50.
  *   Logo: font-mono, "Neural.Solutions" with primary-colored dot.
  *   Links: font-mono, xs, uppercase, .line-draw hover underlines.
  *   Mobile: hamburger toggle, slide-down glass menu.
@@ -177,19 +178,24 @@
  *   hero-outline: border border-primary/50, hover fills primary
  *   All buttons: active:scale-[0.97], cursor-none
  *
+ * QuoteSection:
+ *   Peter Diamandis AI quote. Large decorative quotation mark (primary/10).
+ *   Blockquote in Playfair Display, centered. Cite in mono uppercase.
+ *
  * ============================================================================
  * PAGE PATTERNS
  * ============================================================================
  *
  * INDEX (Landing):
  *   Composed from section components in src/components/sections/:
- *   1. HeroSection — min-h-screen, atmosphere bg, grain, drifting orbs,
- *      pulsing grid overlay, Playfair headline with .shimmer emphasis
+ *   1. HeroSection — min-h-screen, atmosphere bg, grain, subtle drifting orbs,
+ *      faint pulsing grid overlay, Playfair headline with .shimmer emphasis
  *   2. ServicesSection — 6 cards in 2-3 col grid, perspective-card hover,
  *      gradient-border, icon + title + description pattern
- *   3. ProcessSection — 3 steps with giant decorative numbers (8rem, primary/5)
- *   4. CaseStudiesPreview — 2 cards with metrics + tags, card-elevated hover
- *   5. CTASection — atmosphere-dense bg, shimmer text, centered layout
+ *   3. QuoteSection — Peter Diamandis quote about AI and business
+ *   4. ProcessSection — 3 steps with giant decorative numbers (8rem, primary/5)
+ *   5. CaseStudiesPreview — 2 cards with metrics + tags, card-elevated hover
+ *   6. CTASection — atmosphere-dense bg, shimmer text, centered layout
  *
  * CASE STUDIES:
  *   gradient-border articles, glass metric sidebar with checkmark results list.
@@ -213,14 +219,14 @@
  * 1. Vite + React + TypeScript project
  * 2. Install: tailwindcss, shadcn/ui, lucide-react, react-router-dom,
  *    @tanstack/react-query, class-variance-authority, clsx, tailwind-merge
- * 3. Set up index.css with dark purple HSL CSS variables and utility classes
+ * 3. Set up index.css with LIGHT theme HSL CSS variables and utility classes
  * 4. Configure tailwind.config.ts with Playfair Display, Outfit, Space Mono
  * 5. Import Google Fonts: Playfair Display, Space Mono, Outfit
  * 6. Create CustomCursor (dot + ring with rAF lerp, hidden on touch)
- * 7. Create ParticleField (canvas, 60 particles, connection lines at <150px)
+ * 7. Create ParticleField (canvas, 60 particles, connection lines at <150px, subtle on light bg)
  * 8. Create ScrollReveal (IntersectionObserver, blur + slide + fade)
- * 9. Set up glass Navbar with line-draw links and mono Footer
- * 10. Build section components: atmosphere backgrounds, grain overlays, gradient orbs
+ * 9. Set up glass Navbar (white translucent) with line-draw links and mono Footer
+ * 10. Build section components: subtle atmosphere backgrounds, faint grain overlays
  * 11. Use editorial Playfair for all headlines, tight line-height (0.95-1.1)
  * 12. All interactive elements: active:scale, hover:translate, line-draw
  *
@@ -235,7 +241,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Sparkles, Code2, Palette, Type, Layers, Box } from "lucide-react";
+import { Sparkles, Code2, Palette, Type, Layers, Box, Quote } from "lucide-react";
 
 const UICodeKit = () => (
   <div className="min-h-screen bg-background overflow-hidden">
@@ -243,7 +249,7 @@ const UICodeKit = () => (
 
     {/* Header */}
     <section className="pt-32 pb-16 px-6 relative atmosphere grain">
-      <div className="absolute top-[20%] right-[8%] w-44 h-44 rounded-full bg-primary/[0.08] blur-3xl float" />
+      <div className="absolute top-[20%] right-[8%] w-44 h-44 rounded-full bg-primary/[0.05] blur-3xl float" />
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">
@@ -274,14 +280,14 @@ const UICodeKit = () => (
         </ScrollReveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { name: "background", css: "265 25% 6%", tw: "bg-background" },
-            { name: "foreground", css: "45 20% 90%", tw: "bg-foreground" },
-            { name: "primary", css: "270 80% 65%", tw: "bg-primary" },
-            { name: "accent", css: "280 90% 70%", tw: "bg-accent" },
-            { name: "secondary", css: "265 25% 14%", tw: "bg-secondary" },
-            { name: "muted", css: "265 15% 16%", tw: "bg-muted" },
-            { name: "card", css: "265 20% 10%", tw: "bg-card" },
-            { name: "border", css: "265 15% 16%", tw: "bg-border" },
+            { name: "background", css: "0 0% 98%", tw: "bg-background" },
+            { name: "foreground", css: "240 10% 10%", tw: "bg-foreground" },
+            { name: "primary", css: "262 70% 50%", tw: "bg-primary" },
+            { name: "accent", css: "275 80% 55%", tw: "bg-accent" },
+            { name: "secondary", css: "260 20% 94%", tw: "bg-secondary" },
+            { name: "muted", css: "260 15% 93%", tw: "bg-muted" },
+            { name: "card", css: "0 0% 100%", tw: "bg-card" },
+            { name: "border", css: "260 15% 88%", tw: "bg-border" },
           ].map((c) => (
             <ScrollReveal key={c.name} delay={0}>
               <div className="glass rounded-lg p-4">
@@ -379,6 +385,29 @@ const UICodeKit = () => (
       </div>
     </section>
 
+    {/* Quote Section */}
+    <section className="pb-16 px-6 relative z-10">
+      <div className="max-w-5xl mx-auto">
+        <ScrollReveal>
+          <div className="flex items-center gap-2 mb-6">
+            <Quote size={18} className="text-primary" />
+            <h2 className="font-display text-2xl font-bold text-foreground">Quote Section</h2>
+          </div>
+        </ScrollReveal>
+        <div className="glass rounded-xl p-8">
+          <div className="relative text-center">
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 font-display text-[5rem] leading-none text-primary/10 select-none">"</span>
+            <blockquote className="font-display text-xl md:text-2xl font-medium text-foreground leading-[1.3] tracking-tight pt-6">
+              There will be two kinds of companies at the end of this decade: those that are fully utilizing AI, and those that are out of business.
+            </blockquote>
+            <cite className="block mt-6 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground not-italic">
+              — Peter Diamandis
+            </cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Utility Classes */}
     <section className="pb-16 px-6 relative z-10">
       <div className="max-w-5xl mx-auto">
@@ -391,7 +420,7 @@ const UICodeKit = () => (
         <div className="space-y-4">
           <div className="glass rounded-xl p-6">
             <span className="font-mono text-xs text-primary block mb-2">.glass</span>
-            <p className="text-sm text-muted-foreground font-light">Glassmorphism: dark translucent bg + backdrop-blur + subtle purple border.</p>
+            <p className="text-sm text-muted-foreground font-light">Glassmorphism: white translucent bg + backdrop-blur + subtle purple border.</p>
           </div>
           <div className="gradient-border p-6">
             <span className="font-mono text-xs text-primary block mb-2">.gradient-border</span>
@@ -399,7 +428,7 @@ const UICodeKit = () => (
           </div>
           <div className="glass rounded-xl p-6">
             <span className="font-mono text-xs text-primary block mb-2">.atmosphere + .grain</span>
-            <p className="text-sm text-muted-foreground font-light">Layered radial gradients with grain texture overlay.</p>
+            <p className="text-sm text-muted-foreground font-light">Layered subtle radial gradients with faint grain texture overlay.</p>
           </div>
           <div className="gradient-border perspective-card p-6">
             <span className="font-mono text-xs text-primary block mb-2">.perspective-card</span>
@@ -469,19 +498,19 @@ const UICodeKit = () => (
         <div className="glass rounded-xl p-8 space-y-8">
           <div>
             <span className="text-xs text-muted-foreground font-mono block mb-3">Floating orbs (.float / .float-delayed / .animate-drift)</span>
-            <div className="relative h-24 rounded-lg bg-background/30 overflow-hidden">
-              <div className="absolute top-2 left-[20%] w-12 h-12 rounded-full bg-primary/20 blur-xl float" />
-              <div className="absolute top-4 right-[30%] w-16 h-16 rounded-full bg-accent/15 blur-xl float-delayed" />
-              <div className="absolute bottom-2 left-[50%] w-10 h-10 rounded-full bg-primary/15 blur-xl animate-drift" />
+            <div className="relative h-24 rounded-lg bg-muted/50 overflow-hidden">
+              <div className="absolute top-2 left-[20%] w-12 h-12 rounded-full bg-primary/10 blur-xl float" />
+              <div className="absolute top-4 right-[30%] w-16 h-16 rounded-full bg-accent/10 blur-xl float-delayed" />
+              <div className="absolute bottom-2 left-[50%] w-10 h-10 rounded-full bg-primary/10 blur-xl animate-drift" />
             </div>
           </div>
           <div>
             <span className="text-xs text-muted-foreground font-mono block mb-3">Custom cursor (dot + ring)</span>
-            <p className="text-sm text-foreground/70 font-light">Move your mouse to see the custom cursor — a small purple dot with a trailing ring that follows with lerp interpolation.</p>
+            <p className="text-sm text-foreground/70 font-light">Move your mouse to see the custom cursor — a purple dot with a trailing ring that follows with lerp interpolation.</p>
           </div>
           <div>
             <span className="text-xs text-muted-foreground font-mono block mb-3">Particle field (canvas)</span>
-            <p className="text-sm text-foreground/70 font-light">The background particle system is rendered on a fixed canvas at z-0 with 60 particles and dynamic connection lines drawn between particles within 150px.</p>
+            <p className="text-sm text-foreground/70 font-light">The background particle system is rendered on a fixed canvas at z-0 with 60 particles and subtle connection lines drawn between particles within 150px.</p>
           </div>
           <div>
             <span className="text-xs text-muted-foreground font-mono block mb-3">ScrollReveal</span>

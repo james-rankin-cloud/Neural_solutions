@@ -9,6 +9,7 @@ import Index from "./pages/Index.tsx";
 import CaseStudies from "./pages/CaseStudies.tsx";
 import About from "./pages/About.tsx";
 import BookAudit from "./pages/BookAudit.tsx";
+import UICodeKit from "./pages/UICodeKit.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/about" element={<About />} />
           <Route path="/book-audit" element={<BookAudit />} />
+          <Route path="/ui-code-kit" element={<UICodeKit />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

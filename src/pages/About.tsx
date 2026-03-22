@@ -1,12 +1,36 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { MapPin, Building2 } from "lucide-react";
 
 const team = [
-  { name: "Marcus Chen", role: "Founder & CTO", initials: "MC", bio: "Former ML engineer at DeepMind. 12 years building production AI systems across fintech, healthcare, and e-commerce." },
-  { name: "Ava Thornton", role: "Head of Engineering", initials: "AT", bio: "Full-stack architect specializing in distributed systems. Previously led platform engineering at Stripe." },
-  { name: "Rio Nakamura", role: "AI Research Lead", initials: "RN", bio: "PhD in computational neuroscience. Published researcher in transformer architectures and reinforcement learning." },
-  { name: "Sable Okafor", role: "Design Director", initials: "SO", bio: "Award-winning product designer. Obsessed with the intersection of data visualization and human intuition." },
+  {
+    name: "Jasraj Taneja",
+    role: "Software Engineer & AI Specialist",
+    initials: "JT",
+    company: "Ericsson",
+    location: "Victoria, BC",
+    bio: "A Software Engineer at Ericsson with over three years of development and automation experience using AI tools. Jasraj brings deep technical expertise in building scalable systems and integrating intelligent automation into real-world workflows.",
+    personal: "Grew up on Vancouver Island in Victoria. When he's not writing code, you'll find him hiking local trails or spending time with his dog.",
+  },
+  {
+    name: "James Rankin",
+    role: "Machine Learning Engineer & Web Developer",
+    initials: "JR",
+    company: "UVic Graduate",
+    location: "Victoria, BC",
+    bio: "A recent Software Engineering graduate from UVic with a specialization in machine learning. James is well-versed in web development and automation services, and takes genuine pride in every project he delivers.",
+    personal: "In his spare time, James enjoys tackling math puzzles, gaming, and staying active through sports.",
+  },
+  {
+    name: "Meharban Taneja",
+    role: "Customer Relations & Business Development",
+    initials: "MT",
+    company: "Baker Tilly",
+    location: "British Columbia",
+    bio: "Specializing in customer relations and business development, Meharban's experience as an Investment Banker at Baker Tilly has taught him the ins and outs of running a customer-focused business — equipping him with the skills to oversee operations at Neural Solutions.",
+    personal: "Outside of work, Meharban enjoys investing in the stock market and spending quality time with friends and family.",
+  },
 ];
 
 const About = () => (
@@ -14,57 +38,47 @@ const About = () => (
     <Navbar />
 
     <section className="pt-32 pb-16 px-6 relative atmosphere grain">
-      <div className="absolute bottom-[10%] left-[5%] w-56 h-56 rounded-full bg-accent/6 blur-3xl float-delayed" />
+      <div className="absolute bottom-[10%] left-[5%] w-56 h-56 rounded-full bg-accent/[0.06] blur-3xl float-delayed" />
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Who We Are</span>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">The People Behind</span>
           <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground leading-[0.95] mb-6">
-            About Neural Solutions
+            Neural Solutions
           </h1>
           <p className="text-lg text-muted-foreground font-light max-w-2xl leading-relaxed">
-            A collective of engineers, researchers, and designers building intelligent systems that matter.
+            A small, focused team that believes AI should make businesses simpler — not more complicated. Engineering depth, customer empathy, and a bias toward action.
           </p>
-        </ScrollReveal>
-      </div>
-    </section>
-
-    <section className="pb-16 px-6 relative z-10">
-      <div className="max-w-5xl mx-auto">
-        <ScrollReveal>
-          <div className="gradient-border p-8 md:p-10 mb-16">
-            <h2 className="font-display text-2xl font-bold text-foreground mb-4">Our Philosophy</h2>
-            <p className="text-foreground/80 font-light leading-relaxed mb-4">
-              We don't believe in technology for its own sake. Every system we build starts with a human problem — an inefficiency, a blind spot, a bottleneck — and ends with a measurable improvement.
-            </p>
-            <p className="text-foreground/80 font-light leading-relaxed">
-              Our team is deliberately small. We take on fewer projects so we can go deeper. No account managers, no handoffs. The people who architect your solution are the same people who ship it.
-            </p>
-          </div>
         </ScrollReveal>
       </div>
     </section>
 
     <section className="pb-32 px-6 relative z-10">
       <div className="max-w-5xl mx-auto">
-        <ScrollReveal>
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">The Team</span>
-          <h2 className="font-display text-3xl font-bold text-foreground mb-12">Meet the minds</h2>
-        </ScrollReveal>
-
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-8">
           {team.map((t, i) => (
-            <ScrollReveal key={t.name} delay={i * 80}>
-              <div className="gradient-border card-elevated p-6 h-full">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <ScrollReveal key={t.name} delay={i * 100}>
+              <div className="gradient-border card-elevated p-8 md:p-10">
+                <div className="flex items-start gap-5 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <span className="font-mono text-sm font-bold text-primary">{t.initials}</span>
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-semibold text-foreground">{t.name}</h3>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{t.role}</span>
+                    <h3 className="font-display text-2xl font-bold text-foreground">{t.name}</h3>
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground block mt-1">{t.role}</span>
+                    <div className="flex flex-wrap items-center gap-4 mt-2">
+                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-light">
+                        <Building2 size={12} className="text-primary/60" />
+                        {t.company}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-light">
+                        <MapPin size={12} className="text-primary/60" />
+                        {t.location}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed">{t.bio}</p>
+                <p className="text-foreground/80 font-light leading-relaxed mb-4">{t.bio}</p>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed italic">{t.personal}</p>
               </div>
             </ScrollReveal>
           ))}

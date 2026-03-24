@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -30,44 +29,43 @@ import {
   TrendingUp,
   Check,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const coreServices = [
   {
     icon: Globe,
-    num: "01",
     title: "Web & Mobile Development",
-    desc: "Web and mobile applications give businesses a powerful way to reach new customers, better serve existing clients, and grow their market presence. A strong digital product makes a strong first impression. We manage the full software development lifecycle with precision, ensuring smooth launches and high customer satisfaction from day one.",
+    desc: "Web and mobile applications give businesses a powerful way to reach new customers, better serve existing clients, and grow their market presence. We manage the full software development lifecycle with precision, ensuring smooth launches and high customer satisfaction from day one.",
+    highlights: ["Cross-platform apps", "Full lifecycle management", "Scalable architecture"],
   },
   {
     icon: Users,
-    num: "02",
-    title: "Software Development Team Outsourcing",
-    desc: "Many of our clients choose to hand off their entire development process to our teams. The reason is simple: we deliver faster, more efficiently, and at a lower cost than building in-house. Let Neural Solutions handle your software development so you can stay focused on growing your business.",
+    title: "Team Outsourcing",
+    desc: "Many of our clients choose to hand off their entire development process to our teams. The reason is simple: we deliver faster, more efficiently, and at a lower cost than building in-house.",
+    highlights: ["Dedicated dev teams", "Faster delivery", "Cost-effective scaling"],
   },
   {
     icon: Cloud,
-    num: "03",
-    title: "Cloud Application Hosting",
-    desc: "We've built and deployed software for clients across industries, providing cloud-based development and testing environments throughout. Our expertise in cloud production has grown alongside the technology itself. We offer application management across Amazon AWS, Microsoft Azure, and Oracle Cloud.",
+    title: "Cloud Hosting",
+    desc: "We've built and deployed software for clients across industries, providing cloud-based development and testing environments throughout. We offer application management across Amazon AWS, Microsoft Azure, and Oracle Cloud.",
+    highlights: ["AWS, Azure, Oracle", "Production-grade infra", "Managed environments"],
   },
   {
     icon: Brain,
-    num: "04",
-    title: "AI Integration Services",
-    desc: "Bring intelligence into your existing workflows without rebuilding from scratch. We embed AI capabilities directly into your tools and platforms, from intelligent search and document processing to predictive analytics and recommendation engines that learn and improve over time.",
+    title: "AI Integration",
+    desc: "Bring intelligence into your existing workflows without rebuilding from scratch. We embed AI capabilities directly into your tools and platforms, from intelligent search and document processing to predictive analytics.",
+    highlights: ["Predictive analytics", "Intelligent search", "Document processing"],
   },
   {
     icon: Workflow,
-    num: "05",
     title: "AI Automation",
-    desc: "We identify the repetitive, time-consuming tasks that drain your team and replace them with intelligent automation that runs around the clock. From client communication flows and data pipelines to CRM triggers and reporting, we build systems that handle the busywork so your people can focus on what matters.",
+    desc: "We identify the repetitive, time-consuming tasks that drain your team and replace them with intelligent automation that runs around the clock. CRM triggers, data pipelines, client communication, and reporting.",
+    highlights: ["24/7 automation", "CRM workflows", "Data pipelines"],
   },
   {
     icon: Bot,
-    num: "06",
-    title: "AI-Powered Assistants",
-    desc: "Deploy conversational AI that actually understands your business. We build custom AI voicemail systems, email responders, and chat assistants trained on your specific data, handling client inquiries 24/7 with accuracy and a human touch.",
+    title: "AI Assistants",
+    desc: "Deploy conversational AI that actually understands your business. Custom voicemail systems, email responders, and chat assistants trained on your specific data, handling client inquiries with accuracy and a human touch.",
+    highlights: ["AI voicemail", "Email responders", "Custom chatbots"],
   },
 ];
 
@@ -90,119 +88,115 @@ const itSolutions = [
   { icon: TrendingUp, label: "Predictive analytics and forecasting" },
 ];
 
-const Services = () => {
-  const [active, setActive] = useState<number | null>(null);
+const Services = () => (
+  <div className="min-h-screen bg-background overflow-hidden">
+    <Navbar />
 
-  return (
-    <div className="min-h-screen bg-background overflow-hidden">
-      <Navbar />
+    {/* Hero */}
+    <section className="pt-32 pb-20 px-6 relative grain">
+      <div className="absolute top-[20%] right-[10%] w-48 h-48 rounded-full bg-primary/[0.05] blur-3xl float" />
+      <div className="max-w-5xl mx-auto relative z-10">
+        <ScrollReveal>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">What We Do</span>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
+            We don't just talk about AI.
+          </h1>
+          <p className="font-serif text-3xl md:text-4xl italic text-primary mb-6">
+            We make it work.
+          </p>
+          <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
+            From custom software and cloud infrastructure to AI integration and intelligent automation, we deliver end-to-end solutions that help businesses operate smarter and scale faster.
+          </p>
+        </ScrollReveal>
+      </div>
+    </section>
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 px-6 relative grain">
-        <div className="absolute top-[20%] right-[10%] w-48 h-48 rounded-full bg-primary/[0.05] blur-3xl float" />
-        <div className="max-w-5xl mx-auto relative z-10">
-          <ScrollReveal>
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">What We Do</span>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
-              We don't just talk about AI.
-            </h1>
-            <p className="font-serif text-3xl md:text-4xl italic text-primary mb-6">
-              We make it work.
-            </p>
-            <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
-              From custom software and cloud infrastructure to AI integration and intelligent automation, we deliver end-to-end solutions that help businesses operate smarter and scale faster.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+    <MarqueeTicker items={["Web Development", "AI Integration", "Cloud Hosting", "Automation", "ML Engineering"]} />
 
-      <MarqueeTicker items={["Web Development", "AI Integration", "Cloud Hosting", "Automation", "ML Engineering"]} />
+    {/* Core Services — Staggered card grid */}
+    <section className="py-28 px-6 relative z-10">
+      <div className="max-w-6xl mx-auto">
+        <ScrollReveal>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Core Services</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-4">
+            Six ways we move the needle.
+          </h2>
+          <p className="text-muted-foreground font-normal text-lg mb-16 max-w-2xl">
+            Each service is built to solve a specific problem. Pick one, or let us combine them into a system that runs your business end to end.
+          </p>
+        </ScrollReveal>
 
-      {/* Core Services - Accordion style */}
-      <section className="py-28 px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="space-y-0 border-t border-border/40">
-            {coreServices.map((s, i) => (
-              <ScrollReveal key={s.title} delay={i * 60}>
-                <div
-                  className={cn(
-                    "border-b border-border/40 py-6 md:py-8 cursor-none transition-all duration-500",
-                    active === i ? "bg-muted/50" : ""
-                  )}
-                  onMouseEnter={() => setActive(i)}
-                  onMouseLeave={() => setActive(null)}
-                >
-                  <div className="flex items-start gap-6 md:gap-10">
-                    <span className="font-mono text-xs text-muted-foreground/50 mt-1 shrink-0">{s.num}</span>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-2">
-                        <s.icon size={20} className="text-primary shrink-0" />
-                        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">{s.title}</h3>
-                      </div>
-                      <div
-                        className={cn(
-                          "overflow-hidden transition-all duration-500 ease-out",
-                          active === i ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"
-                        )}
-                      >
-                        <p className="text-muted-foreground font-normal leading-relaxed max-w-2xl pl-10">{s.desc}</p>
-                      </div>
-                    </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {coreServices.map((s, i) => (
+            <ScrollReveal key={s.title} delay={i * 80}>
+              <div className={`gradient-border card-elevated p-8 h-full ${i === 0 || i === 5 ? "md:col-span-1" : ""}`}>
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <s.icon size={22} className="text-primary" />
                   </div>
+                  <h3 className="font-display text-xl font-bold text-foreground">{s.title}</h3>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* IT Solutions Grid */}
-      <section className="pb-28 px-6 relative z-10 atmosphere-dense">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal>
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Full Spectrum</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-4">
-              A wide range of
-            </h2>
-            <p className="font-serif text-2xl md:text-3xl italic text-primary mb-16">IT solutions.</p>
-          </ScrollReveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {itSolutions.map((item, i) => (
-              <ScrollReveal key={item.label} delay={i * 40}>
-                <div className="glass rounded-lg p-4 flex items-start gap-3 h-full">
-                  <Check size={16} className="text-primary mt-0.5 shrink-0" />
-                  <span className="text-sm text-foreground font-normal leading-snug">{item.label}</span>
+                <p className="text-muted-foreground font-normal leading-relaxed mb-6">{s.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {s.highlights.map((h) => (
+                    <span key={h} className="font-mono text-[10px] uppercase tracking-wider text-primary/80 bg-primary/5 border border-primary/10 px-2.5 py-1 rounded-full">
+                      {h}
+                    </span>
+                  ))}
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* CTA */}
-      <section className="pb-28 px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-[1.05] mb-4">
-              Not sure where to start?
-            </h2>
-            <p className="text-muted-foreground font-normal text-lg mb-10 max-w-xl mx-auto">
-              Book a free audit and we'll map out exactly where AI and custom software can make the biggest impact on your business.
-            </p>
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/book-audit" className="group cursor-none">
-                Book Your Free Audit
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </ScrollReveal>
+    {/* IT Solutions Grid */}
+    <section className="pb-28 px-6 relative z-10 atmosphere-dense">
+      <div className="max-w-5xl mx-auto">
+        <ScrollReveal>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Full Spectrum</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-4">
+            A wide range of
+          </h2>
+          <p className="font-serif text-2xl md:text-3xl italic text-primary mb-16">IT solutions.</p>
+        </ScrollReveal>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {itSolutions.map((item, i) => (
+            <ScrollReveal key={item.label} delay={i * 40}>
+              <div className="glass rounded-lg p-4 flex items-start gap-3 h-full">
+                <Check size={16} className="text-primary mt-0.5 shrink-0" />
+                <span className="text-sm text-foreground font-normal leading-snug">{item.label}</span>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
-      <Footer />
-    </div>
-  );
-};
+    {/* CTA */}
+    <section className="pb-28 px-6 relative z-10">
+      <div className="max-w-3xl mx-auto text-center">
+        <ScrollReveal>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-[1.05] mb-4">
+            Not sure where to start?
+          </h2>
+          <p className="text-muted-foreground font-normal text-lg mb-10 max-w-xl mx-auto">
+            Book a free audit and we'll map out exactly where AI and custom software can make the biggest impact on your business.
+          </p>
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/book-audit" className="group cursor-none">
+              Book Your Free Audit
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+);
 
 export default Services;

@@ -48,6 +48,8 @@ const studies = [
       "Full database for client history, files, and future invoicing",
     ],
     tags: ["Web Development", "Automation"],
+    logo: harrisonForbesLogo,
+    logoBg: "bg-black",
   },
 ];
 

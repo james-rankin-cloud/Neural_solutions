@@ -5,13 +5,16 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => (
   <section className="py-32 px-6 relative z-10 atmosphere-dense grain">
-    <div className="max-w-3xl mx-auto text-center">
+    <div className="max-w-4xl mx-auto text-center">
       <ScrollReveal>
-        <h2 className="font-display text-4xl md:text-5xl font-bold leading-[1.05] mb-6">
-          Ready to <span className="shimmer">automate everything</span>?
+        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[0.95] mb-4">
+          Ready to stop talking about AI
         </h2>
-        <p className="text-muted-foreground font-light text-lg mb-10 max-w-xl mx-auto">
-          Book a free audit and we'll show you exactly where AI can save you time, money, and headaches.
+        <p className="font-serif text-3xl md:text-4xl italic text-primary mb-10">
+          and start shipping it?
+        </p>
+        <p className="text-muted-foreground font-normal text-lg mb-12 max-w-xl mx-auto">
+          Book a free audit. We'll show you exactly where AI can save you time, money, and headaches. No obligations, just a clear roadmap.
         </p>
         <Button variant="hero" size="lg" asChild>
           <Link to="/book-audit" className="group cursor-none">

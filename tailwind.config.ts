@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Outfit"', 'system-ui', 'sans-serif'],
+        display: ['"Syne"', '"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Syne"', 'system-ui', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
       },
       colors: {
@@ -51,6 +52,10 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        ticker: {
+          DEFAULT: "hsl(var(--ticker))",
+          foreground: "hsl(var(--ticker-foreground))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

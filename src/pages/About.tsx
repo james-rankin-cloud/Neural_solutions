@@ -28,7 +28,7 @@ const team = [
     initials: "MT",
     company: "Baker Tilly",
     location: "British Columbia",
-    bio: "Specializing in customer relations and business development, Meharban's experience as an Investment Banker at Baker Tilly has taught him the ins and outs of running a customer-focused business — equipping him with the skills to oversee operations at Neural Solutions.",
+    bio: "Specializing in customer relations and business development, Meharban's experience as an Investment Banker at Baker Tilly has taught him the ins and outs of running a customer-focused business, equipping him with the skills to oversee operations at Neural Solutions.",
     personal: "Outside of work, Meharban enjoys investing in the stock market and spending quality time with friends and family.",
   },
 ];
@@ -37,16 +37,19 @@ const About = () => (
   <div className="min-h-screen bg-background overflow-hidden">
     <Navbar />
 
-    <section className="pt-32 pb-16 px-6 relative atmosphere grain">
-      <div className="absolute bottom-[10%] left-[5%] w-56 h-56 rounded-full bg-accent/[0.06] blur-3xl float-delayed" />
+    <section className="pt-32 pb-16 px-6 relative grain">
+      <div className="absolute bottom-[10%] left-[5%] w-56 h-56 rounded-full bg-accent/[0.04] blur-3xl float-delayed" />
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">The People Behind</span>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground leading-[0.95] mb-6">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95] mb-4">
             Neural Solutions
           </h1>
-          <p className="text-lg text-muted-foreground font-light max-w-2xl leading-relaxed">
-            A small, focused team that believes AI should make businesses simpler — not more complicated. Engineering depth, customer empathy, and a bias toward action.
+          <p className="font-serif text-xl md:text-2xl italic text-primary mb-6">
+            Small team. Big conviction.
+          </p>
+          <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
+            Engineering depth, customer empathy, and a bias toward action. We believe AI should make businesses simpler, not more complicated.
           </p>
         </ScrollReveal>
       </div>
@@ -54,11 +57,11 @@ const About = () => (
 
     <section className="pb-32 px-6 relative z-10">
       <div className="max-w-5xl mx-auto">
-        <div className="space-y-8">
+        <div className="space-y-0 border-t border-border/40">
           {team.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 100}>
-              <div className="gradient-border card-elevated p-8 md:p-10">
-                <div className="flex items-start gap-5 mb-6">
+              <div className="border-b border-border/40 py-10 md:py-12">
+                <div className="flex items-start gap-6 mb-6">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <span className="font-mono text-sm font-bold text-primary">{t.initials}</span>
                   </div>
@@ -66,19 +69,19 @@ const About = () => (
                     <h3 className="font-display text-2xl font-bold text-foreground">{t.name}</h3>
                     <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground block mt-1">{t.role}</span>
                     <div className="flex flex-wrap items-center gap-4 mt-2">
-                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-light">
+                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <Building2 size={12} className="text-primary/60" />
                         {t.company}
                       </span>
-                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-light">
+                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <MapPin size={12} className="text-primary/60" />
                         {t.location}
                       </span>
                     </div>
                   </div>
                 </div>
-                <p className="text-foreground/80 font-light leading-relaxed mb-4">{t.bio}</p>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed italic">{t.personal}</p>
+                <p className="text-foreground/80 font-normal leading-relaxed mb-4 pl-20">{t.bio}</p>
+                <p className="text-sm text-muted-foreground font-normal leading-relaxed italic pl-20">{t.personal}</p>
               </div>
             </ScrollReveal>
           ))}

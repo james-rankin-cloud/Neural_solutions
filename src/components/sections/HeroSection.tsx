@@ -9,12 +9,12 @@ const HeroSection = () => (
     <div className="absolute top-[15%] left-[10%] w-64 h-64 rounded-full bg-primary/[0.05] blur-3xl float" />
     <div className="absolute bottom-[20%] right-[15%] w-80 h-80 rounded-full bg-accent/[0.04] blur-3xl float-delayed" />
 
-    <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+    {/* <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
       <ScrollReveal>
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-8 block">
           AI Automation Agency
         </span>
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       <ScrollReveal delay={100}>
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[1.05] mb-4">

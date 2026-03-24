@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Syne"', '"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Syne"', 'system-ui', 'sans-serif'],
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Syne"', 'system-ui', 'sans-serif'],
+        sans: ['"Outfit"', 'system-ui', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
       },
       colors: {

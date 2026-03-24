@@ -5,6 +5,8 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
+import agelessLivingLogo from "@/assets/ageless-living.jpg";
+import harrisonForbesLogo from "@/assets/harrisonforbes.jpg";
 
 const studies = [
   {
@@ -25,6 +27,8 @@ const studies = [
       "Advanced SEO with structured data for all locations",
     ],
     tags: ["Web Development", "AI Integration", "Automation"],
+    logo: agelessLivingLogo,
+    logoBg: "bg-white",
   },
   {
     title: "Harrison Forbes Electrical",
@@ -44,6 +48,8 @@ const studies = [
       "Full database for client history, files, and future invoicing",
     ],
     tags: ["Web Development", "Automation"],
+    logo: harrisonForbesLogo,
+    logoBg: "bg-black",
   },
 ];
 
@@ -76,17 +82,23 @@ const CaseStudies = () => (
         {studies.map((s, i) => (
           <ScrollReveal key={s.title} delay={i * 100}>
             <article className="border-t border-border/40 pt-12">
-              <div className="flex flex-wrap gap-2 mb-6">
-                {s.tags.map((t) => (
-                  <span key={t} className="font-mono text-[10px] uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded">
-                    {t}
-                  </span>
-                ))}
+              <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
+                <div className={`${s.logoBg} rounded-lg p-4 shrink-0 w-fit`}>
+                  <img src={s.logo} alt={`${s.title} logo`} className="h-12 w-auto object-contain" />
+                </div>
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {s.tags.map((t) => (
+                      <span key={t} className="font-mono text-[10px] uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{s.industry}</span>
+                  <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mt-2 mb-2 leading-tight">{s.title}</h2>
+                  <p className="font-serif text-lg italic text-muted-foreground">{s.subtitle}</p>
+                </div>
               </div>
-
-              <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{s.industry}</span>
-              <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mt-2 mb-2 leading-tight">{s.title}</h2>
-              <p className="font-serif text-lg italic text-muted-foreground mb-8">{s.subtitle}</p>
 
               <div className="grid md:grid-cols-[1fr_auto] gap-12">
                 <div className="space-y-8">

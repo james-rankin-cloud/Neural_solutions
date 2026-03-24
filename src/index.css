@@ -51,6 +51,12 @@
     scroll-behavior: smooth;
   }
 
+  /* Make Syne display headings more legible */
+  h1, h2, h3 {
+    letter-spacing: -0.01em;
+    word-spacing: 0.05em;
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
   }

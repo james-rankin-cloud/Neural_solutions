@@ -22,18 +22,19 @@ const BookAudit = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       <Navbar />
 
-      <section className="pt-32 pb-32 px-6 relative atmosphere grain min-h-screen flex items-center">
-        <div className="absolute top-[30%] left-[15%] w-40 h-40 rounded-full bg-primary/8 blur-3xl float" />
-        <div className="absolute bottom-[20%] right-[10%] w-56 h-56 rounded-full bg-accent/6 blur-3xl float-delayed" />
+      <section className="pt-32 pb-32 px-6 relative grain min-h-screen flex items-center">
+        <div className="absolute top-[30%] left-[15%] w-40 h-40 rounded-full bg-primary/[0.05] blur-3xl float" />
+        <div className="absolute bottom-[20%] right-[10%] w-56 h-56 rounded-full bg-accent/[0.04] blur-3xl float-delayed" />
 
         <div className="max-w-xl mx-auto w-full relative z-10">
           <ScrollReveal>
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Get Started</span>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[0.95] mb-4">
+            <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground leading-[0.95] mb-3">
               Book a Free Audit
             </h1>
-            <p className="text-muted-foreground font-light mb-10 leading-relaxed">
-              Tell us about your project. We'll respond within 24 hours with a preliminary assessment and roadmap.
+            <p className="font-serif text-lg italic text-primary mb-4">No pitch decks. Just a roadmap.</p>
+            <p className="text-muted-foreground font-normal mb-10 leading-relaxed">
+              Tell us about your project. We'll respond within 24 hours with a preliminary assessment and a clear action plan.
             </p>
           </ScrollReveal>
 

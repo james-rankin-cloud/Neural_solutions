@@ -50,7 +50,7 @@ const ServicesSection = () => {
       <div className="max-w-5xl mx-auto">
         <ScrollReveal>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Capabilities</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[0.95] mb-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] mb-4">
             Buzzwords don't run businesses.
           </h2>
           <p className="font-serif text-2xl md:text-3xl italic text-primary mb-16">

@@ -24,8 +24,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="font-display text-sm font-extrabold tracking-widest text-foreground uppercase cursor-none">
-          Neural<span className="text-primary">.</span>
+        <Link to="/" className="font-display text-sm font-bold tracking-widest text-foreground uppercase cursor-none">
+          Neural<span className="text-primary">.</span>Solutions
         </Link>
 
         {/* Desktop */}

@@ -54,7 +54,7 @@ const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
   }, [started, target]);
 
   return (
-    <span ref={ref} className="font-display text-6xl md:text-7xl lg:text-8xl font-extrabold text-foreground tabular-nums">
+    <span ref={ref} className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-foreground tabular-nums">
       {count}{suffix}
     </span>
   );

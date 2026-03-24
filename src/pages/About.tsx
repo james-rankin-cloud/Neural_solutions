@@ -42,7 +42,7 @@ const About = () => (
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">The People Behind</span>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95] mb-4">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
             Neural Solutions
           </h1>
           <p className="font-serif text-xl md:text-2xl italic text-primary mb-6">

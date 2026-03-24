@@ -62,7 +62,7 @@ const CaseStudies = () => (
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Portfolio</span>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95] mb-4">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
             Case Studies
           </h1>
           <p className="font-serif text-xl md:text-2xl italic text-primary mb-6">
@@ -95,7 +95,7 @@ const CaseStudies = () => (
                     ))}
                   </div>
                   <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{s.industry}</span>
-                  <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mt-2 mb-2 leading-tight">{s.title}</h2>
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-2 leading-tight">{s.title}</h2>
                   <p className="font-serif text-lg italic text-muted-foreground">{s.subtitle}</p>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const CaseStudies = () => (
 
                 <div className="glass rounded-xl p-6 md:w-60 self-start">
                   <div className="mb-6">
-                    <div className="font-display text-5xl font-extrabold text-gradient tabular-nums">{s.highlight.metric}</div>
+                    <div className="font-display text-5xl font-bold text-gradient tabular-nums">{s.highlight.metric}</div>
                     <div className="font-mono text-[10px] text-muted-foreground mt-1">{s.highlight.label}</div>
                   </div>
                   <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-3">Key Results</span>
@@ -135,7 +135,7 @@ const CaseStudies = () => (
 
       <ScrollReveal delay={200}>
         <div className="text-center mt-20">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             Want results like these?
           </h2>
           <p className="font-serif text-xl italic text-primary mb-8">

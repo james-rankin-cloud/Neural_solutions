@@ -23,7 +23,7 @@ const ProcessSection = () => (
     <div className="max-w-6xl mx-auto">
       <ScrollReveal>
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Process</span>
-        <h2 className="font-display text-4xl md:text-5xl font-extrabold text-foreground leading-[0.95] mb-4">
+        <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-4">
           From audit to automation
         </h2>
         <p className="font-serif text-2xl md:text-3xl italic text-primary mb-20">
@@ -35,7 +35,7 @@ const ProcessSection = () => (
         {process.map((p, i) => (
           <ScrollReveal key={p.num} delay={i * 120}>
             <div className={`py-10 md:px-8 ${i < 2 ? "md:border-r border-border/40" : ""} border-b md:border-b-0 border-border/40`}>
-              <span className="font-display text-6xl md:text-7xl font-extrabold text-primary/10 leading-none block mb-6">
+              <span className="font-display text-6xl md:text-7xl font-bold text-primary/10 leading-none block mb-6">
                 {p.num}
               </span>
               <h3 className="font-display text-xl font-bold text-foreground mb-3">{p.title}</h3>

@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
       {/* Left: Big closing statement */}
       <div>
-        <h3 className="font-display text-3xl md:text-4xl font-extrabold text-foreground leading-[1.05] mb-4">
+        <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-[1.05] mb-4">
           Stop planning.
           <br />
           <span className="font-serif italic text-primary">Start shipping.</span>

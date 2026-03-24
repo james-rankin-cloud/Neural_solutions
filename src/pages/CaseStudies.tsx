@@ -27,6 +27,8 @@ const studies = [
       "Advanced SEO with structured data for all locations",
     ],
     tags: ["Web Development", "AI Integration", "Automation"],
+    logo: agelessLivingLogo,
+    logoBg: "bg-white",
   },
   {
     title: "Harrison Forbes Electrical",

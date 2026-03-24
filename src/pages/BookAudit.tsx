@@ -29,7 +29,7 @@ const BookAudit = () => {
         <div className="max-w-xl mx-auto w-full relative z-10">
           <ScrollReveal>
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Get Started</span>
-            <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground leading-[0.95] mb-3">
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[0.95] mb-3">
               Book a Free Audit
             </h1>
             <p className="font-serif text-lg italic text-primary mb-4">No pitch decks. Just a roadmap.</p>

@@ -36,7 +36,7 @@ const CaseStudiesPreview = () => {
           <div className="flex items-end justify-between mb-16">
             <div>
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Results</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[0.95]">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05]">
                 Built for operators,{" "}
                 <span className="font-serif italic text-primary">not just optimists.</span>
               </h2>

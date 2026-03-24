@@ -103,7 +103,7 @@ const Services = () => {
         <div className="max-w-5xl mx-auto relative z-10">
           <ScrollReveal>
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">What We Do</span>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.95] mb-4">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
               We don't just talk about AI.
             </h1>
             <p className="font-serif text-3xl md:text-4xl italic text-primary mb-6">
@@ -161,7 +161,7 @@ const Services = () => {
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Full Spectrum</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[0.95] mb-4">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-4">
               A wide range of
             </h2>
             <p className="font-serif text-2xl md:text-3xl italic text-primary mb-16">IT solutions.</p>

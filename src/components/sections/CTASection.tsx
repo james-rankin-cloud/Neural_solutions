@@ -7,7 +7,7 @@ const CTASection = () => (
   <section className="py-32 px-6 relative z-10 atmosphere-dense grain">
     <div className="max-w-4xl mx-auto text-center">
       <ScrollReveal>
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[0.95] mb-4">
+        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] mb-4">
           Ready to stop talking about AI
         </h2>
         <p className="font-serif text-3xl md:text-4xl italic text-primary mb-10">

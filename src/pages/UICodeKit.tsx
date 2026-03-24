@@ -257,7 +257,7 @@ const UICodeKit = () => (
           </span>
         </ScrollReveal>
         <ScrollReveal delay={100}>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground leading-[0.95] mb-6">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground leading-[1.05] mb-6">
             UI Code Kit
           </h1>
         </ScrollReveal>

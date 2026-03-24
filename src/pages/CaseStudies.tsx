@@ -5,6 +5,8 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
+import agelessLivingLogo from "@/assets/ageless-living.jpg";
+import harrisonForbesLogo from "@/assets/harrisonforbes.jpg";
 
 const studies = [
   {

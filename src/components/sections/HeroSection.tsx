@@ -17,7 +17,7 @@ const HeroSection = () => (
       </ScrollReveal>
 
       <ScrollReveal delay={100}>
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[1.05] tracking-tight mb-4">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[1.05] mb-4">
           Everyone builds AI tools.
         </h1>
       </ScrollReveal>

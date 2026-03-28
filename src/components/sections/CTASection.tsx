@@ -17,7 +17,7 @@ const CTASection = () => (
           Book a free audit. We'll show you exactly where AI can save you time, money, and headaches. No obligations, just a clear roadmap.
         </p>
         <Button variant="hero" size="lg" asChild>
-          <Link to="/book-audit" className="group cursor-none">
+          <Link to="/book-audit" className="group">
             Book Your Free Audit
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </Link>

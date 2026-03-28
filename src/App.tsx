@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import CustomCursor from "@/components/CustomCursor";
 import ParticleField from "@/components/ParticleField";
 import Index from "./pages/Index.tsx";
 import Services from "./pages/Services.tsx";
@@ -20,7 +19,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <CustomCursor />
       <ParticleField />
       <BrowserRouter>
         <Routes>

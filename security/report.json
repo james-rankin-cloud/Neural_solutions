@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-03-28T20:50:31.049Z",
+  "summary": {
+    "total": 3,
+    "critical": 0,
+    "high": 1,
+    "medium": 1,
+    "low": 0,
+    "info": 1
+  },
+  "findings": [
+    {
+      "type": "dangerous-pattern",
+      "file": "C:\\Users\\ejsaant\\Neural\\Neural_solutions\\src\\components\\ui\\chart.tsx",
+      "line": 70,
+      "severity": "high",
+      "description": "dangerouslySetInnerHTML usage - potential XSS",
+      "code": "dangerouslySetInnerHTML={{"
+    },
+    {
+      "type": "dangerous-pattern",
+      "file": "C:\\Users\\ejsaant\\Neural\\Neural_solutions\\src\\pages\\BookAudit.tsx",
+      "line": 18,
+      "severity": "medium",
+      "description": "Unencoded URL assignment",
+      "code": "window.location.href = mailto;"
+    },
+    {
+      "type": "connection-error",
+      "severity": "info",
+      "location": "http://localhost:8080",
+      "description": "Could not connect to http://localhost:8080 - ensure dev server is running"
+    }
+  ]
+}

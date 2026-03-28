@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import MarqueeTicker from "@/components/MarqueeTicker";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
@@ -75,8 +74,6 @@ const CaseStudies = () => (
       </div>
     </section>
 
-    <MarqueeTicker items={["Web Development", "AI Integration", "Automation", "Lead Rescue", "E-Commerce"]} />
-
     <section className="py-28 px-6 relative z-10">
       <div className="max-w-5xl mx-auto space-y-20">
         {studies.map((s, i) => (
@@ -142,7 +139,7 @@ const CaseStudies = () => (
             Let's start with a free audit.
           </p>
           <Button variant="hero" size="lg" asChild>
-            <Link to="/book-audit" className="group cursor-none">
+            <Link to="/book-audit" className="group">
               Book Your Free Audit
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>

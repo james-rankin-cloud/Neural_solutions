@@ -30,7 +30,7 @@ const Footer = () => (
               <Link
                 key={l.to}
                 to={l.to}
-                className="block font-mono text-xs text-muted-foreground hover:text-primary transition-colors cursor-none"
+                className="block font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
               >
                 {l.label}
               </Link>
@@ -40,8 +40,8 @@ const Footer = () => (
 
         <div>
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-4">Contact</span>
-          <a href="mailto:hello@neuralsolutions.dev" className="block font-mono text-xs text-muted-foreground hover:text-primary transition-colors cursor-none">
-            hello@neuralsolutions.dev
+          <a href="mailto:growth@neuralcoremarketing.com" className="block font-mono text-xs text-muted-foreground hover:text-primary transition-colors">
+            growth@neuralcoremarketing.com
           </a>
         </div>
       </div>

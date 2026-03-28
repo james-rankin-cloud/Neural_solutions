@@ -42,10 +42,10 @@ const CaseStudiesPreview = () => {
               </h2>
             </div>
             <div className="hidden md:flex items-center gap-3">
-              <button onClick={prev} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary transition-colors cursor-none">
+              <button onClick={prev} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary transition-colors">
                 <ArrowLeft size={16} />
               </button>
-              <button onClick={next} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary transition-colors cursor-none">
+              <button onClick={next} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary transition-colors">
                 <ArrowRight size={16} />
               </button>
             </div>
@@ -68,10 +68,10 @@ const CaseStudiesPreview = () => {
             <p className="text-muted-foreground font-normal leading-relaxed max-w-2xl mb-8">{cs.desc}</p>
 
             <div className="flex items-center gap-3 md:hidden mb-6">
-              <button onClick={prev} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground cursor-none">
+              <button onClick={prev} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground">
                 <ArrowLeft size={16} />
               </button>
-              <button onClick={next} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground cursor-none">
+              <button onClick={next} className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground">
                 <ArrowRight size={16} />
               </button>
             </div>
@@ -87,7 +87,7 @@ const CaseStudiesPreview = () => {
         <ScrollReveal delay={200}>
           <div className="text-center mt-12">
             <Button variant="hero-outline" asChild>
-              <Link to="/case-studies" className="group cursor-none">
+              <Link to="/case-studies" className="group">
                 View All Case Studies
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>

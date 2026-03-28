@@ -63,7 +63,7 @@ const ServicesSection = () => {
             <ScrollReveal key={s.title} delay={i * 60}>
               <div
                 className={cn(
-                  "border-b border-border/40 py-6 md:py-8 cursor-none transition-all duration-500",
+                  "border-b border-border/40 py-6 md:py-8 transition-all duration-500",
                   active === i ? "bg-muted/50" : ""
                 )}
                 onMouseEnter={() => setActive(i)}

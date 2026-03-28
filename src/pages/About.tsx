@@ -2,12 +2,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { MapPin, Building2 } from "lucide-react";
+import jasPhoto from "@/assets/Jas.PNG";
+import meharPhoto from "@/assets/mehar.PNG";
+import jamesPhoto from "@/assets/james_headshot.png";
 
 const team = [
   {
     name: "Jasraj Taneja",
     role: "Software Engineer & AI Specialist",
     initials: "JT",
+    photo: jasPhoto,
     company: "Ericsson",
     location: "Victoria, BC",
     bio: "A Software Engineer at Ericsson with over three years of development and automation experience using AI tools. Jasraj brings deep technical expertise in building scalable systems and integrating intelligent automation into real-world workflows.",
@@ -17,6 +21,7 @@ const team = [
     name: "James Rankin",
     role: "Machine Learning Engineer & Web Developer",
     initials: "JR",
+    photo: jamesPhoto,
     company: "UVic Graduate",
     location: "Victoria, BC",
     bio: "A recent Software Engineering graduate from UVic with a specialization in machine learning. James is well-versed in web development and automation services, and takes genuine pride in every project he delivers.",
@@ -26,6 +31,7 @@ const team = [
     name: "Meharban Taneja",
     role: "Customer Relations & Business Development",
     initials: "MT",
+    photo: meharPhoto,
     company: "Baker Tilly",
     location: "British Columbia",
     bio: "Specializing in customer relations and business development, Meharban's experience as an Investment Banker at Baker Tilly has taught him the ins and outs of running a customer-focused business, equipping him with the skills to oversee operations at Neural Solutions.",
@@ -60,28 +66,36 @@ const About = () => (
         <div className="space-y-0 border-t border-border/40">
           {team.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 100}>
-              <div className="border-b border-border/40 py-10 md:py-12">
-                <div className="flex items-start gap-6 mb-6">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <span className="font-mono text-sm font-bold text-primary">{t.initials}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-display text-2xl font-bold text-foreground">{t.name}</h3>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground block mt-1">{t.role}</span>
-                    <div className="flex flex-wrap items-center gap-4 mt-2">
-                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <Building2 size={12} className="text-primary/60" />
+              <div className="border-b border-border/40 py-12 md:py-16">
+                <div className="flex flex-col md:flex-row items-start gap-8 mb-8">
+                  {t.photo ? (
+                    <img
+                      src={t.photo}
+                      alt={`${t.name} - ${t.role}`}
+                      className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shrink-0 shadow-lg"
+                    />
+                  ) : (
+                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <span className="font-mono text-2xl md:text-3xl font-bold text-primary">{t.initials}</span>
+                    </div>
+                  )}
+                  <div className="flex-1">
+                    <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{t.name}</h3>
+                    <span className="font-mono text-xs uppercase tracking-wider text-primary block mb-3">{t.role}</span>
+                    <div className="flex flex-wrap items-center gap-4 mb-6">
+                      <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                        <Building2 size={14} className="text-primary/60" />
                         {t.company}
                       </span>
-                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <MapPin size={12} className="text-primary/60" />
+                      <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                        <MapPin size={14} className="text-primary/60" />
                         {t.location}
                       </span>
                     </div>
+                    <p className="text-foreground/80 font-normal leading-relaxed mb-4">{t.bio}</p>
+                    <p className="text-sm text-muted-foreground font-normal leading-relaxed italic">{t.personal}</p>
                   </div>
                 </div>
-                <p className="text-foreground/80 font-normal leading-relaxed mb-4 pl-20">{t.bio}</p>
-                <p className="text-sm text-muted-foreground font-normal leading-relaxed italic pl-20">{t.personal}</p>
               </div>
             </ScrollReveal>
           ))}

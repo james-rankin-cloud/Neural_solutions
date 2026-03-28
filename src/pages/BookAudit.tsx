@@ -14,7 +14,7 @@ const BookAudit = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const mailto = `mailto:hello@neuralsolutions.dev?subject=Free Audit Request from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    const mailto = `mailto:growth@neuralcoremarketing.com?subject=Free Audit Request from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
     window.location.href = mailto;
   };
 
@@ -47,7 +47,7 @@ const BookAudit = () => {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
                   required
-                  className="pl-10 bg-background/50 border-border/30 font-sans cursor-none focus:border-primary/50"
+                  className="pl-10 bg-background/50 border-border/30 font-sans focus:border-primary/50"
                 />
               </div>
               <div className="relative">
@@ -58,7 +58,7 @@ const BookAudit = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
-                  className="pl-10 bg-background/50 border-border/30 font-sans cursor-none focus:border-primary/50"
+                  className="pl-10 bg-background/50 border-border/30 font-sans focus:border-primary/50"
                 />
               </div>
               <div className="relative">
@@ -69,10 +69,10 @@ const BookAudit = () => {
                   placeholder="Tell us about your project, challenges, and goals..."
                   rows={5}
                   required
-                  className="pl-10 bg-background/50 border-border/30 font-sans cursor-none resize-none focus:border-primary/50"
+                  className="pl-10 bg-background/50 border-border/30 font-sans resize-none focus:border-primary/50"
                 />
               </div>
-              <Button variant="hero" size="lg" type="submit" className="w-full group cursor-none">
+              <Button variant="hero" size="lg" type="submit" className="w-full group">
                 Send Message
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Button>

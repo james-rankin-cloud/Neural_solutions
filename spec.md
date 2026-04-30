@@ -49,6 +49,7 @@
 | Recharts 2.15 | Charts and data visualization |
 | Sonner 1.7 | Toast notifications |
 | Next Themes 0.3 | Dark/light mode support |
+| @calcom/embed-react 1.5 | Cal.com calendar booking integration |
 
 ### Testing & Quality
 | Technology | Purpose |
@@ -85,6 +86,7 @@ Neural_solutions/
 │   │   ├── ParticleField.tsx    # Canvas-based particle system
 │   │   ├── ScrollReveal.tsx     # IntersectionObserver scroll animation
 │   │   ├── MarqueeTicker.tsx    # Horizontal scrolling marquee
+│   │   ├── CalendarEmbed.tsx    # Cal.com booking widget wrapper
 │   │   │
 │   │   ├── sections/            # Landing page sections
 │   │   │   ├── HeroSection.tsx
@@ -153,7 +155,7 @@ Neural_solutions/
 | `/services` | Services.tsx | Detailed services - 6 core services, 16 IT solutions grid |
 | `/case-studies` | CaseStudies.tsx | Portfolio - 2 detailed case studies |
 | `/about` | About.tsx | Team page - 3 founders with bios |
-| `/book-audit` | BookAudit.tsx | Contact form - Name, email, message |
+| `/book-audit` | BookAudit.tsx | Dual-option contact page - Tab 1: Contact form (mailto), Tab 2: Cal.com calendar booking (30-min/45-min calls via Google Meet) |
 | `/ui-code-kit` | UICodeKit.tsx | Developer reference - Design system docs |
 | `*` | NotFound.tsx | 404 page |
 
@@ -250,6 +252,15 @@ Neural_solutions/
    - Icon-prefixed inputs
    - Submits via mailto: link (no backend)
    - Located in: `src/pages/BookAudit.tsx`
+
+7. **Cal.com Booking Integration**
+   - Dual-option contact page: Contact Form + Calendar Booking
+   - Two meeting types: 30-Min Discovery Call, 45-Min Strategy Session
+   - Google Meet integration via growth@neuralcoremarketing.com
+   - Component: `CalendarEmbed.tsx` wraps @calcom/embed-react
+   - Design: Glass-morphism wrapper, branded purple colors
+   - Tabs UI for switching between form and calendar
+   - Located in: `src/pages/BookAudit.tsx`, `src/components/CalendarEmbed.tsx`
 
 ### Landing Page Sections (Index.tsx)
 

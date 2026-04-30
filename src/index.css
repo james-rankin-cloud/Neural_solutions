@@ -36,6 +36,9 @@
     --sidebar-ring: 262 70% 50%;
     --ticker: 260 15% 93%;
     --ticker-foreground: 240 5% 45%;
+    --cal-brand: 262 70% 50%;
+    --cal-brand-emphasis: 275 80% 55%;
+    --cal-brand-subtle: 260 20% 94%;
   }
 }
 
@@ -217,6 +220,23 @@
   .marquee-track:hover,
   .marquee-track-reverse:hover {
     animation-play-state: paused;
+  }
+
+  /* Cal.com embed customization */
+  .cal-embed iframe {
+    border-radius: var(--radius);
+    min-height: 600px;
+  }
+
+  .glass .cal-embed {
+    background: transparent;
+  }
+
+  /* Responsive height adjustments */
+  @media (max-width: 768px) {
+    .cal-embed iframe {
+      min-height: 700px;
+    }
   }
 }
 

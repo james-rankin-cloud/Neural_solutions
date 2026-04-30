@@ -43,7 +43,7 @@ const Navbar = () => {
           ))}
           <Button variant="hero" size="sm" asChild>
             <Link to="/book-audit" className=" font-mono text-xs uppercase tracking-wider">
-              Book Audit
+              Book Now
             </Link>
           </Button>
         </div>
@@ -74,7 +74,7 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
             className="block font-mono text-xs uppercase tracking-wider text-primary font-bold "
           >
-            Book Audit
+            Book Now
           </Link>
         </div>
       )}

@@ -1,8 +1,12 @@
+import { useLocation, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
+import { agelessLivingCaseStudy, harrisonForbesCaseStudy } from "@/lib/schema/caseStudies";
+import { getBreadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { ArrowRight, Check } from "lucide-react";
 import agelessLivingLogo from "@/assets/ageless-living.jpg";
 import harrisonForbesLogo from "@/assets/harrisonforbes.jpg";
@@ -52,9 +56,21 @@ const studies = [
   },
 ];
 
-const CaseStudies = () => (
-  <div className="min-h-screen bg-background overflow-hidden">
-    <Navbar />
+const CaseStudies = () => {
+  const location = useLocation();
+
+  return (
+    <div className="min-h-screen bg-background overflow-hidden">
+      <SEO
+        title="Case Studies & Portfolio | Neural Solutions"
+        description="Real AI automation and web development projects for British Columbia businesses. From wellness clinics to electrical contractors, see how we've delivered results across Canada."
+        keywords="AI automation case studies Canada, web development portfolio BC, Ageless Living website, Harrison Forbes automation, BC business automation examples"
+        canonical="https://neuralsolutions.ca/case-studies"
+      />
+      <StructuredData data={agelessLivingCaseStudy} />
+      <StructuredData data={harrisonForbesCaseStudy} />
+      <StructuredData data={getBreadcrumbSchema(location.pathname)} />
+      <Navbar />
 
     <section className="pt-32 pb-16 px-6 relative grain">
       <div className="absolute top-[20%] right-[10%] w-48 h-48 rounded-full bg-primary/[0.05] blur-3xl float" />
@@ -68,7 +84,7 @@ const CaseStudies = () => (
             Real projects, real results.
           </p>
           <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
-            Here's how we've helped businesses automate operations and build custom software with AI.
+            Here's how we've helped British Columbia businesses automate operations and build custom software with AI. From wellness clinics to electrical contractors, real results across Canada.
           </p>
         </ScrollReveal>
       </div>
@@ -81,7 +97,7 @@ const CaseStudies = () => (
             <article className="border-t border-border/40 pt-12">
               <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
                 <div className={`${s.logoBg} rounded-lg p-4 shrink-0 w-fit`}>
-                  <img src={s.logo} alt={`${s.title} logo`} className="h-12 w-auto object-contain" />
+                  <img src={s.logo} alt={`${s.title} - ${s.industry} client of Neural Solutions, British Columbia AI automation agency`} className="h-12 w-auto object-contain" loading="lazy" />
                 </div>
                 <div>
                   <div className="flex flex-wrap gap-2 mb-3">
@@ -149,7 +165,8 @@ const CaseStudies = () => (
     </section>
 
     <Footer />
-  </div>
-);
+    </div>
+  );
+};
 
 export default CaseStudies;

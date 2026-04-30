@@ -14,6 +14,7 @@ const HeroSection = () => (
       loop
       playsInline
       className="absolute inset-0 w-full h-full object-cover z-0"
+      aria-label="Abstract flowing background animation representing AI automation and neural networks"
     >
       <source src={flowWebm} type="video/webm" />
       <source src={flowMp4} type="video/mp4" />
@@ -40,7 +41,7 @@ const HeroSection = () => (
 
       <ScrollReveal delay={300}>
         <p className="font-sans text-lg md:text-xl text-muted-foreground font-normal max-w-2xl mx-auto mb-12 leading-relaxed">
-          We design, build, and deploy AI systems tailored to how your business actually operates.
+          We design, build, and deploy AI systems tailored to how your business actually operates. Serving businesses across Canada from our Victoria, BC headquarters.
         </p>
       </ScrollReveal>
 

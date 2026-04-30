@@ -1,6 +1,11 @@
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
+import { teamSchema } from "@/lib/schema/team";
+import { getBreadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { MapPin, Building2 } from "lucide-react";
 import jasPhoto from "@/assets/Jas.PNG";
 import meharPhoto from "@/assets/mehar.PNG";
@@ -39,9 +44,22 @@ const team = [
   },
 ];
 
-const About = () => (
-  <div className="min-h-screen bg-background overflow-hidden">
-    <Navbar />
+const About = () => {
+  const location = useLocation();
+
+  return (
+    <div className="min-h-screen bg-background overflow-hidden">
+      <SEO
+        title="About Our Team | Neural Solutions"
+        description="Meet the AI developers and software engineers behind Neural Solutions. Based in Victoria, BC, we're UVic graduates building intelligent automation for Canadian businesses."
+        keywords="AI developers Victoria BC, software engineers Vancouver Island, UVic machine learning graduates, AI agency team Canada"
+        canonical="https://neuralsolutions.ca/about"
+      />
+      {teamSchema.map((schema, index) => (
+        <StructuredData key={index} data={schema} />
+      ))}
+      <StructuredData data={getBreadcrumbSchema(location.pathname)} />
+      <Navbar />
 
     <section className="pt-32 pb-16 px-6 relative grain">
       <div className="absolute bottom-[10%] left-[5%] w-56 h-56 rounded-full bg-accent/[0.04] blur-3xl float-delayed" />
@@ -55,7 +73,7 @@ const About = () => (
             Small team. Big conviction.
           </p>
           <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
-            Engineering depth, customer empathy, and a bias toward action. We believe AI should make businesses simpler, not more complicated.
+            Based in Victoria, British Columbia, we bring local expertise to Canadian businesses seeking AI automation and custom software solutions.
           </p>
         </ScrollReveal>
       </div>
@@ -71,8 +89,9 @@ const About = () => (
                   {t.photo ? (
                     <img
                       src={t.photo}
-                      alt={`${t.name} - ${t.role}`}
+                      alt={`${t.name}, ${t.role} at Neural Solutions, Victoria BC - AI automation expert`}
                       className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shrink-0 shadow-lg"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -104,7 +123,8 @@ const About = () => (
     </section>
 
     <Footer />
-  </div>
-);
+    </div>
+  );
+};
 
 export default About;

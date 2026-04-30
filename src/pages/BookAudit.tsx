@@ -1,4 +1,5 @@
 import { useState, FormEvent } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -7,9 +8,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CalendarEmbed from "@/components/CalendarEmbed";
+import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
+import { getBreadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { ArrowRight, User, Mail, MessageSquare, Calendar } from "lucide-react";
 
 const BookAudit = () => {
+  const location = useLocation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -23,6 +28,13 @@ const BookAudit = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
+      <SEO
+        title="Book Your Free AI Audit | Neural Solutions"
+        description="Schedule a free AI consultation in Victoria, BC. Get expert advice on automation opportunities and custom software solutions for your Canadian business."
+        keywords="free AI audit Canada, AI consultation Victoria BC, automation audit British Columbia, business AI assessment"
+        canonical="https://neuralsolutions.ca/book-audit"
+      />
+      <StructuredData data={getBreadcrumbSchema(location.pathname)} />
       <Navbar />
 
       <section className="pt-32 pb-32 px-6 relative grain min-h-screen flex items-center">

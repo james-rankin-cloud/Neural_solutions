@@ -1,8 +1,12 @@
+import { useLocation, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
+import { servicesSchema } from "@/lib/schema/services";
+import { getBreadcrumbSchema } from "@/lib/schema/breadcrumb";
 import {
   ArrowRight,
   Globe,
@@ -87,9 +91,20 @@ const itSolutions = [
   { icon: TrendingUp, label: "Predictive analytics and forecasting" },
 ];
 
-const Services = () => (
-  <div className="min-h-screen bg-background overflow-hidden">
-    <Navbar />
+const Services = () => {
+  const location = useLocation();
+
+  return (
+    <div className="min-h-screen bg-background overflow-hidden">
+      <SEO
+        title="AI & Software Development Services | Neural Solutions"
+        description="Full-spectrum AI and software development services in Victoria, BC. From web and mobile apps to AI automation and cloud infrastructure across Canada."
+        keywords="AI development services Canada, software development Victoria BC, cloud hosting British Columbia, AI automation services, custom software development Vancouver Island"
+        canonical="https://neuralsolutions.ca/services"
+      />
+      <StructuredData data={servicesSchema} />
+      <StructuredData data={getBreadcrumbSchema(location.pathname)} />
+      <Navbar />
 
     {/* Hero */}
     <section className="pt-32 pb-20 px-6 relative grain">
@@ -193,7 +208,8 @@ const Services = () => (
     </section>
 
     <Footer />
-  </div>
-);
+    </div>
+  );
+};
 
 export default Services;

@@ -11,7 +11,7 @@ const Footer = () => (
           <span className="font-serif italic text-primary">Start shipping.</span>
         </h3>
         <p className="text-muted-foreground font-normal max-w-sm leading-relaxed">
-          Neural Solutions builds AI systems that run your business while you focus on growing it.
+          Neural Solutions builds AI systems that run your business while you focus on growing it. Based in Victoria, BC, serving businesses across Canada.
         </p>
       </div>
 

@@ -11,7 +11,9 @@ import CaseStudies from "./pages/CaseStudies.tsx";
 import About from "./pages/About.tsx";
 import BookAudit from "./pages/BookAudit.tsx";
 import UICodeKit from "./pages/UICodeKit.tsx";
+import CityLanding from "./pages/CityLanding.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import { cities } from "@/lib/data/cities";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,13 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/book-audit" element={<BookAudit />} />
             <Route path="/ui-code-kit" element={<UICodeKit />} />
+            {cities.map((city) => (
+              <Route
+                key={city.slug}
+                path={`/ai-agency-${city.slug}`}
+                element={<CityLanding citySlug={city.slug} />}
+              />
+            ))}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

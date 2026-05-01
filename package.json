@@ -11,6 +11,10 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:city-seo": "playwright test tests/city-seo.spec.ts",
+    "validate:city-seo": "node scripts/validate-city-seo.js",
     "security": "node security/index.js"
   },
   "dependencies": {

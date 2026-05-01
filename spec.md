@@ -77,6 +77,7 @@ Neural_solutions/
 │   │   ├── CaseStudies.tsx      # Portfolio with case studies
 │   │   ├── About.tsx            # Team bios
 │   │   ├── BookAudit.tsx        # Contact form
+│   │   ├── CityLanding.tsx      # Reusable city landing page template (18 cities)
 │   │   ├── UICodeKit.tsx        # Architecture & component reference
 │   │   └── NotFound.tsx         # 404 page
 │   │
@@ -107,7 +108,12 @@ Neural_solutions/
 │   │   └── use-toast.ts         # Toast notification hook
 │   │
 │   ├── lib/
-│   │   └── utils.ts             # cn() helper (clsx + tailwind-merge)
+│   │   ├── utils.ts             # cn() helper (clsx + tailwind-merge)
+│   │   ├── data/
+│   │   │   └── cities.ts        # City configuration (18 Canadian cities with SEO data)
+│   │   └── schema/
+│   │       ├── breadcrumb.ts    # Breadcrumb structured data generator
+│   │       └── cityLocalBusiness.ts  # City-specific LocalBusiness schema
 │   │
 │   ├── assets/
 │   │   ├── ageless-living.jpg   # Case study logo
@@ -156,6 +162,7 @@ Neural_solutions/
 | `/case-studies` | CaseStudies.tsx | Portfolio - 2 detailed case studies |
 | `/about` | About.tsx | Team page - 3 founders with bios |
 | `/book-audit` | BookAudit.tsx | Dual-option contact page - Tab 1: Contact form (mailto), Tab 2: Cal.com calendar booking (30-min/45-min calls via Google Meet) |
+| `/ai-agency-{city}` | CityLanding.tsx | SEO-optimized city landing pages - 18 Canadian cities (Victoria, Vancouver, Toronto, Calgary, Montreal, Edmonton, Ottawa, Winnipeg, Mississauga, Brampton, Surrey, Burnaby, Richmond, Halifax, Kelowna, Saskatoon, Regina, Quebec City) with city-specific SEO, LocalBusiness schema, contact form & calendar booking |
 | `/ui-code-kit` | UICodeKit.tsx | Developer reference - Design system docs |
 | `*` | NotFound.tsx | 404 page |
 
@@ -262,6 +269,23 @@ Neural_solutions/
    - Tabs UI for switching between form and calendar
    - Located in: `src/pages/BookAudit.tsx`, `src/components/CalendarEmbed.tsx`
 
+8. **City Landing Pages (SEO)**
+   - 18 SEO-optimized landing pages for major Canadian cities
+   - URL pattern: `/ai-agency-{city}` (e.g., `/ai-agency-victoria`, `/ai-agency-toronto`)
+   - **Purpose:** Target local search queries like "AI agency [city]" for improved organic traffic
+   - **Architecture:** Single reusable template component (`CityLanding.tsx`) with city-specific data
+   - **Cities:** Victoria BC, Vancouver BC, Toronto ON, Calgary AB, Montreal QC, Edmonton AB, Ottawa ON, Winnipeg MB, Mississauga ON, Brampton ON, Surrey BC, Burnaby BC, Richmond BC, Halifax NS, Kelowna BC, Saskatoon SK, Regina SK, Quebec City QC
+   - **Data Source:** `src/lib/data/cities.ts` - TypeScript configuration with city metadata
+   - **SEO Features:**
+     - Unique meta titles, descriptions, and keywords per city
+     - LocalBusiness structured data with GPS coordinates
+     - Geographic meta tags (geo.region, geo.placename, geo.position)
+     - City-specific H1 headlines and content descriptions
+     - Breadcrumb schema integration
+   - **Functionality:** Same dual-tab contact system as BookAudit (form + calendar booking)
+   - **Schema Generator:** `src/lib/schema/cityLocalBusiness.ts`
+   - **Routing:** Static routes generated via `.map()` in `App.tsx` for optimal SEO indexing
+
 ### Landing Page Sections (Index.tsx)
 
 1. **HeroSection** - "Lead with AI. / We'll build it for you." + looping background video (flow.webm/mp4), dark overlay, atmospheric orbs, CTA buttons
@@ -322,6 +346,7 @@ App (root)
         ├── CaseStudies
         ├── About
         ├── BookAudit
+        ├── CityLanding (×18 cities)
         ├── UICodeKit
         └── NotFound
 ```

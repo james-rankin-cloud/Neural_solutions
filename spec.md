@@ -124,11 +124,17 @@ Neural_solutions/
 │   │   ├── flow.webm            # Hero background video (webm)
 │   │   └── flow.mp4             # Hero background video (mp4)
 │   │
-│   └── test/
-│       ├── example.test.ts      # Sample test
-│       └── setup.ts             # Test configuration
+│   ├── test/
+│   │   ├── example.test.ts      # Sample test
+│   │   └── setup.ts             # Test configuration
+│   │
+│   └── tests/
+│       ├── city-seo.spec.ts     # Playwright E2E tests for city pages (201 tests)
+│       └── README.md            # Testing documentation and troubleshooting
 │
 ├── public/                      # Static assets
+├── scripts/                     # Utility scripts
+│   └── validate-city-seo.js     # City SEO validation script (no browser)
 ├── security/                    # Security testing suite
 │   ├── index.js                 # Main orchestrator
 │   ├── discovery.js             # Route/input/API discovery
@@ -451,6 +457,174 @@ Since this is a frontend-only React application:
 - SQL injection tests are skipped (no backend)
 - Auth tests are skipped (no authentication)
 - Focus is on XSS, security headers, and dependency vulnerabilities
+
+---
+
+## City Landing Pages SEO Testing
+
+### Overview
+
+Automated testing suite for validating SEO metadata and functionality across all 18 city landing pages. Ensures unique, optimized meta tags and proper structured data for local search ranking.
+
+### Test Scripts
+
+```bash
+# Quick validation (1-2 seconds, no browser)
+npm run validate:city-seo
+
+# Full E2E tests (40-60 seconds, browser-based)
+npm run test:city-seo
+
+# Interactive test UI
+npm run test:e2e:ui
+```
+
+### Validation Script
+
+**File:** `scripts/validate-city-seo.js`
+
+Fast Node.js script that validates city configuration data without starting a browser:
+
+**Checks:**
+- ✅ Meta descriptions are unique and 150-160 characters
+- ✅ Meta titles are unique and contain city name
+- ✅ Keywords include city name
+- ✅ Coordinates are valid for Canada (latitude/longitude ranges)
+- ✅ Hero headlines are unique across all cities
+- ✅ Slugs follow correct format (lowercase, hyphens only)
+- ✅ Province abbreviations are valid Canadian codes
+
+**Output:**
+```
+🔍 Validating SEO data for 18 city landing pages...
+
+✓ [1/18] Victoria, BC: Validated
+✓ [2/18] Vancouver, BC: Validated
+...
+✓ [18/18] Quebec City, QC: Validated
+
+============================================================
+📊 VALIDATION SUMMARY
+============================================================
+
+✅ Total cities validated: 18
+✅ Unique meta descriptions: 18
+✅ Unique meta titles: 18
+✅ Unique canonical URLs: 18
+
+🎉 All validations passed! SEO data is perfect.
+```
+
+### Playwright E2E Tests
+
+**File:** `tests/city-seo.spec.ts`
+
+Comprehensive browser-based tests that verify each city page in Chromium, Firefox, and WebKit.
+
+**Test Coverage (201 total tests):**
+
+| Category | Tests per City | Total |
+|----------|---------------|-------|
+| SEO Meta Tags | 5 | 90 |
+| Structured Data (LocalBusiness + Breadcrumb) | 2 | 36 |
+| Content (H1 headlines) | 1 | 18 |
+| Functionality (form + calendar) | 2 | 36 |
+| Responsiveness (mobile) | 1 | 18 |
+| Cross-City Uniqueness | 3 | 3 |
+| **TOTAL** | **11 per city** | **201** |
+
+**Per-City Tests:**
+1. **Correct page title** - Matches city.metaTitle + "| Neural Solutions"
+2. **Unique meta description** - 150-160 chars, unique across cities
+3. **Meta keywords** - Contains city name and matches configuration
+4. **Correct canonical URL** - `https://neuralsolutions.ca/ai-agency-{slug}`
+5. **Geographic meta tags** - geo.region, geo.placename, geo.position with correct coordinates
+6. **H1 with city name** - Headline contains city name
+7. **LocalBusiness structured data** - Valid JSON-LD with city address and coordinates
+8. **Breadcrumb structured data** - "Home" → "AI Agency {City}"
+9. **Contact form** - Name, email, message inputs visible and functional
+10. **Calendar booking** - 30-min and 45-min options visible
+11. **Mobile responsive** - Works on 375px viewport
+
+**Cross-City Tests:**
+1. All meta descriptions are unique (no duplicates)
+2. All page titles are unique (no duplicates)
+3. All canonical URLs are unique (no duplicates)
+
+### Test Execution
+
+**Quick Check (Development):**
+```bash
+npm run validate:city-seo
+```
+Use during development for instant feedback on city data configuration.
+
+**Full E2E Suite (Pre-Deploy):**
+```bash
+npm run test:city-seo
+```
+Runs all 201 tests across all 18 cities. Expected runtime: 40-60 seconds.
+
+**Debug Failed Tests:**
+```bash
+npm run test:e2e:ui
+```
+Opens Playwright UI for interactive debugging with visual test execution.
+
+**Run Specific City:**
+```bash
+npx playwright test -g "Victoria, BC"
+```
+
+### Test Files
+
+| File | Purpose |
+|------|---------|
+| `tests/city-seo.spec.ts` | Playwright E2E tests for all 18 cities |
+| `scripts/validate-city-seo.js` | Fast validation script (no browser) |
+| `tests/README.md` | Complete testing documentation and troubleshooting guide |
+
+### Cities Tested
+
+All 18 Canadian city landing pages:
+
+**Tier 1:** Victoria BC, Vancouver BC, Toronto ON, Calgary AB, Montreal QC
+**Tier 2:** Edmonton AB, Ottawa ON, Winnipeg MB, Mississauga ON, Brampton ON
+**Tier 3:** Surrey BC, Burnaby BC, Richmond BC, Halifax NS, Kelowna BC, Saskatoon SK, Regina SK, Quebec City QC
+
+### SEO Validation Rules
+
+**Meta Description:**
+- Minimum: 150 characters
+- Maximum: 160 characters
+- Must be unique across all cities
+- Must contain city name or relevant geographic reference
+
+**Meta Title:**
+- Maximum: 60 characters (recommended)
+- Must contain city name
+- Must be unique across all cities
+
+**Keywords:**
+- Must include city name in at least one keyword
+- Recommended: 5-10 keywords per city
+
+**Coordinates:**
+- Latitude range: 41° to 84° N (Canada bounds)
+- Longitude range: -141° to -52° W (Canada bounds)
+
+### CI/CD Integration
+
+Add to your deployment pipeline:
+
+```yaml
+# Pre-deployment checks
+- name: Validate City SEO Data
+  run: npm run validate:city-seo
+
+- name: Run E2E City Tests
+  run: npm run test:city-seo
+```
 
 ---
 

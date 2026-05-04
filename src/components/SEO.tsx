@@ -8,6 +8,10 @@ interface SEOProps {
   ogType?: string;
   keywords?: string;
   noindex?: boolean;
+  geoRegion?: string;
+  geoPlace?: string;
+  geoPosition?: string;
+  useSimpleTitle?: boolean;
 }
 
 const SEO = ({
@@ -18,8 +22,14 @@ const SEO = ({
   ogType = "website",
   keywords,
   noindex = false,
+  geoRegion,
+  geoPlace,
+  geoPosition,
+  useSimpleTitle = false,
 }: SEOProps) => {
-  const fullTitle = `${title} | Neural Solutions — Victoria BC AI Automation Agency`;
+  const fullTitle = useSimpleTitle
+    ? title
+    : `${title} | Neural Solutions — Victoria BC AI Automation Agency`;
 
   return (
     <Helmet>
@@ -32,10 +42,10 @@ const SEO = ({
       <link rel="canonical" href={canonical} />
 
       {/* Geographic Targeting */}
-      <meta name="geo.region" content="CA-BC" />
-      <meta name="geo.placename" content="Victoria" />
-      <meta name="geo.position" content="48.4284;-123.3656" />
-      <meta name="ICBM" content="48.4284, -123.3656" />
+      <meta name="geo.region" content={geoRegion || "CA-BC"} />
+      <meta name="geo.placename" content={geoPlace || "Victoria"} />
+      <meta name="geo.position" content={geoPosition || "48.4284;-123.3656"} />
+      <meta name="ICBM" content={geoPosition ? geoPosition.replace(';', ', ') : "48.4284, -123.3656"} />
 
       {/* Language & Locale */}
       <meta property="og:locale" content="en_CA" />

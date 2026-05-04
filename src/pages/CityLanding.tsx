@@ -46,6 +46,10 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
         description={cityData.metaDescription}
         keywords={cityData.keywords.join(", ")}
         canonical={`https://neuralsolutions.ca/ai-agency-${cityData.slug}`}
+        geoRegion={`CA-${cityData.provinceAbbr}`}
+        geoPlace={cityData.name}
+        geoPosition={`${cityData.coordinates.lat};${cityData.coordinates.lng}`}
+        useSimpleTitle={true}
       />
       <StructuredData data={getCityLocalBusinessSchema(cityData)} />
       <StructuredData data={getBreadcrumbSchema(location.pathname)} />

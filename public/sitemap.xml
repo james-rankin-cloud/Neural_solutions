@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://neuralsolutions.ca/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.neuralsolutions.cloud/</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en-ca" href="https://neuralsolutions.ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/"/>
   </url>
   <url>
-    <loc>https://neuralsolutions.ca/services</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.neuralsolutions.cloud/services</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-ca" href="https://neuralsolutions.ca/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services"/>
   </url>
   <url>
-    <loc>https://neuralsolutions.ca/case-studies</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.neuralsolutions.cloud/case-studies</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-ca" href="https://neuralsolutions.ca/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/case-studies"/>
   </url>
   <url>
-    <loc>https://neuralsolutions.ca/about</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.neuralsolutions.cloud/about</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-ca" href="https://neuralsolutions.ca/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/about"/>
   </url>
   <url>
-    <loc>https://neuralsolutions.ca/book-audit</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://www.neuralsolutions.cloud/book-audit</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-ca" href="https://neuralsolutions.ca/book-audit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/book-audit"/>
   </url>
 </urlset>

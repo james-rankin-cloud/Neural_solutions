@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     sitemap({
-      hostname: "https://neuralsolutions.ca",
+      hostname: "https://www.neuralsolutions.cloud",
       routes: sitemapRoutes,
       dynamicRoutes: sitemapRoutes,
       readable: true,

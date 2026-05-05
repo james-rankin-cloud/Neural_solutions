@@ -16,4 +16,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://neuralsolutions.ca/sitemap.xml
+Sitemap: https://www.neuralsolutions.cloud/sitemap.xml

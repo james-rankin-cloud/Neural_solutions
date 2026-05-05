@@ -22,7 +22,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm" : "bg-transparent"}`}>
+    <nav role="navigation" aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm" : "bg-transparent"}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="font-display text-sm font-bold tracking-widest text-foreground uppercase ">
           Neural<span className="text-primary">.</span>Solutions
@@ -34,6 +34,7 @@ const Navbar = () => {
             <Link
               key={l.to}
               to={l.to}
+              aria-current={location.pathname === l.to ? "page" : undefined}
               className={`font-mono text-xs uppercase tracking-wider line-draw  transition-colors duration-200 ${
                 location.pathname === l.to ? "text-primary" : "text-muted-foreground hover:text-foreground"
               }`}
@@ -49,7 +50,12 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground ">
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle mobile menu"
+          aria-expanded={open}
+          className="md:hidden text-foreground "
+        >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
@@ -62,6 +68,7 @@ const Navbar = () => {
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
+              aria-current={location.pathname === l.to ? "page" : undefined}
               className={`block font-mono text-xs uppercase tracking-wider  ${
                 location.pathname === l.to ? "text-primary" : "text-muted-foreground"
               }`}

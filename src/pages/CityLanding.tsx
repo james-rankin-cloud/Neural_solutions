@@ -91,8 +91,10 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
               <TabsContent value="form">
                 <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-6">
                   <div className="relative">
+                    <label htmlFor="city-contact-name" className="sr-only">Your Name</label>
                     <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                     <Input
+                      id="city-contact-name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Your name"
@@ -101,8 +103,10 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
                     />
                   </div>
                   <div className="relative">
+                    <label htmlFor="city-contact-email" className="sr-only">Email Address</label>
                     <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                     <Input
+                      id="city-contact-email"
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -112,8 +116,10 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
                     />
                   </div>
                   <div className="relative">
+                    <label htmlFor="city-contact-message" className="sr-only">Your Message</label>
                     <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
                     <Textarea
+                      id="city-contact-message"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Tell us about your project, challenges, and goals..."

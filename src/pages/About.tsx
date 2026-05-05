@@ -99,7 +99,7 @@ const About = () => {
                     </div>
                   )}
                   <div className="flex-1">
-                    <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{t.name}</h3>
+                    <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{t.name}</h2>
                     <span className="font-mono text-xs uppercase tracking-wider text-primary block mb-3">{t.role}</span>
                     <div className="flex flex-wrap items-center gap-4 mb-6">
                       <span className="flex items-center gap-1.5 text-sm text-muted-foreground">

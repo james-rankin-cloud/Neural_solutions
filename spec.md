@@ -73,7 +73,10 @@ Neural_solutions/
 │   │
 │   ├── pages/                   # Full-page components
 │   │   ├── Index.tsx            # Landing page (composes sections)
-│   │   ├── Services.tsx         # Detailed services page
+│   │   ├── Services.tsx         # Services overview page
+│   │   ├── services/            # Service category pages
+│   │   │   ├── AISolutions.tsx           # Industry-specific AI solutions
+│   │   │   └── SoftwareDevelopment.tsx   # Software development services
 │   │   ├── CaseStudies.tsx      # Portfolio with case studies
 │   │   ├── About.tsx            # Team bios
 │   │   ├── BookAudit.tsx        # Contact form
@@ -169,6 +172,9 @@ Neural_solutions/
 | Route | Component | Purpose |
 |-------|-----------|---------|
 | `/` | LandingPage.tsx | One-page scroll landing - Hero, About, Services preview, Features, How it Works, Growth Philosophy, Testimonials, CTA with contact form + booking, Footer |
+| `/services` | Services.tsx | Services overview page - 7 service categories (AI Strategy & Governance, Custom AI Product Development, AI Agents & Intelligent Automation, AI Analytics & Decision Intelligence, ML Engineering & MLOps, AI-Enabled Software Delivery, Software Development) with images and descriptions |
+| `/services/ai-solutions` | AISolutions.tsx | AI Solutions page - Hero section, Peter Diamandis quote ("There will be two kinds of companies at the end of this decade: those that are fully utilizing AI, and those that are out of business"), 6 AI service categories (AI Strategy & Governance, Custom AI Product Development, AI Agents & Intelligent Automation, AI Analytics & Decision Intelligence, ML Engineering & MLOps, AI-Enabled Software Delivery) with images and descriptions |
+| `/services/software-development` | SoftwareDevelopment.tsx | Software development services - 4 service categories (Custom Software Development, Application Development & Modernization, DevOps & Platform Engineering, Quality Engineering) with descriptions and clickable cards |
 | `/case-studies` | CaseStudies.tsx | Portfolio - 2 detailed case studies (Ageless Living, Harrison Forbes) |
 | `/about` | About.tsx | Team page - 3 founders with bios |
 | `/book-audit` | BookAudit.tsx | Dual-option contact page - Tab 1: Contact form (mailto), Tab 2: Cal.com calendar booking (30-min/45-min calls) |
@@ -176,8 +182,6 @@ Neural_solutions/
 | `/ai-agency-{city}` | CityLanding.tsx | SEO-optimized city landing pages - 18 Canadian cities (Victoria, Vancouver, Toronto, Calgary, Montreal, Edmonton, Ottawa, Winnipeg, Mississauga, Brampton, Surrey, Burnaby, Richmond, Halifax, Kelowna, Saskatoon, Regina, Quebec City) with city-specific SEO, LocalBusiness schema, contact form & calendar booking |
 | `/ui-code-kit` | UICodeKit.tsx | Developer reference - Old design system docs (purple theme - kept for reference) |
 | `*` | NotFound.tsx | 404 page |
-
-**Note:** `/services` route has been removed. Services are now presented on the landing page.
 
 ---
 
@@ -245,14 +249,19 @@ Neural_solutions/
    - Duration: 700ms, custom easing: cubic-bezier(0.16,1,0.3,1)
    - Located in: `src/components/ScrollReveal.tsx`
 
-3. **Navbar**
+3. **Navbar** - Premium Transparent Design
    - Fixed position with scroll detection at 50px
-   - White background with backdrop blur on scroll
-   - Dual navigation pattern:
-     - Landing page: Anchor links with smooth scroll
-     - Other pages: React Router links
-   - Desktop navigation: Services, About us, Contact us (on landing) or Home, Case Studies, About (on other pages)
-   - Mobile: Hamburger menu
+   - Transparent background on load, subtle dark blur on scroll (bg-black/20 backdrop-blur-md)
+   - **Desktop Layout** - Three-zone structure:
+     - **Left**: Navigation links (Home, Case Studies, About, Services dropdown)
+     - **Center**: NEURAL logo (uppercase, wide letter spacing [0.3em], light font weight, absolutely positioned to viewport center)
+     - **Right**: Book Now button (transparent with white border)
+   - **Typography**: All white/off-white text (white/80 opacity, white on hover)
+   - **Services dropdown**: Hover-activated with dark backdrop blur (bg-black/90)
+     - AI Solutions → /services/ai-solutions
+     - Software Development → /services/software-development
+   - **Mobile**: NEURAL logo left, hamburger menu right, full-screen dark menu on open
+   - **Design**: Minimal, modern, premium, futuristic - inspired by Mistral/Linear style
    - Located in: `src/components/Navbar.tsx`
 
 4. **Landing Page Sections**
@@ -321,16 +330,29 @@ Neural_solutions/
 
 ### Services Offered
 
-**6 Core Services:**
-1. Web & Mobile Development
-2. Team Outsourcing
-3. Cloud Hosting
-4. AI Integration
-5. AI Automation
-6. AI Assistants
+**7 AI Services (Services.tsx):**
+1. **AI Strategy & Governance** - Comprehensive roadmap for responsible, scalable AI adoption with frameworks, policies, and oversight mechanisms
+2. **Custom AI Product Development** - Production-grade AI solutions from concept to deployment, tailored to unique business needs
+3. **AI Agents & Intelligent Automation** - Autonomous systems that streamline workflows and boost efficiency
+4. **AI Analytics & Decision Intelligence** - Advanced analytics that reveal patterns and predict future outcomes
+5. **ML Engineering & MLOps** - Robust ML infrastructure for reliable, scalable AI deployment
+6. **AI-Enabled Software Delivery** - AI-powered tools and processes that enhance every phase of the software lifecycle
+7. **Software Development** - Custom software solutions, application modernization, DevOps, and quality engineering
 
-**16 IT Solutions:**
-- Enterprise architecture, web apps, AI consulting, APIs, microservices, mobile apps, UI design, data analytics, workflow design, IT support, AI search, email automation, voicemail, predictive analytics, and more
+**4 Software Development Services (SoftwareDevelopment.tsx):**
+1. **Custom Software Development** - Secure, scalable software tailored to business requirements
+2. **Application Development & Modernization** - Modernize legacy applications and build cloud-native systems
+3. **DevOps & Platform Engineering** - Automate infrastructure and delivery pipelines
+4. **Quality Engineering** - Embed automated testing and quality practices across the software lifecycle
+
+**7 Industry-Specific AI Solutions (AISolutions.tsx):**
+1. Healthcare & Wellness - Automated appointment management, patient intake, prescription reminders
+2. Real Estate - Lead qualification, property matching, transaction processing
+3. Legal Services - Client intake, contract analysis, legal research automation
+4. E-commerce & Retail - Intelligent customer support, abandoned cart recovery, inventory automation
+5. Professional Services - Client onboarding, invoice processing, report generation
+6. Home Services - Missed call capture, quote generation, service reminders
+7. Hospitality - Guest communication, review management, booking confirmation
 
 ### Case Studies
 

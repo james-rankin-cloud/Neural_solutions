@@ -2,64 +2,35 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ArrowRight, Lightbulb, Cpu, Zap, TrendingUp, Layers, Code2 } from "lucide-react";
+import { ArrowRight, Brain, Monitor } from "lucide-react";
 import { Link } from "react-router-dom";
-import aiStrategyImage from "@/assets/ai_strategy_and_governance.png";
-import customAiImage from "@/assets/custom_ai_product_development.png";
-import aiAgentsImage from "@/assets/ai_agents_intelligent_automation.png";
-import aiAnalyticsImage from "@/assets/ai_analytics_predictive_insights.png";
-import mlOpsImage from "@/assets/ml_engineering_mlops.png";
-import aiSdlcImage from "@/assets/ai-enabled_software_delivery.png";
 
-const services = [
+const serviceCategories = [
   {
-    icon: <Lightbulb className="w-8 h-8" />,
-    title: "AI Solutions by Industry",
-    description: "Industry-specific automation solutions tailored to healthcare, real estate, legal, e-commerce, professional services, and more. Real use cases with proven implementation strategies.",
+    icon: <Brain className="w-12 h-12" />,
+    title: "AI Solutions",
+    description: "Comprehensive AI services including strategy, custom development, intelligent automation, analytics, ML engineering, and AI-enabled software delivery.",
     href: "/services/ai-solutions",
-    featured: true
+    features: [
+      "AI Strategy & Governance",
+      "Custom AI Product Development",
+      "AI Agents & Intelligent Automation",
+      "AI Analytics & Decision Intelligence",
+      "ML Engineering & MLOps",
+      "AI-Enabled Software Delivery"
+    ]
   },
   {
-    icon: <Cpu className="w-8 h-8" />,
-    title: "AI Strategy & Governance",
-    description: "Build a comprehensive roadmap for responsible, scalable AI adoption aligned with your business objectives. Establish frameworks, policies, and oversight mechanisms to ensure ethical AI use, regulatory compliance, and long-term value creation.",
-    href: "/services/ai-strategy-governance",
-    image: aiStrategyImage
-  },
-  {
-    icon: <Code2 className="w-8 h-8" />,
-    title: "Custom AI Product Development",
-    description: "Production-grade AI solutions built for your unique business needs, from concept to deployment. We design, develop, and deliver tailored AI products that solve your specific challenges and integrate seamlessly with your existing systems.",
-    href: "/services/custom-ai-development",
-    image: customAiImage
-  },
-  {
-    icon: <Zap className="w-8 h-8" />,
-    title: "AI Agents & Intelligent Automation",
-    description: "Autonomous systems that streamline workflows and boost efficiency across your organization. Deploy intelligent agents that handle complex tasks, make decisions, and adapt to changing conditions with minimal human intervention.",
-    href: "/services/ai-agents",
-    image: aiAgentsImage
-  },
-  {
-    icon: <TrendingUp className="w-8 h-8" />,
-    title: "AI Analytics & Decision Intelligence",
-    description: "Turn data into actionable intelligence with advanced analytics that reveal patterns and predict future outcomes. Empower your teams with AI-driven insights that improve decision-making, optimize operations, and uncover new opportunities.",
-    href: "/services/ai-analytics",
-    image: aiAnalyticsImage
-  },
-  {
-    icon: <Layers className="w-8 h-8" />,
-    title: "ML Engineering & MLOps",
-    description: "Robust ML infrastructure for reliable, scalable AI deployment that grows with your business. Implement best practices for model development, monitoring, and maintenance to ensure consistent performance and rapid iteration.",
-    href: "/services/ml-engineering",
-    image: mlOpsImage
-  },
-  {
-    icon: <Code2 className="w-8 h-8" />,
-    title: "AI-Enabled Software Delivery",
-    description: "Accelerate development with AI-powered tools and processes that enhance every phase of the software lifecycle. Boost developer productivity, improve code quality, and reduce time-to-market through intelligent automation and assistance.",
-    href: "/services/ai-sdlc",
-    image: aiSdlcImage
+    icon: <Monitor className="w-12 h-12" />,
+    title: "Software Development",
+    description: "Custom software solutions, application modernization, and DevOps engineering to build secure, scalable systems that evolve with your business.",
+    href: "/services/software-development",
+    features: [
+      "Custom Software Development",
+      "Application Development & Modernization",
+      "DevOps & Platform Engineering",
+      "Quality Engineering"
+    ]
   }
 ];
 
@@ -67,14 +38,14 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>AI Services | Custom Solutions & Automation | Neural Solutions</title>
+        <title>Our Services | AI Solutions & Software Development | Neural Solutions</title>
         <meta
           name="description"
-          content="Comprehensive AI services including strategy, custom development, intelligent automation, analytics, ML engineering, and AI-enabled software delivery for Canadian businesses."
+          content="Explore our AI solutions and software development services. From AI strategy to custom development, we deliver solutions that transform your business."
         />
         <meta
           name="keywords"
-          content="AI services, AI strategy, custom AI development, intelligent automation, AI analytics, ML engineering, MLOps, AI software development"
+          content="AI services, software development, custom AI, application development, DevOps, quality engineering"
         />
         <link rel="canonical" href="https://www.neuralsolutions.cloud/services" />
       </Helmet>
@@ -90,65 +61,53 @@ const Services = () => {
                 Our Services
               </span>
               <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight text-foreground">
-                AI Services That Drive Results
+                Transform Your Business
               </h1>
               <p className="font-sans text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                From strategy to deployment, we deliver AI solutions that transform how your business operates.
+                Choose from our AI solutions or software development services to build the future of your business.
               </p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Service Categories */}
       <section className="py-20 px-6 bg-background">
         <div className="container max-w-6xl">
           <div className="grid gap-8 md:grid-cols-2">
-            {services.map((service, idx) => (
-              <ScrollReveal key={service.title} delay={idx * 100}>
+            {serviceCategories.map((category, idx) => (
+              <ScrollReveal key={category.title} delay={idx * 100}>
                 <Link
-                  to={service.href}
-                  className={`group block h-full bg-secondary/30 rounded-[1.25rem] overflow-hidden border border-border hover:border-foreground transition-all duration-300 ${
-                    service.featured ? 'md:col-span-2 bg-foreground text-background border-foreground' : ''
-                  }`}
+                  to={category.href}
+                  className="group block h-full bg-secondary/30 rounded-[1.25rem] overflow-hidden border border-border hover:border-foreground transition-all duration-300"
                 >
-                  <div className="flex flex-col h-full">
-                    {service.image && (
-                      <div className="w-full h-48 md:h-56 overflow-hidden">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
+                  <div className="p-8 md:p-10 flex flex-col h-full">
+                    <div className="w-20 h-20 rounded-[1.25rem] bg-foreground text-background flex items-center justify-center mb-6">
+                      {category.icon}
+                    </div>
 
-                    <div className="p-8 md:p-10 flex flex-col flex-grow">
-                      <div className={`w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-6 ${
-                        service.featured ? 'bg-background text-foreground' : 'bg-foreground text-background'
-                      }`}>
-                        {service.icon}
-                      </div>
+                    <h2 className="font-sans text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                      {category.title}
+                    </h2>
 
-                      <h2 className={`font-sans text-2xl md:text-3xl font-bold mb-4 ${
-                        service.featured ? 'text-background' : 'text-foreground'
-                      }`}>
-                        {service.title}
-                      </h2>
+                    <p className="font-sans text-base leading-relaxed mb-6 text-muted-foreground">
+                      {category.description}
+                    </p>
 
-                      <p className={`font-sans text-base leading-relaxed mb-6 flex-grow ${
-                        service.featured ? 'text-background/90' : 'text-muted-foreground'
-                      }`}>
-                        {service.description}
-                      </p>
+                    <div className="space-y-2 mb-8 flex-grow">
+                      {category.features.map((feature) => (
+                        <div key={feature} className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
+                          <span className="font-sans text-sm text-muted-foreground">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
 
-                      <div className={`flex items-center gap-2 font-sans text-sm font-medium group-hover:gap-3 transition-all ${
-                        service.featured ? 'text-background' : 'text-foreground'
-                      }`}>
-                        Learn More
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
+                    <div className="flex items-center gap-2 font-sans text-sm font-medium group-hover:gap-3 transition-all text-foreground">
+                      Explore {category.title}
+                      <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </Link>
@@ -159,31 +118,17 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-foreground text-background">
+      <section className="py-16 px-6 bg-background">
         <div className="container max-w-4xl">
           <ScrollReveal>
-            <div className="text-center space-y-8">
-              <h2 className="font-sans text-4xl md:text-5xl font-medium tracking-tight">
-                Not Sure Where to Start?
-              </h2>
-              <p className="font-sans text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
-                Book a free consultation to discuss your business challenges and discover which AI solutions can deliver the biggest impact.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Link
-                  to="/book-audit"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background text-foreground rounded-md font-sans text-sm uppercase tracking-wider font-medium hover:opacity-90 transition-opacity"
-                >
-                  Book Free Consultation
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  to="/case-studies"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-background text-background rounded-md font-sans text-sm uppercase tracking-wider font-medium hover:bg-background hover:text-foreground transition-all"
-                >
-                  View Case Studies
-                </Link>
-              </div>
+            <div className="text-center">
+              <Link
+                to="/book-audit"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background rounded-md font-sans text-sm uppercase tracking-wider font-medium hover:opacity-90 transition-opacity"
+              >
+                Book a Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </ScrollReveal>
         </div>

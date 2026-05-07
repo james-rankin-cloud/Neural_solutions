@@ -10,22 +10,30 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import agelessLivingLogo from "@/assets/ageless-living.jpg";
 import harrisonForbesLogo from "@/assets/harrisonforbes.jpg";
+import aiSolutionsImage from "@/assets/home-page-ai-solutions.png";
+import softwareDevelopmentImage from "@/assets/home-page-software-development.png";
+import heroVideo from "@/assets/mp_.mp4";
+import howItWorks1 from "@/assets/hp1.png";
+import howItWorks2 from "@/assets/hp2.png";
+import howItWorks3 from "@/assets/hp3.png";
 
 const stats = [
-  { value: "25+", label: "Workflows automated" },
-  { value: "120K+", label: "Manual tasks reduced" },
+  { value: "5", label: "Workflows automated" },
+  { value: "15", label: "Manual tasks reduced" },
   { value: "40%", label: "Average efficiency gain" },
   { value: "24/7", label: "Systems running" },
 ];
 
 const services = [
   {
-    title: "AI workflow automation",
-    image: "/images/service-1.jpg",
+    title: "AI Solutions",
+    image: aiSolutionsImage,
+    href: "/services/ai-solutions",
   },
   {
-    title: "AI integration and internal tools",
-    image: "/images/service-2.jpg",
+    title: "Software Development",
+    image: softwareDevelopmentImage,
+    href: "/services/software-development",
   },
 ];
 
@@ -56,21 +64,21 @@ const steps = [
     title: "Workflow assessment",
     description:
       "We analyze your current operations and uncover where time, money, and focus are being lost.",
-    image: "/images/process-1.jpg",
+    image: howItWorks1,
   },
   {
     number: "2",
     title: "System design",
     description:
       "We turn your business needs into a clear automation roadmap with practical implementation steps.",
-    image: "/images/process-2.jpg",
+    image: howItWorks2,
   },
   {
     number: "3",
     title: "Build and optimize",
     description:
       "We launch your AI systems, monitor performance, and improve them as your business grows.",
-    image: "/images/process-3.jpg",
+    image: howItWorks3,
   },
 ];
 
@@ -139,12 +147,15 @@ function Hero() {
     <section id="top" className="relative min-h-screen overflow-hidden bg-black text-white">
 
       <div className="absolute inset-0">
-        <img
-          src="/images/hero.jpg"
-          alt="Hero background"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="h-full w-full object-cover opacity-70"
-          onError={handleImageError}
-        />
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/70 to-transparent" />
       </div>
@@ -184,17 +195,26 @@ function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-white px-5 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1200px]">
-        <div className="mb-24 grid grid-cols-2 gap-8 opacity-40 md:grid-cols-6">
-          {["Logo", "Partner", "Studio", "Cloud", "Systems", "AI Ops"].map(
-            (logo) => (
-              <div
-                key={logo}
-                className="flex h-10 items-center justify-center text-sm font-semibold uppercase tracking-widest text-black/50"
-              >
-                {logo}
-              </div>
-            )
-          )}
+        <div className="mb-24">
+          <p className="text-center text-xs uppercase tracking-wider text-black/40 mb-8">Trusted By</p>
+          <div className="flex items-center justify-center gap-12 md:gap-16 flex-wrap">
+            <div className="bg-white border border-black/10 rounded-xl p-8 flex items-center justify-center h-28 w-56">
+              <img
+                src={agelessLivingLogo}
+                alt="Ageless Living"
+                className="h-16 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div className="bg-black border border-black/10 rounded-xl p-8 flex items-center justify-center h-28 w-56">
+              <img
+                src={harrisonForbesLogo}
+                alt="Harrison Forbes Electrical"
+                className="h-16 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="relative">
@@ -237,7 +257,7 @@ function ServicesPreview() {
 
         <div className="mt-20 grid gap-6 md:grid-cols-2">
           {services.map((service) => (
-            <ImageCard key={service.title} title={service.title} image={service.image} />
+            <ImageCard key={service.title} title={service.title} image={service.image} href={service.href} />
           ))}
         </div>
       </div>
@@ -245,21 +265,23 @@ function ServicesPreview() {
   );
 }
 
-function ImageCard({ title, image }: { title: string; image: string }) {
+function ImageCard({ title, image, href }: { title: string; image: string; href: string }) {
   return (
-    <article className="group relative h-[360px] overflow-hidden rounded-2xl bg-neutral-900">
-      <img
-        src={image}
-        alt=""
-        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-        onError={handleImageError}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-7">
-        <h3 className="text-2xl font-medium tracking-tight">{title}</h3>
-        <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
-      </div>
-    </article>
+    <Link to={href}>
+      <article className="group relative h-[360px] overflow-hidden rounded-2xl bg-neutral-900 cursor-pointer">
+        <img
+          src={image}
+          alt=""
+          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+          onError={handleImageError}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-7">
+          <h3 className="text-2xl font-medium tracking-tight">{title}</h3>
+          <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+        </div>
+      </article>
+    </Link>
   );
 }
 
@@ -441,12 +463,12 @@ function Testimonials() {
         </h2>
 
         <article className="mt-20 grid overflow-hidden rounded-2xl bg-white text-black md:grid-cols-[0.8fr_1.1fr]">
-          <div className="min-h-[380px] bg-neutral-900">
+          <div className="min-h-[380px] bg-black flex items-center justify-center p-12">
             <img
-              src="/images/testimonial.jpg"
-              alt=""
-              className="h-full w-full object-cover grayscale"
-              onError={handleImageError}
+              src={harrisonForbesLogo}
+              alt="Harrison Forbes Electrical"
+              className="h-24 w-auto object-contain"
+              loading="lazy"
             />
           </div>
 
@@ -458,8 +480,8 @@ function Testimonials() {
             </p>
 
             <div className="mt-8">
-              <p className="font-medium">Client Partner</p>
-              <p className="text-sm text-black/55">Founder, Service Business</p>
+              <p className="font-medium">Ryder Forbes</p>
+              <p className="text-sm text-black/55">Owner, Harrison Forbes Electrical</p>
             </div>
 
             <div className="mt-auto flex flex-col justify-between gap-8 md:flex-row md:items-end">

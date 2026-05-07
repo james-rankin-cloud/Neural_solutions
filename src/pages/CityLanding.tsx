@@ -55,41 +55,38 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
       <StructuredData data={getBreadcrumbSchema(location.pathname)} />
       <Navbar />
 
-      <section className="pt-32 pb-32 px-6 relative grain min-h-screen flex items-center">
-        <div className="absolute top-[30%] left-[15%] w-40 h-40 rounded-full bg-primary/[0.05] blur-3xl float" />
-        <div className="absolute bottom-[20%] right-[10%] w-56 h-56 rounded-full bg-accent/[0.04] blur-3xl float-delayed" />
-
+      <section className="pt-32 pb-32 px-6 relative min-h-screen flex items-center">
         <div className="max-w-xl mx-auto w-full relative z-10">
           <ScrollReveal>
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">
+            <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-4 block">
               Get Started
             </span>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-3">
+            <h1 className="font-sans text-4xl md:text-5xl font-medium tracking-tight text-foreground leading-tight mb-3">
               {cityData.heroHeadline}
             </h1>
-            <p className="font-serif text-lg italic text-primary mb-4">
+            <p className="font-sans text-lg text-muted-foreground mb-4">
               Your choice: message us or book a call.
             </p>
-            <p className="text-muted-foreground font-normal mb-10 leading-relaxed">
+            <p className="font-sans text-base text-muted-foreground mb-10 leading-relaxed">
               {cityData.description}
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
             <Tabs defaultValue="form" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="form">
+              <TabsList className="grid w-full grid-cols-2 mb-6 bg-secondary">
+                <TabsTrigger value="form" className="font-sans">
                   <MessageSquare size={16} className="mr-2" />
                   Contact Form
                 </TabsTrigger>
-                <TabsTrigger value="calendar">
+                <TabsTrigger value="calendar" className="font-sans">
                   <Calendar size={16} className="mr-2" />
                   Book Meeting
                 </TabsTrigger>
               </TabsList>
 
               <TabsContent value="form">
-                <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-6">
+                <form onSubmit={handleSubmit} className="border border-border rounded-[1.25rem] p-8 space-y-6 bg-white">
                   <div className="relative">
                     <label htmlFor="city-contact-name" className="sr-only">Your Name</label>
                     <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -99,7 +96,7 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Your name"
                       required
-                      className="pl-10 bg-background/50 border-border/30 font-sans focus:border-primary/50"
+                      className="pl-10 bg-background border-border font-sans focus:border-foreground"
                     />
                   </div>
                   <div className="relative">
@@ -112,7 +109,7 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your@email.com"
                       required
-                      className="pl-10 bg-background/50 border-border/30 font-sans focus:border-primary/50"
+                      className="pl-10 bg-background border-border font-sans focus:border-foreground"
                     />
                   </div>
                   <div className="relative">
@@ -125,7 +122,7 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
                       placeholder="Tell us about your project, challenges, and goals..."
                       rows={5}
                       required
-                      className="pl-10 bg-background/50 border-border/30 font-sans resize-none focus:border-primary/50"
+                      className="pl-10 bg-background border-border font-sans resize-none focus:border-foreground"
                     />
                   </div>
                   <Button variant="hero" size="lg" type="submit" className="w-full group">
@@ -141,7 +138,7 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
                     variant={selectedMeeting === "30min" ? "hero" : "hero-outline"}
                     size="lg"
                     onClick={() => setSelectedMeeting("30min")}
-                    className="h-auto py-4 flex flex-col items-start"
+                    className="h-auto py-4 flex flex-col items-start font-sans"
                   >
                     <span className="font-semibold text-base">30-Min Discovery Call</span>
                     <span className="text-xs opacity-80 mt-1">Quick consultation</span>
@@ -150,7 +147,7 @@ const CityLanding = ({ citySlug }: CityLandingProps) => {
                     variant={selectedMeeting === "45min" ? "hero" : "hero-outline"}
                     size="lg"
                     onClick={() => setSelectedMeeting("45min")}
-                    className="h-auto py-4 flex flex-col items-start"
+                    className="h-auto py-4 flex flex-col items-start font-sans"
                   >
                     <span className="font-semibold text-base">45-Min Strategy Session</span>
                     <span className="text-xs opacity-80 mt-1">Comprehensive analysis</span>

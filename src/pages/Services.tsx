@@ -1,214 +1,196 @@
-import { useLocation, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Button } from "@/components/ui/button";
-import SEO from "@/components/SEO";
-import StructuredData from "@/components/StructuredData";
-import { servicesSchema } from "@/lib/schema/services";
-import { getBreadcrumbSchema } from "@/lib/schema/breadcrumb";
-import {
-  ArrowRight,
-  Globe,
-  Users,
-  Cloud,
-  Brain,
-  Workflow,
-  Code2,
-  Smartphone,
-  Palette,
-  BarChart3,
-  ClipboardList,
-  Headphones,
-  Blocks,
-  Server,
-  Building2,
-  FlaskConical,
-  Cpu,
-  Bot,
-  Mail,
-  Mic,
-  Search,
-  TrendingUp,
-  Check,
-} from "lucide-react";
+import { ArrowRight, Lightbulb, Cpu, Zap, TrendingUp, Layers, Code2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import aiStrategyImage from "@/assets/ai_strategy_and_governance.png";
+import customAiImage from "@/assets/custom_ai_product_development.png";
+import aiAgentsImage from "@/assets/ai_agents_intelligent_automation.png";
+import aiAnalyticsImage from "@/assets/ai_analytics_predictive_insights.png";
+import mlOpsImage from "@/assets/ml_engineering_mlops.png";
+import aiSdlcImage from "@/assets/ai-enabled_software_delivery.png";
 
-const coreServices = [
+const services = [
   {
-    icon: Globe,
-    title: "Web & Mobile Development",
-    desc: "Web and mobile applications give businesses a powerful way to reach new customers, better serve existing clients, and grow their market presence. We manage the full software development lifecycle with precision, ensuring smooth launches and high customer satisfaction from day one.",
-    highlights: ["Cross-platform apps", "Full lifecycle management", "Scalable architecture"],
+    icon: <Lightbulb className="w-8 h-8" />,
+    title: "AI Solutions by Industry",
+    description: "Industry-specific automation solutions tailored to healthcare, real estate, legal, e-commerce, professional services, and more. Real use cases with proven implementation strategies.",
+    href: "/services/ai-solutions",
+    featured: true
   },
   {
-    icon: Users,
-    title: "Team Outsourcing",
-    desc: "Many of our clients choose to hand off their entire development process to our teams. The reason is simple: we deliver faster, more efficiently, and at a lower cost than building in-house.",
-    highlights: ["Dedicated dev teams", "Faster delivery", "Cost-effective scaling"],
+    icon: <Cpu className="w-8 h-8" />,
+    title: "AI Strategy & Governance",
+    description: "Build a comprehensive roadmap for responsible, scalable AI adoption aligned with your business objectives. Establish frameworks, policies, and oversight mechanisms to ensure ethical AI use, regulatory compliance, and long-term value creation.",
+    href: "/services/ai-strategy-governance",
+    image: aiStrategyImage
   },
   {
-    icon: Cloud,
-    title: "Cloud Hosting",
-    desc: "We've built and deployed software for clients across industries, providing cloud-based development and testing environments throughout. We offer application management across Amazon AWS, Microsoft Azure, and Oracle Cloud.",
-    highlights: ["AWS, Azure, Oracle", "Production-grade infra", "Managed environments"],
+    icon: <Code2 className="w-8 h-8" />,
+    title: "Custom AI Product Development",
+    description: "Production-grade AI solutions built for your unique business needs, from concept to deployment. We design, develop, and deliver tailored AI products that solve your specific challenges and integrate seamlessly with your existing systems.",
+    href: "/services/custom-ai-development",
+    image: customAiImage
   },
   {
-    icon: Brain,
-    title: "AI Integration",
-    desc: "Bring intelligence into your existing workflows without rebuilding from scratch. We embed AI capabilities directly into your tools and platforms, from intelligent search and document processing to predictive analytics.",
-    highlights: ["Predictive analytics", "Intelligent search", "Document processing"],
+    icon: <Zap className="w-8 h-8" />,
+    title: "AI Agents & Intelligent Automation",
+    description: "Autonomous systems that streamline workflows and boost efficiency across your organization. Deploy intelligent agents that handle complex tasks, make decisions, and adapt to changing conditions with minimal human intervention.",
+    href: "/services/ai-agents",
+    image: aiAgentsImage
   },
   {
-    icon: Workflow,
-    title: "AI Automation",
-    desc: "We identify the repetitive, time-consuming tasks that drain your team and replace them with intelligent automation that runs around the clock. CRM triggers, data pipelines, client communication, and reporting.",
-    highlights: ["24/7 automation", "CRM workflows", "Data pipelines"],
+    icon: <TrendingUp className="w-8 h-8" />,
+    title: "AI Analytics & Decision Intelligence",
+    description: "Turn data into actionable intelligence with advanced analytics that reveal patterns and predict future outcomes. Empower your teams with AI-driven insights that improve decision-making, optimize operations, and uncover new opportunities.",
+    href: "/services/ai-analytics",
+    image: aiAnalyticsImage
   },
   {
-    icon: Bot,
-    title: "AI Assistants",
-    desc: "Deploy conversational AI that actually understands your business. Custom voicemail systems, email responders, and chat assistants trained on your specific data, handling client inquiries with accuracy and a human touch.",
-    highlights: ["AI voicemail", "Email responders", "Custom chatbots"],
+    icon: <Layers className="w-8 h-8" />,
+    title: "ML Engineering & MLOps",
+    description: "Robust ML infrastructure for reliable, scalable AI deployment that grows with your business. Implement best practices for model development, monitoring, and maintenance to ensure consistent performance and rapid iteration.",
+    href: "/services/ml-engineering",
+    image: mlOpsImage
   },
-];
-
-const itSolutions = [
-  { icon: Building2, label: "Enterprise software architecture" },
-  { icon: Code2, label: "Web application development" },
-  { icon: Brain, label: "AI consulting and integration services" },
-  { icon: Blocks, label: "API development and integration" },
-  { icon: Server, label: "Enterprise open-source development" },
-  { icon: Cpu, label: "Microsoft enterprise app development" },
-  { icon: FlaskConical, label: "LIMS development" },
-  { icon: Smartphone, label: "Mobile application development" },
-  { icon: Palette, label: "UI design and interface optimization" },
-  { icon: BarChart3, label: "Data-driven analytical solutions" },
-  { icon: ClipboardList, label: "Business analysis and workflow design" },
-  { icon: Headphones, label: "Managed IT support services" },
-  { icon: Search, label: "AI-powered search and retrieval" },
-  { icon: Mail, label: "Intelligent email automation" },
-  { icon: Mic, label: "AI voicemail and voice assistants" },
-  { icon: TrendingUp, label: "Predictive analytics and forecasting" },
+  {
+    icon: <Code2 className="w-8 h-8" />,
+    title: "AI-Enabled Software Delivery",
+    description: "Accelerate development with AI-powered tools and processes that enhance every phase of the software lifecycle. Boost developer productivity, improve code quality, and reduce time-to-market through intelligent automation and assistance.",
+    href: "/services/ai-sdlc",
+    image: aiSdlcImage
+  }
 ];
 
 const Services = () => {
-  const location = useLocation();
-
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
-      <SEO
-        title="AI & Software Development Services | Neural Solutions"
-        description="Full-spectrum AI and software development services in Victoria, BC. From web and mobile apps to AI automation and cloud infrastructure across Canada."
-        keywords="AI development services Canada, software development Victoria BC, cloud hosting British Columbia, AI automation services, custom software development Vancouver Island"
-        canonical="https://neuralsolutions.ca/services"
-      />
-      <StructuredData data={servicesSchema} />
-      <StructuredData data={getBreadcrumbSchema(location.pathname)} />
+    <>
+      <Helmet>
+        <title>AI Services | Custom Solutions & Automation | Neural Solutions</title>
+        <meta
+          name="description"
+          content="Comprehensive AI services including strategy, custom development, intelligent automation, analytics, ML engineering, and AI-enabled software delivery for Canadian businesses."
+        />
+        <meta
+          name="keywords"
+          content="AI services, AI strategy, custom AI development, intelligent automation, AI analytics, ML engineering, MLOps, AI software development"
+        />
+        <link rel="canonical" href="https://www.neuralsolutions.cloud/services" />
+      </Helmet>
+
       <Navbar />
 
-    {/* Hero */}
-    <section className="pt-32 pb-20 px-6 relative grain">
-      <div className="absolute top-[20%] right-[10%] w-48 h-48 rounded-full bg-primary/[0.05] blur-3xl float" />
-      <div className="max-w-5xl mx-auto relative z-10">
-        <ScrollReveal>
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">What We Do</span>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
-            We don't just talk about AI.
-          </h1>
-          <p className="font-serif text-3xl md:text-4xl italic text-primary mb-6">
-            We make it work.
-          </p>
-          <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
-            From custom software and cloud infrastructure to AI integration and intelligent automation, we deliver end-to-end solutions that help businesses operate smarter and scale faster.
-          </p>
-        </ScrollReveal>
-      </div>
-    </section>
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-32 pb-20 px-6 bg-background">
+        <div className="container max-w-5xl relative z-10">
+          <ScrollReveal>
+            <div className="text-center space-y-6">
+              <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
+                Our Services
+              </span>
+              <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight text-foreground">
+                AI Services That Drive Results
+              </h1>
+              <p className="font-sans text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                From strategy to deployment, we deliver AI solutions that transform how your business operates.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
-    {/* Core Services — Staggered card grid */}
-    <section className="py-28 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <ScrollReveal>
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Core Services</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-4">
-            Six ways we move the needle.
-          </h2>
-          <p className="text-muted-foreground font-normal text-lg mb-16 max-w-2xl">
-            Each service is built to solve a specific problem. Pick one, or let us combine them into a system that runs your business end to end.
-          </p>
-        </ScrollReveal>
+      {/* Services Grid */}
+      <section className="py-20 px-6 bg-background">
+        <div className="container max-w-6xl">
+          <div className="grid gap-8 md:grid-cols-2">
+            {services.map((service, idx) => (
+              <ScrollReveal key={service.title} delay={idx * 100}>
+                <Link
+                  to={service.href}
+                  className={`group block h-full bg-secondary/30 rounded-[1.25rem] overflow-hidden border border-border hover:border-foreground transition-all duration-300 ${
+                    service.featured ? 'md:col-span-2 bg-foreground text-background border-foreground' : ''
+                  }`}
+                >
+                  <div className="flex flex-col h-full">
+                    {service.image && (
+                      <div className="w-full h-48 md:h-56 overflow-hidden">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {coreServices.map((s, i) => (
-            <ScrollReveal key={s.title} delay={i * 80}>
-              <div className={`gradient-border card-elevated p-8 h-full ${i === 0 || i === 5 ? "md:col-span-1" : ""}`}>
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <s.icon size={22} className="text-primary" />
+                    <div className="p-8 md:p-10 flex flex-col flex-grow">
+                      <div className={`w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-6 ${
+                        service.featured ? 'bg-background text-foreground' : 'bg-foreground text-background'
+                      }`}>
+                        {service.icon}
+                      </div>
+
+                      <h2 className={`font-sans text-2xl md:text-3xl font-bold mb-4 ${
+                        service.featured ? 'text-background' : 'text-foreground'
+                      }`}>
+                        {service.title}
+                      </h2>
+
+                      <p className={`font-sans text-base leading-relaxed mb-6 flex-grow ${
+                        service.featured ? 'text-background/90' : 'text-muted-foreground'
+                      }`}>
+                        {service.description}
+                      </p>
+
+                      <div className={`flex items-center gap-2 font-sans text-sm font-medium group-hover:gap-3 transition-all ${
+                        service.featured ? 'text-background' : 'text-foreground'
+                      }`}>
+                        Learn More
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-display text-xl font-bold text-foreground">{s.title}</h3>
-                </div>
-                <p className="text-muted-foreground font-normal leading-relaxed mb-6">{s.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {s.highlights.map((h) => (
-                    <span key={h} className="font-mono text-[10px] uppercase tracking-wider text-primary/80 bg-primary/5 border border-primary/10 px-2.5 py-1 rounded-full">
-                      {h}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* IT Solutions Grid */}
-    <section className="pb-28 px-6 relative z-10 atmosphere-dense">
-      <div className="max-w-5xl mx-auto">
-        <ScrollReveal>
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Full Spectrum</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.05] mb-4">
-            A wide range of
-          </h2>
-          <p className="font-serif text-2xl md:text-3xl italic text-primary mb-16">IT solutions.</p>
-        </ScrollReveal>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {itSolutions.map((item, i) => (
-            <ScrollReveal key={item.label} delay={i * 40}>
-              <div className="glass rounded-lg p-4 flex items-start gap-3 h-full">
-                <Check size={16} className="text-primary mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground font-normal leading-snug">{item.label}</span>
+      {/* CTA Section */}
+      <section className="py-20 px-6 bg-foreground text-background">
+        <div className="container max-w-4xl">
+          <ScrollReveal>
+            <div className="text-center space-y-8">
+              <h2 className="font-sans text-4xl md:text-5xl font-medium tracking-tight">
+                Not Sure Where to Start?
+              </h2>
+              <p className="font-sans text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
+                Book a free consultation to discuss your business challenges and discover which AI solutions can deliver the biggest impact.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <Link
+                  to="/book-audit"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background text-foreground rounded-md font-sans text-sm uppercase tracking-wider font-medium hover:opacity-90 transition-opacity"
+                >
+                  Book Free Consultation
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/case-studies"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-background text-background rounded-md font-sans text-sm uppercase tracking-wider font-medium hover:bg-background hover:text-foreground transition-all"
+                >
+                  View Case Studies
+                </Link>
               </div>
-            </ScrollReveal>
-          ))}
+            </div>
+          </ScrollReveal>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* CTA */}
-    <section className="pb-28 px-6 relative z-10">
-      <div className="max-w-3xl mx-auto text-center">
-        <ScrollReveal>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-[1.05] mb-4">
-            Not sure where to start?
-          </h2>
-          <p className="text-muted-foreground font-normal text-lg mb-10 max-w-xl mx-auto">
-            Book a free audit and we'll map out exactly where AI and custom software can make the biggest impact on your business.
-          </p>
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/book-audit" className="group">
-              Book Your Free Audit
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-        </ScrollReveal>
-      </div>
-    </section>
-
-    <Footer />
-    </div>
+      <Footer />
+    </>
   );
 };
 

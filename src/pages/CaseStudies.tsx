@@ -72,18 +72,17 @@ const CaseStudies = () => {
       <StructuredData data={getBreadcrumbSchema(location.pathname)} />
       <Navbar />
 
-    <section className="pt-32 pb-16 px-6 relative grain">
-      <div className="absolute top-[20%] right-[10%] w-48 h-48 rounded-full bg-primary/[0.05] blur-3xl float" />
+    <section className="pt-32 pb-16 px-6 relative">
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">Portfolio</span>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
+          <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-4 block">Portfolio</span>
+          <h1 className="font-sans text-5xl md:text-6xl font-medium tracking-tight text-foreground leading-tight mb-4">
             Case Studies
           </h1>
-          <p className="font-serif text-xl md:text-2xl italic text-primary mb-6">
+          <p className="font-sans text-xl md:text-2xl text-muted-foreground mb-6">
             Real projects, real results.
           </p>
-          <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
+          <p className="font-sans text-lg text-muted-foreground leading-relaxed max-w-2xl">
             Here's how we've helped British Columbia businesses automate operations and build custom software with AI. From wellness clinics to electrical contractors, real results across Canada.
           </p>
         </ScrollReveal>
@@ -94,47 +93,47 @@ const CaseStudies = () => {
       <div className="max-w-5xl mx-auto space-y-20">
         {studies.map((s, i) => (
           <ScrollReveal key={s.title} delay={i * 100}>
-            <article className="border-t border-border/40 pt-12">
+            <article className="border-t border-border pt-12">
               <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
-                <div className={`${s.logoBg} rounded-lg p-4 shrink-0 w-fit`}>
+                <div className={`${s.logoBg} rounded-[1.25rem] p-4 shrink-0 w-fit border border-border`}>
                   <img src={s.logo} alt={`${s.title} - ${s.industry} client of Neural Solutions, British Columbia AI automation agency`} className="h-12 w-auto object-contain" loading="lazy" />
                 </div>
                 <div>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {s.tags.map((t) => (
-                      <span key={t} className="font-mono text-[10px] uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded">
+                      <span key={t} className="font-sans text-xs uppercase tracking-wider text-foreground bg-secondary px-3 py-1 rounded-md">
                         {t}
                       </span>
                     ))}
                   </div>
-                  <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{s.industry}</span>
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-2 leading-tight">{s.title}</h2>
-                  <p className="font-serif text-lg italic text-muted-foreground">{s.subtitle}</p>
+                  <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">{s.industry}</span>
+                  <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mt-2 mb-2 leading-tight">{s.title}</h2>
+                  <p className="font-sans text-lg text-muted-foreground">{s.subtitle}</p>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-[1fr_auto] gap-12">
                 <div className="space-y-8">
                   <div>
-                    <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-3">Challenge</span>
-                    <p className="text-foreground/80 font-normal leading-relaxed">{s.challenge}</p>
+                    <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Challenge</span>
+                    <p className="font-sans text-base text-foreground leading-relaxed">{s.challenge}</p>
                   </div>
                   <div>
-                    <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-3">Solution</span>
-                    <p className="text-foreground/80 font-normal leading-relaxed">{s.solution}</p>
+                    <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Solution</span>
+                    <p className="font-sans text-base text-foreground leading-relaxed">{s.solution}</p>
                   </div>
                 </div>
 
-                <div className="glass rounded-xl p-6 md:w-60 self-start">
+                <div className="border border-border rounded-[1.25rem] p-6 md:w-60 self-start bg-secondary">
                   <div className="mb-6">
-                    <div className="font-display text-5xl font-bold text-gradient tabular-nums">{s.highlight.metric}</div>
-                    <div className="font-mono text-[10px] text-muted-foreground mt-1">{s.highlight.label}</div>
+                    <div className="font-sans text-5xl font-bold text-foreground tabular-nums">{s.highlight.metric}</div>
+                    <div className="font-sans text-xs text-muted-foreground mt-2 uppercase tracking-wider">{s.highlight.label}</div>
                   </div>
-                  <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-3">Key Results</span>
+                  <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Key Results</span>
                   <ul className="space-y-2.5">
                     {s.results.map((r) => (
-                      <li key={r} className="flex items-start gap-2 text-xs text-foreground/70 font-normal leading-snug">
-                        <Check size={12} className="text-primary mt-0.5 shrink-0" />
+                      <li key={r} className="flex items-start gap-2 font-sans text-xs text-foreground leading-snug">
+                        <Check size={12} className="text-foreground mt-0.5 shrink-0" />
                         {r}
                       </li>
                     ))}
@@ -148,10 +147,10 @@ const CaseStudies = () => {
 
       <ScrollReveal delay={200}>
         <div className="text-center mt-20">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-4">
             Want results like these?
           </h2>
-          <p className="font-serif text-xl italic text-primary mb-8">
+          <p className="font-sans text-xl text-muted-foreground mb-8">
             Let's start with a free audit.
           </p>
           <Button variant="hero" size="lg" asChild>

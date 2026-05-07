@@ -14,10 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Syne"', 'system-ui', 'sans-serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Outfit"', 'system-ui', 'sans-serif'],
-        mono: ['"Space Mono"', 'monospace'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -69,9 +66,9 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "1.25rem", // 20px for cards
+        md: "0.75rem",
+        sm: "0.5rem",
       },
       keyframes: {
         "accordion-down": {
@@ -97,5 +94,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

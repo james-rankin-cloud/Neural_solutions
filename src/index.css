@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,39 +6,39 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 10%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 2%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card-foreground: 0 0% 2%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
-    --primary: 262 70% 50%;
+    --popover-foreground: 0 0% 2%;
+    --primary: 0 0% 2%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 260 20% 94%;
-    --secondary-foreground: 240 10% 20%;
-    --muted: 260 15% 93%;
-    --muted-foreground: 240 5% 45%;
-    --accent: 275 80% 55%;
-    --accent-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 2%;
+    --muted: 0 0% 98%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 260 15% 88%;
-    --input: 260 15% 88%;
-    --ring: 262 70% 50%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 97%;
-    --sidebar-foreground: 240 10% 10%;
-    --sidebar-primary: 262 70% 50%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 2%;
+    --radius: 1.25rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 2%;
+    --sidebar-primary: 0 0% 2%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 260 20% 94%;
-    --sidebar-accent-foreground: 240 10% 10%;
-    --sidebar-border: 260 15% 88%;
-    --sidebar-ring: 262 70% 50%;
-    --ticker: 260 15% 93%;
-    --ticker-foreground: 240 5% 45%;
-    --cal-brand: 262 70% 50%;
-    --cal-brand-emphasis: 275 80% 55%;
-    --cal-brand-subtle: 260 20% 94%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 2%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 2%;
+    --ticker: 0 0% 98%;
+    --ticker-foreground: 0 0% 45%;
+    --cal-brand: 0 0% 2%;
+    --cal-brand-emphasis: 0 0% 10%;
+    --cal-brand-subtle: 0 0% 96%;
   }
 }
 
@@ -55,10 +55,9 @@
     scroll-behavior: smooth;
   }
 
-  /* Make Syne display headings more legible */
+  /* Inter font optimization */
   h1, h2, h3 {
-    letter-spacing: -0.01em;
-    word-spacing: 0.05em;
+    letter-spacing: -0.02em;
   }
 
   ::-webkit-scrollbar {
@@ -68,11 +67,11 @@
     background: hsl(0 0% 96%);
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(262 70% 50% / 0.25);
+    background: hsl(0 0% 70%);
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(262 70% 50% / 0.4);
+    background: hsl(0 0% 60%);
   }
 }
 
@@ -92,7 +91,7 @@
 
   /* Enhanced focus styles for accessibility */
   *:focus-visible {
-    outline: 2px solid hsl(262 70% 50%);
+    outline: 2px solid hsl(0 0% 2%);
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -102,31 +101,21 @@
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    outline: 2px solid hsl(262 70% 50%);
+    outline: 2px solid hsl(0 0% 2%);
     outline-offset: 2px;
-  }
-
-  /* Atmosphere backgrounds */
-  .atmosphere {
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 40%, hsl(262 70% 50% / 0.04) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 80% at 80% 60%, hsl(275 80% 55% / 0.03) 0%, transparent 70%),
-      radial-gradient(ellipse 100% 100% at 50% 0%, hsl(260 20% 96% / 0.5) 0%, transparent 60%),
-      hsl(0 0% 98%);
-  }
-
-  .atmosphere-dense {
-    background:
-      radial-gradient(ellipse 70% 50% at 30% 50%, hsl(262 70% 50% / 0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 70% at 70% 40%, hsl(275 80% 55% / 0.05) 0%, transparent 70%),
-      hsl(0 0% 98%);
   }
 
   /* Glass */
   .glass {
-    background: hsl(0 0% 100% / 0.7);
+    background: hsl(0 0% 100% / 0.8);
     backdrop-filter: blur(12px);
-    border: 1px solid hsl(262 70% 50% / 0.08);
+    border: 1px solid hsl(0 0% 90%);
+  }
+
+  .glass-dark {
+    background: hsl(0 0% 2% / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(0 0% 20%);
   }
 
   /* Grain overlay */
@@ -141,28 +130,10 @@
     background-size: 128px 128px;
   }
 
-  /* Shimmer text */
-  .shimmer {
-    background: linear-gradient(90deg, hsl(262 70% 50%), hsl(320 70% 55%), hsl(262 70% 50%));
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 4s ease-in-out infinite;
-  }
-
-  /* Static gradient text */
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(262 70% 50%), hsl(275 80% 55%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   /* Gradient border */
   .gradient-border {
     position: relative;
-    border-radius: var(--radius);
+    border-radius: 1.25rem;
     background: hsl(0 0% 100%);
   }
   .gradient-border::before {
@@ -171,7 +142,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, hsl(262 70% 50% / 0.25), hsl(275 80% 55% / 0.15), transparent);
+    background: linear-gradient(135deg, hsl(0 0% 80% / 0.3), hsl(0 0% 90% / 0.2), transparent);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -180,12 +151,12 @@
 
   /* Card elevated */
   .card-elevated {
-    box-shadow: 0 4px 24px hsl(240 10% 10% / 0.06), 0 1px 3px hsl(240 10% 10% / 0.04);
+    box-shadow: 0 4px 24px hsl(0 0% 0% / 0.06), 0 1px 3px hsl(0 0% 0% / 0.04);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   }
   .card-elevated:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px hsl(262 70% 50% / 0.08), 0 4px 12px hsl(240 10% 10% / 0.04);
+    box-shadow: 0 12px 40px hsl(0 0% 0% / 0.1), 0 4px 12px hsl(0 0% 0% / 0.06);
   }
 
   /* Perspective card */
@@ -209,7 +180,7 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background: hsl(262 70% 50%);
+    background: hsl(0 0% 2%);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -217,11 +188,6 @@
   .line-draw:hover::after {
     transform: scaleX(1);
     transform-origin: left;
-  }
-
-  /* Glow */
-  .glow-purple {
-    box-shadow: 0 0 20px hsl(262 70% 50% / 0.12), 0 0 60px hsl(262 70% 50% / 0.06);
   }
 
   /* Float animations */
@@ -253,7 +219,7 @@
 
   /* Cal.com embed customization */
   .cal-embed iframe {
-    border-radius: var(--radius);
+    border-radius: 1.25rem;
     min-height: 600px;
   }
 
@@ -267,11 +233,6 @@
       min-height: 700px;
     }
   }
-}
-
-@keyframes shimmer {
-  0%, 100% { background-position: 200% 0; }
-  50% { background-position: -200% 0; }
 }
 
 @keyframes float {

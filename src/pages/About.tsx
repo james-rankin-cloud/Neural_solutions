@@ -61,18 +61,17 @@ const About = () => {
       <StructuredData data={getBreadcrumbSchema(location.pathname)} />
       <Navbar />
 
-    <section className="pt-32 pb-16 px-6 relative grain">
-      <div className="absolute bottom-[10%] left-[5%] w-56 h-56 rounded-full bg-accent/[0.04] blur-3xl float-delayed" />
+    <section className="pt-32 pb-16 px-6 relative">
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">The People Behind</span>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-4">
+          <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-4 block">The People Behind</span>
+          <h1 className="font-sans text-5xl md:text-6xl font-medium tracking-tight text-foreground leading-tight mb-4">
             Neural Solutions
           </h1>
-          <p className="font-serif text-xl md:text-2xl italic text-primary mb-6">
+          <p className="font-sans text-xl md:text-2xl text-muted-foreground mb-6">
             Small team. Big conviction.
           </p>
-          <p className="text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed">
+          <p className="font-sans text-lg text-muted-foreground leading-relaxed max-w-2xl">
             Based in Victoria, British Columbia, we bring local expertise to Canadian businesses seeking AI automation and custom software solutions.
           </p>
         </ScrollReveal>
@@ -81,38 +80,38 @@ const About = () => {
 
     <section className="pb-32 px-6 relative z-10">
       <div className="max-w-5xl mx-auto">
-        <div className="space-y-0 border-t border-border/40">
+        <div className="space-y-0 border-t border-border">
           {team.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 100}>
-              <div className="border-b border-border/40 py-12 md:py-16">
+              <div className="border-b border-border py-12 md:py-16">
                 <div className="flex flex-col md:flex-row items-start gap-8 mb-8">
                   {t.photo ? (
                     <img
                       src={t.photo}
                       alt={`${t.name}, ${t.role} at Neural Solutions, Victoria BC - AI automation expert`}
-                      className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shrink-0 shadow-lg"
+                      className="w-32 h-32 md:w-40 md:h-40 rounded-[1.25rem] object-cover shrink-0 border border-border"
                       loading="lazy"
                     />
                   ) : (
-                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <span className="font-mono text-2xl md:text-3xl font-bold text-primary">{t.initials}</span>
+                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-[1.25rem] bg-secondary flex items-center justify-center shrink-0 border border-border">
+                      <span className="font-sans text-2xl md:text-3xl font-bold text-foreground">{t.initials}</span>
                     </div>
                   )}
                   <div className="flex-1">
-                    <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{t.name}</h2>
-                    <span className="font-mono text-xs uppercase tracking-wider text-primary block mb-3">{t.role}</span>
+                    <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-2">{t.name}</h2>
+                    <span className="font-sans text-xs uppercase tracking-wider text-foreground block mb-3">{t.role}</span>
                     <div className="flex flex-wrap items-center gap-4 mb-6">
-                      <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <Building2 size={14} className="text-primary/60" />
+                      <span className="flex items-center gap-1.5 font-sans text-sm text-muted-foreground">
+                        <Building2 size={14} className="text-muted-foreground" />
                         {t.company}
                       </span>
-                      <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <MapPin size={14} className="text-primary/60" />
+                      <span className="flex items-center gap-1.5 font-sans text-sm text-muted-foreground">
+                        <MapPin size={14} className="text-muted-foreground" />
                         {t.location}
                       </span>
                     </div>
-                    <p className="text-foreground/80 font-normal leading-relaxed mb-4">{t.bio}</p>
-                    <p className="text-sm text-muted-foreground font-normal leading-relaxed italic">{t.personal}</p>
+                    <p className="font-sans text-base text-foreground leading-relaxed mb-4">{t.bio}</p>
+                    <p className="font-sans text-sm text-muted-foreground leading-relaxed">{t.personal}</p>
                   </div>
                 </div>
               </div>

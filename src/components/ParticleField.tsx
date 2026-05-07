@@ -36,7 +36,7 @@ const ParticleField = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "hsla(262, 70%, 50%, 0.15)";
+        ctx.fillStyle = "hsla(0, 0%, 85%, 0.15)"; // Light gray particles
         ctx.fill();
       });
 
@@ -50,7 +50,7 @@ const ParticleField = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(262, 70%, 50%, ${0.04 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `hsla(0, 0%, 70%, ${0.04 * (1 - dist / 150)})`; // Gray connection lines
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

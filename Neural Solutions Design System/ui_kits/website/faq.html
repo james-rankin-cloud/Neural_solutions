@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Neural Solutions — FAQ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+
+  /* ============ NAV ============ */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: hsl(0 0% 100% / 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid hsl(262 70% 50% / 0.08); }
+  .nav-inner { max-width: 1152px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .mark { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-fg); text-decoration: none; }
+  .mark .dot { color: var(--c-primary); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-link { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-fg-2); text-decoration: none; transition: color 200ms; }
+  .nav-link:hover { color: var(--c-fg); }
+  .nav-link.active { color: var(--c-primary); }
+  .nav-cta { background: var(--c-primary); color: #fff; height: 36px; padding: 0 16px; border-radius: var(--r-md); display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: var(--shadow-hero); border: 0; cursor: pointer; transition: all 200ms; text-decoration: none; }
+  .nav-cta:hover { background: var(--c-accent); }
+
+  /* ============ HEADER ============ */
+  .page-head { padding: 160px 0 64px; position: relative; overflow: hidden; }
+  .page-head::before { content:''; position: absolute; inset: 0; background:
+    radial-gradient(ellipse 70% 50% at 30% 50%, hsl(262 70% 50% / 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 70% 40%, hsl(275 80% 55% / 0.05) 0%, transparent 70%);
+    z-index: 0;
+  }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  .eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.3em; color: var(--c-primary); margin-bottom: 16px; display: block; }
+  h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 4.5vw + 1rem, 4.5rem); line-height: 1.05; letter-spacing: -0.01em; color: var(--c-fg); margin: 0 0 8px; }
+  .head-it { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem); color: var(--c-primary); margin: 0 0 24px; }
+  .lead { font-family: var(--font-sans); font-size: 1.125rem; color: var(--c-fg-2); max-width: 560px; line-height: 1.6; margin: 0; }
+
+  /* ============ FILTERS ============ */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 48px 0 16px; }
+  .pill { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; padding: 8px 14px; border-radius: 9999px; background: transparent; border: 1px solid hsl(260 15% 88%); color: var(--c-fg-2); cursor: pointer; transition: all 200ms; }
+  .pill:hover { color: var(--c-fg); border-color: hsl(262 70% 50% / 0.4); }
+  .pill.active { background: var(--c-primary); color: #fff; border-color: var(--c-primary); }
+
+  /* ============ FAQ LIST ============ */
+  .faq-list { padding: 0 0 64px; border-top: 1px solid hsl(260 15% 88% / 0.5); }
+  .faq { border-bottom: 1px solid hsl(260 15% 88% / 0.5); }
+  .faq summary { list-style: none; cursor: pointer; padding: 28px 0; display: flex; gap: 24px; align-items: flex-start; transition: color 200ms; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:hover .faq-q { color: var(--c-primary); }
+  .faq-num { font-family: var(--font-mono); font-size: 11px; color: hsl(240 5% 45% / 0.5); flex-shrink: 0; padding-top: 4px; min-width: 28px; }
+  .faq-q { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.3; color: var(--c-fg); flex: 1; transition: color 200ms; }
+  .faq-toggle { width: 32px; height: 32px; border-radius: 50%; border: 1px solid hsl(260 15% 88%); display: inline-flex; align-items: center; justify-content: center; color: var(--c-fg-2); flex-shrink: 0; transition: all 300ms var(--ease-out); }
+  .faq[open] .faq-toggle { background: var(--c-primary); color: #fff; border-color: var(--c-primary); transform: rotate(45deg); }
+  .faq-a { padding: 0 0 32px 52px; max-width: 720px; animation: reveal-up 400ms var(--ease-out); }
+  .faq-a p { font-family: var(--font-sans); font-size: 16px; line-height: 1.65; color: var(--c-fg-2); margin: 0 0 12px; }
+  .faq-a p:last-child { margin-bottom: 0; }
+  .faq-a a { color: var(--c-primary); text-decoration: none; border-bottom: 1px solid hsl(262 70% 50% / 0.3); }
+  .faq-a a:hover { border-color: var(--c-primary); }
+  .faq.hidden { display: none; }
+
+  /* ============ STILL HAVE QUESTIONS ============ */
+  .more { padding: 96px 0; text-align: center; border-top: 1px solid hsl(260 15% 88% / 0.5); position: relative; overflow: hidden; }
+  .more::before { content:''; position: absolute; inset: 0; background:
+    radial-gradient(ellipse 70% 50% at 50% 50%, hsl(262 70% 50% / 0.06) 0%, transparent 70%);
+    z-index: 0;
+  }
+  .more .container { position: relative; z-index: 1; }
+  .more h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3vw + 1rem, 3rem); line-height: 1.05; margin: 0 0 8px; color: var(--c-fg); }
+  .more .it { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); color: var(--c-primary); margin: 0 0 32px; }
+  .more p { max-width: 480px; margin: 0 auto 36px; font-family: var(--font-sans); color: var(--c-fg-2); line-height: 1.6; }
+
+  .empty { padding: 64px 0; text-align: center; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--c-fg-2); }
+
+  @media (max-width: 700px) {
+    .nav-link { display: none; }
+    .faq-q { font-size: 18px; }
+    .faq-a { padding-left: 0; }
+    .faq summary { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="mark" href="index.html">Neural<span class="dot">.</span>Solutions</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="index.html#services">Services</a>
+      <a class="nav-link" href="index.html#cases">Case Studies</a>
+      <a class="nav-link active" href="faq.html">FAQ</a>
+      <a class="nav-cta" href="index.html#cta">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="container">
+    <span class="eyebrow">FAQ</span>
+    <h1>Real questions,</h1>
+    <p class="head-it">straight answers.</p>
+    <p class="lead">If you're weighing whether AI actually fits your business — or whether we're the team to build it — start here. Still stuck? <a href="index.html#cta" style="color:var(--c-primary);text-decoration:none;border-bottom:1px solid hsl(262 70% 50% / 0.3)">Book a free audit.</a></p>
+
+    <div class="filters" id="filters">
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="getting-started">Getting started</button>
+      <button class="pill" data-cat="process">Process</button>
+      <button class="pill" data-cat="pricing">Pricing</button>
+      <button class="pill" data-cat="technical">Technical</button>
+      <button class="pill" data-cat="support">After launch</button>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="faq-list" id="faq-list"></div>
+    <div class="empty" id="empty" style="display:none">No questions in this category yet.</div>
+  </div>
+</section>
+
+<section class="more">
+  <div class="container">
+    <h2>Still have a question?</h2>
+    <p class="it">We probably have an answer.</p>
+    <p>Book a free 30-minute audit. No slides, no fluff — just a conversation about what's broken in your business and where AI can fix it.</p>
+    <a class="btn btn-hero" href="index.html#cta">Book a Free Audit <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+  </div>
+</section>
+
+<script>
+  const faqs = [
+    { cat:'getting-started', q:"What does Neural Solutions actually do?",
+      a:"We design, build, and deploy AI systems tailored to how your business actually operates. That includes custom software, AI integration into your existing tools, automation of repetitive workflows, and AI-powered assistants like voicemail, chat, and email responders. We're a build shop, not a consultancy — at the end of an engagement you have working software, not a slide deck." },
+    { cat:'getting-started', q:"Who's a good fit for working with you?",
+      a:"Operator-led businesses with at least one painful, repetitive workflow that's eating margin or capacity. Most of our clients are Canadian SMBs in services, trades, wellness, and professional services. If you can describe a process where your team is the bottleneck, we can almost certainly automate or augment it." },
+    { cat:'getting-started', q:"Do I need to know what AI to use before reaching out?",
+      a:"No. The audit is for figuring that out together. You bring the workflow pain, we bring the toolkit — LLMs, classical ML, RPA, custom code, off-the-shelf integrations — and we recommend the lightest thing that solves the problem." },
+
+    { cat:'process', q:"How does an engagement start?",
+      a:"With a free 30-minute audit. We map your workflows, identify bottlenecks, and tell you exactly where AI and automation can have the biggest impact. You walk away with a written roadmap whether or not you hire us." },
+    { cat:'process', q:"How long does a typical project take?",
+      a:"Weeks, not months. A focused automation usually ships in 2–4 weeks. Larger multi-system builds run longer, but we work in tight iterations and deploy something real within the first 10 days, every time." },
+    { cat:'process', q:"What does the build process look like?",
+      a:"Three phases: (1) Deep Audit — we map workflows and find the highest-leverage spot to start. (2) Build & Integrate — we design and deploy the solution into your stack. (3) Optimize & Scale — we monitor, refine, and expand. It's continuous improvement, not one-and-done." },
+
+    { cat:'pricing', q:"How much does this cost?",
+      a:"It varies. Every engagement is scoped to the workflow, the integrations, and the surface area we're touching — so we don't quote off a price list. After the free audit you get a fixed price for the build, with no surprises." },
+    { cat:'pricing', q:"Do you do retainers or just project work?",
+      a:"Both. Most clients start with a fixed-price project, then move onto a light retainer for ongoing optimization, monitoring, and the occasional new automation. We don't push retainers if there's no real work to do." },
+    { cat:'pricing', q:"Is the free audit really free?",
+      a:"Yes. No credit card, no obligation, no upsell deck at the end. Worst case you walk away with a clear roadmap of what's broken and what to fix first — and you go execute it yourself or with someone else." },
+
+    { cat:'technical', q:"What tools and platforms do you build on?",
+      a:"We're stack-agnostic, but we deploy heavily on AWS, Azure, and Oracle Cloud. We work with whatever LLMs make sense — OpenAI, Anthropic, open-source models — and integrate with the CRMs, ERPs, and business tools you already use. We don't push proprietary platforms; everything we build, you own." },
+    { cat:'technical', q:"Do I own the code?",
+      a:"Yes. Full IP transfer at delivery. Your code lives in your repo, your infrastructure runs on your cloud accounts, and you can take it to another team at any time." },
+    { cat:'technical', q:"How do you handle data privacy and security?",
+      a:"We follow PIPEDA and provincial privacy law for Canadian clients, and we sign NDAs and DPAs as standard. Sensitive data stays in your environment — we don't ship customer data to third-party AI providers without explicit, audited approval." },
+
+    { cat:'support', q:"What happens after launch?",
+      a:"We monitor and refine. AI systems aren't fire-and-forget — they need tuning as your data and business shift. Most clients keep us on a light retainer for monitoring, model updates, and small iterations. If you want to take it in-house, we'll train your team and hand off cleanly." },
+    { cat:'support', q:"What if the AI gets something wrong?",
+      a:"We design every system with guardrails, fallbacks, and human-in-the-loop checkpoints for high-stakes decisions. You'll see exactly where AI is making calls and where humans confirm. If something does drift, our monitoring catches it and we patch it — usually before you notice." },
+    { cat:'support', q:"Where are you based and who do you work with?",
+      a:"Headquartered in Victoria, BC, with team across Vancouver Island. We work with businesses across Canada — most engagements are remote, with quarterly on-site working sessions for larger clients in BC and Alberta." },
+  ];
+
+  const list = document.getElementById('faq-list');
+  const empty = document.getElementById('empty');
+  let activeCat = 'all';
+
+  function render() {
+    const filtered = faqs.filter(f => activeCat === 'all' || f.cat === activeCat);
+    list.innerHTML = filtered.map((f, i) => `
+      <details class="faq" data-cat="${f.cat}">
+        <summary>
+          <span class="faq-num">${String(i+1).padStart(2,'0')}</span>
+          <span class="faq-q">${f.q}</span>
+          <span class="faq-toggle"><i data-lucide="plus" style="width:14px;height:14px"></i></span>
+        </summary>
+        <div class="faq-a"><p>${f.a}</p></div>
+      </details>
+    `).join('');
+    empty.style.display = filtered.length ? 'none' : 'block';
+    lucide.createIcons();
+  }
+
+  document.getElementById('filters').addEventListener('click', e => {
+    const pill = e.target.closest('.pill');
+    if (!pill) return;
+    document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p === pill));
+    activeCat = pill.dataset.cat;
+    render();
+  });
+
+  render();
+</script>
+</body>
+</html>

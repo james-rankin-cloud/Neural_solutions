@@ -5,12 +5,12 @@ const Footer = () => (
     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
       {/* Left: Big closing statement */}
       <div>
-        <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground leading-[1.05] mb-4">
+        <h3 className="font-sans text-3xl md:text-4xl font-bold text-foreground leading-[1.05] mb-4">
           Stop planning.
           <br />
-          <span className="font-serif italic text-primary">Start shipping.</span>
+          <span className="font-sans">Start shipping.</span>
         </h3>
-        <p className="text-muted-foreground font-normal max-w-sm leading-relaxed">
+        <p className="font-sans text-muted-foreground font-normal max-w-sm leading-relaxed">
           Neural Solutions builds AI systems that run your business while you focus on growing it. Based in Victoria, BC, serving businesses across Canada.
         </p>
       </div>
@@ -18,11 +18,10 @@ const Footer = () => (
       {/* Right: Nav + contact */}
       <div className="flex gap-16">
         <div>
-          <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-4">Navigation</span>
+          <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-4">Navigation</span>
           <div className="space-y-2">
             {[
               { to: "/", label: "Home" },
-              { to: "/services", label: "Services" },
               { to: "/case-studies", label: "Case Studies" },
               { to: "/about", label: "About" },
               { to: "/book-audit", label: "Book Audit" },
@@ -30,7 +29,7 @@ const Footer = () => (
               <Link
                 key={l.to}
                 to={l.to}
-                className="block font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
+                className="block font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {l.label}
               </Link>
@@ -39,8 +38,8 @@ const Footer = () => (
         </div>
 
         <div>
-          <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block mb-4">Contact</span>
-          <a href="mailto:growth@neuralcoremarketing.com" className="block font-mono text-xs text-muted-foreground hover:text-primary transition-colors">
+          <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-4">Contact</span>
+          <a href="mailto:growth@neuralcoremarketing.com" className="block font-sans text-sm text-muted-foreground hover:text-foreground transition-colors">
             growth@neuralcoremarketing.com
           </a>
         </div>
@@ -48,7 +47,7 @@ const Footer = () => (
     </div>
 
     <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-border/20">
-      <p className="font-mono text-[10px] text-muted-foreground/40 uppercase tracking-wider">
+      <p className="font-sans text-xs text-muted-foreground uppercase tracking-wider">
         © {new Date().getFullYear()} Neural Solutions. All rights reserved.
       </p>
     </div>

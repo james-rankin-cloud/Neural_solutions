@@ -8,14 +8,14 @@ interface CalendarEmbedProps {
 
 export default function CalendarEmbed({ calLink, className }: CalendarEmbedProps) {
   return (
-    <div className={cn("glass rounded-2xl p-8 overflow-hidden", className)}>
+    <div className={cn("border border-border rounded-[1.25rem] overflow-hidden bg-white", className)}>
       <Cal
         calLink={calLink}
         config={{
           theme: "light",
           styles: {
             branding: {
-              brandColor: "hsl(262, 70%, 50%)", // Primary purple
+              brandColor: "#050505", // Black
             },
           },
         }}

@@ -22,27 +22,29 @@ Improve designs, not just implement them
 
 3. Design Standard
 The UI must feel: Premium. Clean. Minimal. Modern. Sophisticated.
-Reference: Apple, Stripe, high-end tech agencies.
+Reference: Apple, Linear, Stripe, Mistral Consulting.
 Brand Colors
 
-Primary: Deep purple (HSL 262 70% 50%)
-Accent: Bright violet (HSL 275 80% 55%)
-Background: Near-white (HSL 0 0% 98%)
-Text: Near-black (HSL 240 10% 10%)
+Black: #050505 (primary text, backgrounds on dark sections)
+White: #FFFFFF (primary background)
+Gray Scale:
+  Light: #F5F5F5 (secondary backgrounds)
+  Medium: #737373 (muted text)
+  Border: #E5E5E5 (borders, dividers)
 
 Typography
 
-Headlines: Playfair Display (serif, editorial)
-Body: Outfit (sans-serif, clean)
-Labels/Meta: Space Mono (monospace, technical)
+All text: Inter (sans-serif, clean, modern)
+Headlines: font-medium to font-bold, tracking-tight
+Body: font-normal, leading-relaxed
 
 Rules
 
 Strong spacing and hierarchy. No clutter.
-Large readable headings with tight line-height
-Subtle purple gradients on white backgrounds
-Glassmorphism effects where appropriate
-Consistent button and card styles throughout
+Large readable headings with tight line-height (leading-tight)
+Clean white backgrounds with subtle gray accents
+Consistent card style: rounded-[1.25rem] with border-border
+Black text on white, high contrast for readability
 
 4. Project Structure
 
@@ -72,12 +74,12 @@ Wrap all major sections with ScrollReveal for entrance animations
 6. Styling Rules
 
 Tailwind only — no arbitrary pixel values
-Cards → rounded-xl, soft shadows, .card-elevated class
-Sections → generous vertical padding (py-16+)
-Containers → max-w-6xl or max-w-7xl centered
-Glass effects → .glass class
-Gradients → .atmosphere or .atmosphere-dense classes
-Text gradients → .text-gradient class
+Cards → rounded-[1.25rem], soft gray shadows, .card-elevated class
+Sections → generous vertical padding (py-16+ or py-20+)
+Containers → max-w-7xl centered
+Glass effects → .glass class (white translucent) or .glass-dark (black translucent)
+Text → Inter font, black on white for high contrast
+Borders → border-border for consistent light gray borders
 
 7. Responsiveness
 Mobile-first always. Check:
@@ -90,12 +92,14 @@ Navigation uses hamburger menu on mobile
 8. Routing
 Current routes:
 
-/ → Landing page
-/services → Services detail
+/ → One-page scroll landing
 /case-studies → Portfolio
 /about → Team
-/book-audit → Contact form
-/ui-code-kit → Developer reference
+/book-audit → Contact form + booking
+/ai-agency-{city} → City landing pages (×18)
+/resources/what-is-ai-automation → Educational guide
+
+Note: /services route removed. Services shown on landing page.
 
 Do not break routing structure. Do not introduce unnecessary routes.
 9. Forms & Validation
@@ -215,32 +219,35 @@ Do not modify core shadcn component logic unless necessary
 19. Frontend Design Standard
 Before writing any markup, commit to a clear aesthetic direction.
 Purpose: What problem does this UI solve? Who is the user?
-Tone: Refined, minimal, authoritative — editorial luxury meets technical precision.
+Tone: Refined, minimal, professional — premium simplicity meets modern precision.
 Differentiation: One strong visual idea executed well beats ten mediocre ones.
 Typography
-Use all three fonts with intention — don't default to one for everything.
-Space Mono for labels: uppercase + tracking-widest. Playfair Display at large scale with leading-tight.
+Use Inter exclusively throughout — it provides clarity and professionalism.
+Headlines: font-medium to font-bold with tracking-tight
+Body: font-normal with leading-relaxed
+Labels: font-sans with uppercase + tracking-wider
 Color & Atmosphere
-Dominant neutrals with sharp purple punctuation. Use .atmosphere classes for depth.
-Avoid purple gradient on white as the only visual idea — it's a tool, not the entire palette.
+Dominant black and white with subtle gray punctuation for depth.
+High contrast for maximum readability. Gray borders (border-border) for definition.
 Motion
-Staggered load reveals create more delight than scattered micro-interactions.
-Hover states: subtle scale, opacity, or border transitions. Never animate for decoration alone.
+Staggered ScrollReveal entrance animations create delight without overwhelming.
+Hover states: subtle opacity or border transitions. Never animate for decoration alone.
 Composition
 Generous negative space is a feature, not waste. Use asymmetry and varied layouts across sections.
 Avoid centered-everything on every page — create visual rhythm.
 Visual Depth
 
-Tinted shadows: shadow-purple-500/10
-Thin borders: border-white/10 on dark, border-purple-200/40 on light
-Low-opacity grain or noise texture on hero sections
-Layered transparencies via .glass
+Soft gray shadows for elevation
+Consistent borders: border-border for light gray dividers
+Minimal use of grain texture (optional)
+Glassmorphism via .glass for layered depth
 
 Avoid
 
 Identical page structure repeated on every route
 Animations on every element (restraint makes key moments land harder)
 Design decisions without a clear, traceable intention
+Purple color references (old design - replaced with black/white/gray)
 
 20. The Bar
 Would this feel at home on a Stripe, Linear, or Vercel marketing page?

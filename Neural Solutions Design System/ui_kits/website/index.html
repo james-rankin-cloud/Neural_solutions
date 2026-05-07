@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Neural Solutions — Homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+
+  /* ============ NAV ============ */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: all 300ms; }
+  .nav.scrolled { background: hsl(0 0% 100% / 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid hsl(262 70% 50% / 0.08); box-shadow: 0 1px 12px hsl(240 10% 10% / 0.04); }
+  .nav-inner { max-width: 1152px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .mark { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-fg); text-decoration: none; }
+  .mark .dot { color: var(--c-primary); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-link { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-fg-2); text-decoration: none; transition: color 200ms; }
+  .nav-link:hover { color: var(--c-fg); }
+  .nav-link.active { color: var(--c-primary); }
+  .nav-cta { background: var(--c-primary); color: #fff; height: 36px; padding: 0 16px; border-radius: var(--r-md); display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: var(--shadow-hero); border: 0; cursor: pointer; transition: all 200ms; text-decoration: none; }
+  .nav-cta:hover { background: var(--c-accent); box-shadow: 0 10px 30px hsl(275 80% 55% / 0.25); }
+
+  /* ============ HERO ============ */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: 80px; }
+  .hero-bg { position: absolute; inset: 0; background:
+    radial-gradient(ellipse 70% 50% at 30% 50%, hsl(262 70% 50% / 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 70% 40%, hsl(275 80% 55% / 0.07) 0%, transparent 70%),
+    var(--c-bg);
+    z-index: 0;
+  }
+  .orb { position: absolute; border-radius: 50%; filter: blur(40px); pointer-events: none; z-index: 1; }
+  .orb-1 { left: 8%; top: 14%; width: 280px; height: 280px; background: hsl(262 70% 50% / 0.10); animation: float 7s ease-in-out infinite; }
+  .orb-2 { right: 12%; bottom: 16%; width: 340px; height: 340px; background: hsl(275 80% 55% / 0.08); animation: float 8s ease-in-out 2s infinite; }
+  .hero-inner { position: relative; z-index: 10; max-width: 1024px; margin: 0 auto; padding: 0 24px; text-align: center; }
+  .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 6vw + 1rem, 5.5rem); line-height: 1.05; letter-spacing: -0.01em; color: var(--c-fg); margin: 0 0 8px; }
+  .hero h2 { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(2rem, 3.5vw + 1rem, 4rem); line-height: 1.05; color: var(--c-primary); margin: 0 0 40px; white-space: nowrap; }
+  @media (max-width: 540px) { .hero h2 { white-space: normal; font-size: clamp(1.75rem, 7vw, 2.5rem); } }
+  .hero p { font-family: var(--font-sans); font-size: 1.125rem; color: var(--c-fg-2); max-width: 640px; margin: 0 auto 48px; line-height: 1.6; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .grain-overlay { position: absolute; inset: 0; opacity: 0.04; pointer-events: none; z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+  }
+
+  /* ============ SECTION SHARED ============ */
+  section { position: relative; z-index: 1; }
+  .container { max-width: 1024px; margin: 0 auto; padding: 0 24px; }
+  .container-wide { max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+  .py-section { padding: 112px 0; }
+  .eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.3em; color: var(--c-primary); margin-bottom: 16px; display: block; }
+  .h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3vw + 1rem, 3rem); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 8px; color: var(--c-fg); }
+  .h2-it { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); color: var(--c-primary); margin: 0 0 64px; }
+
+  /* ============ SERVICES ============ */
+  .services-list { border-top: 1px solid hsl(260 15% 88% / 0.5); }
+  .service { padding: 28px 0; border-bottom: 1px solid hsl(260 15% 88% / 0.5); transition: background 500ms; cursor: pointer; }
+  .service.active { background: hsl(260 15% 93% / 0.5); margin: 0 -24px; padding: 28px 24px; }
+  .service-row { display: flex; gap: 32px; align-items: flex-start; }
+  .service-num { font-family: var(--font-mono); font-size: 11px; color: hsl(240 5% 45% / 0.5); flex-shrink: 0; padding-top: 4px; }
+  .service-body { flex: 1; }
+  .service-head { display: flex; align-items: center; gap: 16px; }
+  .service-icon { width: 20px; height: 20px; color: var(--c-primary); flex-shrink: 0; }
+  .service-title { font-family: var(--font-display); font-weight: 700; font-size: 22px; margin: 0; color: var(--c-fg); }
+  .service-desc { max-height: 0; opacity: 0; overflow: hidden; transition: all 500ms var(--ease-out); margin-left: 36px; }
+  .service.active .service-desc { max-height: 200px; opacity: 1; margin-top: 12px; }
+  .service-desc p { font-family: var(--font-sans); font-size: 15px; color: var(--c-fg-2); line-height: 1.6; max-width: 640px; margin: 0; }
+
+  /* ============ QUOTE ============ */
+  .quote-section { padding: 96px 0; }
+  .quote-wrap { max-width: 768px; margin: 0 auto; padding: 0 24px; text-align: center; position: relative; }
+  .quote-mark { position: absolute; top: -24px; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-weight: 700; font-size: 96px; line-height: 1; color: hsl(262 70% 50% / 0.10); user-select: none; }
+  blockquote { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 2vw + 1rem, 2rem); line-height: 1.3; letter-spacing: -0.01em; color: var(--c-fg); margin: 32px 0 0; padding: 0; }
+  .cite { display: block; margin-top: 32px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--c-fg-2); font-style: normal; }
+
+  /* ============ PROCESS ============ */
+  .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid hsl(260 15% 88% / 0.5); }
+  .process-step { padding: 40px 32px 40px 0; border-right: 1px solid hsl(260 15% 88% / 0.5); }
+  .process-step:last-child { border-right: 0; padding-right: 0; }
+  .process-step:not(:last-child) { padding-right: 32px; }
+  .process-num { font-family: var(--font-display); font-weight: 700; font-size: 80px; line-height: 1; color: hsl(262 70% 50% / 0.12); display: block; margin-bottom: 24px; }
+  .process-title { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin: 0 0 12px; color: var(--c-fg); }
+  .process-desc { font-family: var(--font-sans); font-size: 15px; color: var(--c-fg-2); line-height: 1.6; margin: 0; }
+
+  /* ============ CASE STUDIES ============ */
+  .cs-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; gap: 24px; }
+  .cs-card { background: var(--c-card); border-radius: var(--r-lg); padding: 48px; box-shadow: var(--shadow-card); position: relative; transition: all 500ms var(--ease-out); }
+  .cs-card::before { content:''; position:absolute; inset:0; border-radius: inherit; padding:1px; background: linear-gradient(135deg, hsl(262 70% 50% / 0.25), hsl(275 80% 55% / 0.15), transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  .cs-tags { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .cs-industry { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-fg-2); display: block; margin-bottom: 8px; }
+  .cs-title { font-family: var(--font-display); font-weight: 700; font-size: 32px; margin: 0 0 16px; color: var(--c-fg); }
+  .cs-metric { font-family: var(--font-display); font-weight: 700; font-size: 28px; background: linear-gradient(135deg, var(--c-primary), var(--c-accent)); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0 0 16px; }
+  .cs-desc { font-family: var(--font-sans); font-size: 15px; color: var(--c-fg-2); line-height: 1.6; max-width: 640px; margin: 0 0 32px; }
+  .cs-nav { display: flex; gap: 12px; }
+  .cs-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid hsl(260 15% 88%); background: transparent; color: var(--c-fg-2); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all 200ms; }
+  .cs-nav button:hover { color: var(--c-fg); border-color: var(--c-primary); }
+  .cs-dots { display: flex; gap: 8px; align-items: center; margin-top: 32px; }
+  .cs-dot { height: 4px; width: 16px; border-radius: 9999px; background: var(--c-border); transition: all 300ms; }
+  .cs-dot.active { width: 32px; background: var(--c-primary); }
+
+  /* ============ CTA ============ */
+  .cta-section { padding: 128px 0; text-align: center; }
+  .cta-section h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3vw + 1rem, 3rem); line-height: 1.05; margin: 0 0 8px; color: var(--c-fg); }
+  .cta-section .it { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem); color: var(--c-primary); margin: 0 0 40px; }
+  .cta-section p { max-width: 560px; margin: 0 auto 48px; }
+
+  /* ============ FOOTER ============ */
+  footer { border-top: 1px solid hsl(260 15% 88% / 0.5); padding: 80px 0 24px; }
+  .foot-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+  .foot-h { font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 1.05; margin: 0 0 16px; color: var(--c-fg); }
+  .foot-h .it { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--c-primary); display: block; }
+  .foot-cols { display: flex; gap: 64px; }
+  .foot-col-h { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--c-fg-2); margin-bottom: 16px; display: block; }
+  .foot-col a { display: block; font-family: var(--font-mono); font-size: 12px; color: var(--c-fg-2); text-decoration: none; padding: 4px 0; transition: color 200ms; }
+  .foot-col a:hover { color: var(--c-primary); }
+  .foot-bar { max-width: 1152px; margin: 64px auto 0; padding: 24px 24px 0; border-top: 1px solid hsl(260 15% 88% / 0.4); }
+  .foot-bar p { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: hsl(240 5% 45% / 0.4); margin: 0; }
+
+  @media (max-width: 800px) {
+    .nav-links { gap: 16px; }
+    .nav-link { display: none; }
+    .process-grid { grid-template-columns: 1fr; }
+    .process-step { border-right: 0; border-bottom: 1px solid hsl(260 15% 88% / 0.5); padding-right: 0 !important; }
+    .foot-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="mark" href="#">Neural<span class="dot">.</span>Solutions</a>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Home</a>
+      <a class="nav-link active" href="#services">Services</a>
+      <a class="nav-link" href="#cases">Case Studies</a>
+      <a class="nav-link" href="#">About</a>
+      <a class="nav-cta" href="#cta">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero grain">
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="grain-overlay"></div>
+  <div class="hero-inner">
+    <h1>Lead with AI.</h1>
+    <h2>We'll build it for you.</h2>
+    <p>We design, build, and deploy AI systems tailored to how your business actually operates. Serving businesses across Canada from our Victoria, BC headquarters.</p>
+    <div class="hero-actions">
+      <a class="btn btn-hero" href="#cta">Book a Free Audit <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+      <a class="btn btn-hero-outline" href="#cases">View Our Work</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-section" id="services">
+  <div class="container">
+    <span class="eyebrow">CAPABILITIES</span>
+    <h2 class="h2">Buzzwords don't run businesses.</h2>
+    <p class="h2-it">AI does.</p>
+
+    <div class="services-list" id="services-list"></div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-wrap">
+    <span class="quote-mark">&ldquo;</span>
+    <blockquote>There will be two kinds of companies at the end of this decade: those that are fully utilizing AI, and those that are out of business.</blockquote>
+    <cite class="cite">— Peter Diamandis</cite>
+  </div>
+</section>
+
+<section class="py-section atmosphere-dense">
+  <div class="container-wide">
+    <span class="eyebrow">PROCESS</span>
+    <h2 class="h2">From audit to automation</h2>
+    <p class="h2-it">in weeks, not months.</p>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <h3 class="process-title">Deep Audit</h3>
+        <p class="process-desc">We map your workflows, identify bottlenecks, and find where AI and automation can make the biggest impact on revenue and efficiency.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <h3 class="process-title">Build &amp; Integrate</h3>
+        <p class="process-desc">Our team designs and deploys custom solutions. AI automations, intelligent workflows, custom software, or all of the above.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <h3 class="process-title">Optimize &amp; Scale</h3>
+        <p class="process-desc">We monitor, refine, and scale your solutions as your business grows. Continuous improvement, not one-and-done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-section" id="cases">
+  <div class="container">
+    <div class="cs-head">
+      <div>
+        <span class="eyebrow">RESULTS</span>
+        <h2 class="h2">Built for operators, <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--c-primary)">not just optimists.</span></h2>
+      </div>
+      <div class="cs-nav">
+        <button id="cs-prev" aria-label="Previous"><i data-lucide="arrow-left" style="width:16px;height:16px"></i></button>
+        <button id="cs-next" aria-label="Next"><i data-lucide="arrow-right" style="width:16px;height:16px"></i></button>
+      </div>
+    </div>
+
+    <div class="cs-card" id="cs-card">
+      <div class="cs-tags" id="cs-tags"></div>
+      <span class="cs-industry" id="cs-industry"></span>
+      <h3 class="cs-title" id="cs-title"></h3>
+      <p class="cs-metric" id="cs-metric"></p>
+      <p class="cs-desc" id="cs-desc"></p>
+      <div class="cs-dots" id="cs-dots"></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-section atmosphere-dense grain cta-section" id="cta">
+  <div class="container">
+    <h2>Ready to stop talking about AI</h2>
+    <p class="it">and start shipping it?</p>
+    <p>Book a free audit. We'll show you exactly where AI can save you time, money, and headaches. No obligations, just a clear roadmap.</p>
+    <a class="btn btn-hero" href="#" onclick="alert('Booking flow — prototype.'); return false;">Book Your Free Audit <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <h3 class="foot-h">Stop planning.<span class="it">Start shipping.</span></h3>
+      <p style="max-width:360px;margin:0;font-family:var(--font-sans);color:var(--c-fg-2);line-height:1.6;font-size:14px">Neural Solutions builds AI systems that run your business while you focus on growing it. Based in Victoria, BC, serving businesses across Canada.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <span class="foot-col-h">Navigation</span>
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#cases">Case Studies</a>
+        <a href="#">About</a>
+        <a href="#cta">Book Audit</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-col-h">Contact</span>
+        <a href="mailto:growth@neuralcoremarketing.com">growth@neuralcoremarketing.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar"><p>© 2026 Neural Solutions. All rights reserved.</p></div>
+</footer>
+
+<script>
+  const services = [
+    { num:'01', icon:'code-2',   title:'Custom Software Development', desc:"Tailored software built for your exact business needs. From internal tools to customer-facing platforms, we engineer products that scale with you and make a lasting first impression." },
+    { num:'02', icon:'brain',    title:'AI Integration',              desc:"Embed intelligence directly into your existing workflows. Intelligent search, document processing, predictive analytics, and recommendation engines that learn and improve on their own." },
+    { num:'03', icon:'workflow', title:'AI Automation',               desc:"We find the repetitive tasks draining your team and replace them with automation that runs around the clock. CRM flows, data pipelines, client communication, reporting. All handled." },
+    { num:'04', icon:'bot',      title:'AI-Powered Assistants',       desc:"Deploy conversational AI that actually understands your business. Custom voicemail systems, email responders, and chat assistants trained on your data, handling inquiries 24/7." },
+    { num:'05', icon:'cpu',      title:'Cloud Infrastructure',        desc:"Cloud-based development, testing, and production environments across AWS, Azure, and Oracle Cloud. We manage the infrastructure so you never think about servers." },
+    { num:'06', icon:'zap',      title:'Product Development',         desc:"From concept to launch, we design and build digital products users love and businesses rely on. Full lifecycle management with speed and precision." },
+  ];
+  const list = document.getElementById('services-list');
+  list.innerHTML = services.map((s,i)=>`
+    <div class="service" data-i="${i}">
+      <div class="service-row">
+        <span class="service-num">${s.num}</span>
+        <div class="service-body">
+          <div class="service-head">
+            <i data-lucide="${s.icon}" class="service-icon"></i>
+            <h3 class="service-title">${s.title}</h3>
+          </div>
+          <div class="service-desc"><p>${s.desc}</p></div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  list.addEventListener('mouseover', e => {
+    const row = e.target.closest('.service');
+    if (!row) return;
+    list.querySelectorAll('.service').forEach(s => s.classList.toggle('active', s === row));
+  });
+  list.addEventListener('mouseleave', () => {
+    list.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
+  });
+
+  // Case studies
+  const cases = [
+    { title:'Ageless Living™', industry:'Health & Wellness', metric:'6 integrated systems', desc:'Complete digital transformation for a multi-location wellness brand. Website, booking, AI search, voicemail, e-commerce, and SEO in one platform.', tags:['WEB DEV','AI INTEGRATION','AUTOMATION'] },
+    { title:'Harrison Forbes Electrical', industry:'Electrical Services', metric:'0 leads lost', desc:'One-page website with online booking, missed call rescue automation, post-job review follow-ups, and value-add calculators.', tags:['WEB DEV','AUTOMATION','LEAD RESCUE'] },
+  ];
+  let cur = 0;
+  function renderCase() {
+    const c = cases[cur];
+    document.getElementById('cs-tags').innerHTML = c.tags.map(t=>`<span class="chip">${t}</span>`).join('');
+    document.getElementById('cs-industry').textContent = c.industry;
+    document.getElementById('cs-title').textContent = c.title;
+    document.getElementById('cs-metric').textContent = c.metric;
+    document.getElementById('cs-desc').textContent = c.desc;
+    document.getElementById('cs-dots').innerHTML = cases.map((_,i)=>`<span class="cs-dot ${i===cur?'active':''}"></span>`).join('');
+  }
+  document.getElementById('cs-prev').onclick = ()=>{ cur = (cur-1+cases.length)%cases.length; renderCase(); };
+  document.getElementById('cs-next').onclick = ()=>{ cur = (cur+1)%cases.length; renderCase(); };
+  renderCase();
+
+  // Nav scroll
+  window.addEventListener('scroll', ()=>{
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  lucide.createIcons();
+</script>
+</body>
+</html>

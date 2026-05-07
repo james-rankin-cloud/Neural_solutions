@@ -78,6 +78,7 @@ Neural_solutions/
 │   │   ├── About.tsx            # Team bios
 │   │   ├── BookAudit.tsx        # Contact form
 │   │   ├── CityLanding.tsx      # Reusable city landing page template (18 cities)
+│   │   ├── WhatIsAIAutomation.tsx  # Resource guide: What is AI Automation
 │   │   ├── UICodeKit.tsx        # Architecture & component reference
 │   │   └── NotFound.tsx         # 404 page
 │   │
@@ -124,6 +125,10 @@ Neural_solutions/
 │   │   ├── flow.webm            # Hero background video (webm)
 │   │   └── flow.mp4             # Hero background video (mp4)
 │   │
+│   ├── content/
+│   │   └── guides/
+│   │       └── what-is-ai-automation.md  # Source content with frontmatter (SEO metadata + markdown)
+│   │
 │   ├── test/
 │   │   ├── example.test.ts      # Sample test
 │   │   └── setup.ts             # Test configuration
@@ -163,14 +168,16 @@ Neural_solutions/
 
 | Route | Component | Purpose |
 |-------|-----------|---------|
-| `/` | Index.tsx | Landing page - Hero, services, process, case studies preview, CTA |
-| `/services` | Services.tsx | Detailed services - 6 core services, 16 IT solutions grid |
-| `/case-studies` | CaseStudies.tsx | Portfolio - 2 detailed case studies |
+| `/` | LandingPage.tsx | One-page scroll landing - Hero, About, Services preview, Features, How it Works, Growth Philosophy, Testimonials, CTA with contact form + booking, Footer |
+| `/case-studies` | CaseStudies.tsx | Portfolio - 2 detailed case studies (Ageless Living, Harrison Forbes) |
 | `/about` | About.tsx | Team page - 3 founders with bios |
-| `/book-audit` | BookAudit.tsx | Dual-option contact page - Tab 1: Contact form (mailto), Tab 2: Cal.com calendar booking (30-min/45-min calls via Google Meet) |
+| `/book-audit` | BookAudit.tsx | Dual-option contact page - Tab 1: Contact form (mailto), Tab 2: Cal.com calendar booking (30-min/45-min calls) |
+| `/resources/what-is-ai-automation` | WhatIsAIAutomation.tsx | Educational guide - Comprehensive 12-min read explaining AI automation for Canadian businesses with examples, use cases, ROI data, FAQ |
 | `/ai-agency-{city}` | CityLanding.tsx | SEO-optimized city landing pages - 18 Canadian cities (Victoria, Vancouver, Toronto, Calgary, Montreal, Edmonton, Ottawa, Winnipeg, Mississauga, Brampton, Surrey, Burnaby, Richmond, Halifax, Kelowna, Saskatoon, Regina, Quebec City) with city-specific SEO, LocalBusiness schema, contact form & calendar booking |
-| `/ui-code-kit` | UICodeKit.tsx | Developer reference - Design system docs |
+| `/ui-code-kit` | UICodeKit.tsx | Developer reference - Old design system docs (purple theme - kept for reference) |
 | `*` | NotFound.tsx | 404 page |
+
+**Note:** `/services` route has been removed. Services are now presented on the landing page.
 
 ---
 
@@ -179,39 +186,33 @@ Neural_solutions/
 ### Color Palette (HSL CSS Variables)
 
 ```css
---background:    0 0% 98%       /* near-white, light gray */
---foreground:    240 10% 10%    /* near-black text */
---primary:       262 70% 50%    /* deep purple - brand color */
---accent:        275 80% 55%    /* bright violet */
---secondary:     260 20% 94%    /* light purple tint */
---muted:         260 15% 93%    /* subtle light surface */
+--background:    0 0% 100%      /* white #FFFFFF */
+--foreground:    0 0% 2%        /* black #050505 */
+--primary:       0 0% 2%        /* black for primary */
+--primary-foreground: 0 0% 100% /* white text on black */
+--secondary:     0 0% 96%       /* light gray #F5F5F5 */
+--muted:         0 0% 98%       /* very light gray #FAFAFA */
+--muted-foreground: 0 0% 45%    /* medium gray #737373 */
+--accent:        0 0% 90%       /* light gray accent #E5E5E5 */
 --card:          0 0% 100%      /* white */
---border:        260 15% 88%    /* light purple-gray */
+--border:        0 0% 90%       /* border gray #E5E5E5 */
 ```
 
 ### Typography
 
 | Usage | Font | Style |
 |-------|------|-------|
-| Display/Headlines | Playfair Display | Serif, editorial, tight line-height |
-| Body Text | Outfit | Sans-serif, clean, geometric |
-| Labels/Metadata | Space Mono | Monospace, technical feel |
-| Display Fallback | Syne | Alternative display font |
+| All Text | Inter | Sans-serif, clean, modern - used exclusively throughout |
 
 ### Custom CSS Classes
 
 | Class | Effect |
 |-------|--------|
-| `.atmosphere` | Layered radial gradients (subtle purple on white) |
-| `.atmosphere-dense` | Denser gradient variant |
-| `.glass` | Glassmorphism: white translucent + blur + border |
+| `.glass` | Glassmorphism: white translucent + blur + gray border |
+| `.glass-dark` | Dark glassmorphism for dark backgrounds |
 | `.grain` | Faint SVG noise texture overlay |
-| `.gradient-border` | Gradient border using CSS mask-composite |
-| `.card-elevated` | Soft shadow with hover lift |
-| `.text-gradient` | Static purple gradient text |
-| `.shimmer` | Animated gradient sweep (4s cycle) |
+| `.card-elevated` | Soft gray shadow with hover lift |
 | `.float` | Floating animation variants |
-| `.animate-drift` | Multi-axis drift (12s cycle) |
 | `.perspective-card` | 3D perspective tilt on hover |
 | `.line-draw` | Underline that draws on hover |
 
@@ -234,25 +235,41 @@ Neural_solutions/
 
 1. **Particle Field**
    - Canvas-based system with 60 particles
+   - White/gray particles (updated from purple)
    - Connection lines drawn when particles < 150px apart
    - Located in: `src/components/ParticleField.tsx`
 
-2. **Hero Background Video**
-   - Looping video background (flow.webm, flow.mp4 fallback)
-   - Autoplay, muted, loop, playsinline
-   - Dark overlay (bg-background/80) for text readability
-   - Located in: `src/components/sections/HeroSection.tsx`
-
-3. **ScrollReveal**
+2. **ScrollReveal**
    - IntersectionObserver wrapper
    - Effects: opacity(0→1), translateY(24px→0), blur(4px→0)
    - Duration: 700ms, custom easing: cubic-bezier(0.16,1,0.3,1)
    - Located in: `src/components/ScrollReveal.tsx`
 
-4. **Navbar**
+3. **Navbar**
    - Fixed position with scroll detection at 50px
-   - Glass background effect on scroll
-   - Mobile hamburger menu
+   - White background with backdrop blur on scroll
+   - Dual navigation pattern:
+     - Landing page: Anchor links with smooth scroll
+     - Other pages: React Router links
+   - Desktop navigation: Services, About us, Contact us (on landing) or Home, Case Studies, About (on other pages)
+   - Mobile: Hamburger menu
+   - Located in: `src/components/Navbar.tsx`
+
+4. **Landing Page Sections**
+   - Hero with full-screen background image
+   - About with stats grid (4 stats)
+   - Services preview (2 cards)
+   - Feature grid (problem-solving features)
+   - How it works (3-step process)
+   - Growth philosophy (old vs new comparison)
+   - Testimonials
+   - Final CTA with contact form + booking tabs
+   - Footer
+   - Located in: `src/pages/LandingPage.tsx`
+   - **Resources dropdown menu** (desktop): DropdownMenu component with glass styling
+     - "What is AI Automation?" guide link
+     - Expandable for future resource additions
+   - Mobile hamburger menu with collapsible Resources section
    - Active link detection
    - Located in: `src/components/Navbar.tsx`
 
@@ -333,6 +350,60 @@ Neural_solutions/
 2. **James Rankin** - ML Engineer & Web Developer, UVic graduate (Victoria, BC) - *james_headshot.png*
 3. **Meharban Taneja** - Customer Relations & Business Development, ex-Baker Tilly (BC) - *mehar.PNG*
 
+### Resource & Guide Pages
+
+**What is AI Automation Guide** (`/resources/what-is-ai-automation`)
+
+**Purpose:** Educational long-form content designed for SEO and lead generation. Targets search queries like "what is AI automation", "AI automation explained", "AI for business".
+
+**Content Structure:**
+- **Hero Section** - Title, category badge (Guides • 12 min read), meta info (author, date)
+- **Introduction** - Definition and value proposition for Canadian businesses
+- **Table of Contents** - Jump links to 10 main sections
+- **10 Main Sections:**
+  1. What is AI Automation? (Definition) - with Traditional vs AI comparison cards
+  2. How AI Automation Works (Simplified) - 3-stage process (Input → Processing → Action) + feedback loop
+  3. AI Automation vs. Traditional Automation - Comparison table + when to use each
+  4. Key Benefits for Canadian Businesses - 6 benefits with real case study examples (Ageless Living, Harrison Forbes)
+  5. Real-World Examples - Detailed case studies from BC businesses
+  6. Common Use Cases by Department - Sales, Customer Service, Marketing, Operations, HR
+  7. Industries Using AI Automation - Healthcare, Construction, Professional Services, Retail, Real Estate, Finance (with internal links)
+  8. Is AI Automation Right for Your Business? - 10-point self-assessment checklist
+  9. How to Get Started - 5-step implementation guide
+  10. FAQ - 8 common questions with detailed answers
+- **CTA Sections** - Book Free Audit CTAs throughout (glass card design)
+- **About Neural Solutions** - Company info, results, team links
+- **Related Resources** - Internal links to Services, Case Studies, Book Audit, About
+- **Footer** - Last updated date
+
+**Design Features:**
+- ScrollReveal animations on all major sections
+- Glass-morphism cards with purple gradient accents
+- Comparison tables with alternating row backgrounds
+- Interactive table of contents with anchor links
+- Inline CTAs strategically placed after benefit sections
+- Typography: Playfair Display (headings), Outfit (body), Space Mono (labels)
+- Color scheme: Purple gradients on white, card-elevated shadows
+- Responsive grid layouts for comparison cards and FAQ sections
+
+**SEO Optimization:**
+- **Meta title:** "What is AI Automation? Complete Guide for Canadian Businesses | Neural Solutions"
+- **Meta description:** 158 characters, keyword-rich
+- **Keywords:** what is AI automation, AI automation explained, how does AI automation work, AI for business, business automation guide
+- **Canonical URL:** https://www.neuralsolutions.cloud/resources/what-is-ai-automation
+- **Article schema:** Published date (2026-05-05), author (Neural Solutions Team), section (Guides)
+- **Internal linking:** Links to /case-studies, /services, /book-audit, /about
+- **Read time:** 12 minutes (3,600+ words)
+
+**Content Source:** `src/content/guides/what-is-ai-automation.md` (frontmatter metadata + markdown content rendered as JSX)
+
+**Implementation Notes:**
+- Content is hardcoded in JSX (not parsed from markdown file) for performance and control
+- Uses Tailwind Typography prose classes for consistent text styling
+- All external links open in new tabs (rel="noopener noreferrer")
+- Mobile-responsive tables and cards
+- Scroll-to-top anchor links with offset for fixed navbar
+
 ---
 
 ## Architecture Patterns
@@ -381,6 +452,7 @@ App (root)
 - Extended color palette with HSL variables
 - Custom animations: drift, accordion-up/down
 - Responsive container (2xl: 1400px)
+- Plugins: tailwindcss-animate, @tailwindcss/typography (for prose classes on resource pages)
 
 ### TypeScript (tsconfig.json)
 - Loose strictness (no implicit any, no null checks)
@@ -630,11 +702,13 @@ Add to your deployment pipeline:
 
 ## Design Philosophy
 
-The site embodies a **"Clean Light Environment"** aesthetic:
+The site embodies a **"Premium Minimal"** aesthetic:
 
-1. **Atmosphere First** - Near-white backgrounds with subtle purple gradients, grain texture, floating orbs
-2. **Motion Everywhere** - Staggered reveals, drifting elements, perspective tilt, smooth transitions
-3. **Premium Typography** - Large, tight headlines in Playfair Display with italic emphasis
-4. **Custom Interactions** - Particle field, scroll animations
-5. **Color Restraint** - Purple accents on near-white, minimal color palette
-6. **Professional Polish** - Smooth corners, glassmorphism effects, fine typography control
+1. **Black & White Foundation** - Clean white backgrounds with sharp black text, subtle gray accents for depth
+2. **Typography Clarity** - Inter font throughout for modern, readable, professional design
+3. **Generous Spacing** - Ample whitespace, large padding (py-16+), breathing room between sections
+4. **Subtle Depth** - Light gray shadows, soft borders (`border-border`), minimal use of gradients
+5. **Motion Restraint** - ScrollReveal entrance animations, subtle hover states, purposeful interactions
+6. **Cinematic Layout** - Full-screen hero sections, large image cards, bold typography scale
+7. **Professional Polish** - Rounded corners (`1.25rem`), consistent spacing, refined card design (`rounded-[1.25rem]`)
+8. **High Contrast** - Black text on white backgrounds for maximum readability and accessibility

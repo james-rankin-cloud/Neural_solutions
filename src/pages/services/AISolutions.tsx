@@ -75,7 +75,7 @@ const AISolutions = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-32 pb-20 px-6 bg-background">
+      <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden pt-24 pb-8 px-6 bg-background md:pt-32 md:pb-10">
         <div className="container max-w-5xl relative z-10">
           <ScrollReveal>
             <div className="text-center space-y-6">
@@ -94,7 +94,7 @@ const AISolutions = () => {
       </section>
 
       {/* Quote Section */}
-      <section className="py-20 px-6 bg-muted/30">
+      <section className="pt-8 pb-12 px-6 bg-muted/30 md:pt-10 md:pb-16">
         <div className="container max-w-4xl">
           <ScrollReveal>
             <div className="text-center">
@@ -112,7 +112,7 @@ const AISolutions = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-16 px-6 bg-background md:py-20">
         <div className="container max-w-6xl">
           <ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -168,7 +168,7 @@ const AISolutions = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-6 bg-background">
+      <section className="py-12 px-6 bg-background md:py-16">
         <div className="container max-w-4xl">
           <ScrollReveal>
             <div className="text-center">

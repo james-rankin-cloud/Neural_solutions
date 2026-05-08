@@ -162,7 +162,7 @@ function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1200px] items-end justify-center px-5 pb-16 text-center md:px-8 md:pb-28">
         <div className="max-w-4xl">
-          <h1 className="text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-7xl md:leading-[0.95]">
+          <h1 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl md:leading-[0.95]">
             The AI-First Product Development Partner for Enterprise
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/90 sm:text-base md:mt-6 md:text-lg">
@@ -172,14 +172,14 @@ function Hero() {
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:mt-8">
             <a
               onClick={() => scrollToSection('contact')}
-              className="w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-medium text-black shadow-lg shadow-white/20 transition-all hover:bg-white/95 hover:shadow-xl hover:shadow-white/30 sm:px-7 sm:py-4.5"
+              className="group w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-medium text-black shadow-lg shadow-white/20 transition-all duration-200 hover:bg-white/95 hover:shadow-xl hover:shadow-white/30 active:scale-[0.98] sm:px-7 sm:py-4.5"
             >
               Book a Free Automation Audit
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </a>
             <a
               onClick={() => scrollToSection('services')}
-              className="w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl border border-white/30 bg-white/5 px-6 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/50 hover:backdrop-blur-md sm:px-7 sm:py-4.5"
+              className="w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl border border-white/30 bg-white/5 px-6 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:border-white/50 hover:backdrop-blur-md hover:scale-[1.02] sm:px-7 sm:py-4.5"
             >
               Explore Services
             </a>
@@ -192,12 +192,12 @@ function Hero() {
 
 function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-white px-5 py-16 md:px-8 md:py-32">
+    <section id="about" className="relative overflow-hidden bg-white px-5 py-20 md:px-8 md:py-32 lg:py-40">
       <div className="mx-auto max-w-[1200px]">
         <div className="mb-16 md:mb-24">
           <p className="text-center text-xs uppercase tracking-wider text-black/40 mb-6 md:mb-8">Trusted By</p>
           <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-16 flex-wrap">
-            <div className="bg-white border border-black/10 rounded-xl p-6 flex items-center justify-center h-20 w-44 sm:h-24 sm:w-52 md:h-28 md:w-56">
+            <div className="bg-gradient-to-br from-white to-gray-50/40 border border-black/10 rounded-xl p-6 flex items-center justify-center h-20 w-44 sm:h-24 sm:w-52 md:h-28 md:w-56 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
               <img
                 src={agelessLivingLogo}
                 alt="Ageless Living"
@@ -222,7 +222,7 @@ function About() {
           </p>
 
           <div className="relative z-10 sm:ml-auto max-w-xl">
-            <p className="text-xl font-medium leading-snug tracking-tight sm:text-2xl md:text-3xl">
+            <p className="text-2xl font-medium leading-[1.1] tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
               We are an AI automation consultancy dedicated to helping businesses
               remove manual work, improve speed, and scale with smarter systems.
               We turn operational complexity into working automation.
@@ -231,11 +231,11 @@ function About() {
 
           <div className="relative z-10 mt-12 grid gap-6 grid-cols-2 md:mt-24 md:gap-8 md:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="rounded-xl bg-gray-50/60 border border-gray-100/80 p-5 md:p-6">
                 <div className="text-3xl font-medium tracking-tight sm:text-4xl md:text-6xl">
                   {stat.value}
                 </div>
-                <p className="mt-2 text-xs text-black/55 sm:text-sm md:mt-3">{stat.label}</p>
+                <p className="mt-2 text-xs text-black/65 sm:text-sm md:mt-3">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -247,14 +247,14 @@ function About() {
 
 function ServicesPreview() {
   return (
-    <section id="services" className="relative bg-black px-5 py-16 text-white md:px-8 md:py-32">
+    <section id="services" className="relative bg-black px-5 py-20 text-white md:px-8 md:py-32 lg:py-40">
 
       <div className="mx-auto max-w-[1200px] sm:pt-8 md:pt-16">
-        <h2 className="max-w-3xl text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-6xl">
+        <h2 className="max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-6xl">
           What problems we solve
         </h2>
 
-        <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-5 md:mt-20 md:gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:mt-16 md:mt-20 md:gap-8 md:grid-cols-2">
           {services.map((service) => (
             <ImageCard key={service.title} title={service.title} image={service.image} href={service.href} />
           ))}
@@ -277,7 +277,7 @@ function ImageCard({ title, image, href }: { title: string; image: string; href:
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5 sm:p-6 md:p-7">
           <h3 className="text-xl font-medium tracking-tight sm:text-2xl">{title}</h3>
-          <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+          <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
         </div>
       </article>
     </Link>
@@ -286,7 +286,7 @@ function ImageCard({ title, image, href }: { title: string; image: string; href:
 
 function FeatureGrid() {
   return (
-    <section className="bg-[#E5E5E5] px-5 py-12 md:px-8 md:py-24">
+    <section className="bg-gradient-to-b from-white via-gray-50/30 to-gray-50 px-5 py-20 md:px-8 md:py-32 lg:py-40">
       <div className="mx-auto grid max-w-[1200px] gap-4">
         {features.map((feature) => (
           <div
@@ -326,20 +326,20 @@ function FeatureTextCard({
   cta: string;
 }) {
   return (
-    <article className="flex min-h-[240px] flex-col rounded-2xl bg-white p-6 sm:min-h-[300px] sm:p-8 md:min-h-[360px] md:p-10">
-      <div>{icon}</div>
+    <article className="flex min-h-[240px] flex-col rounded-2xl bg-gradient-to-br from-white via-white to-gray-50/40 shadow-sm p-6 sm:min-h-[300px] sm:p-8 md:min-h-[360px] md:p-10">
+      <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-black/5 p-3">{icon}</div>
       <div className="mt-8 sm:mt-10 md:mt-12">
-        <h3 className="text-2xl font-medium tracking-tight sm:text-3xl">{title}</h3>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-black/75 sm:text-base sm:mt-6">
+        <h3 className="text-2xl font-bold leading-[1.1] tracking-tight sm:text-3xl md:text-4xl">{title}</h3>
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-black/70 sm:text-base sm:mt-6">
           {description}
         </p>
       </div>
       <a
         onClick={() => scrollToSection('contact')}
-        className="mt-auto inline-flex cursor-pointer items-center gap-3 text-sm font-medium pt-6"
+        className="group mt-auto inline-flex cursor-pointer items-center gap-3 text-sm font-medium pt-6"
       >
         {cta}
-        <ArrowRight className="h-4 w-4" />
+        <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
       </a>
     </article>
   );
@@ -347,13 +347,13 @@ function FeatureTextCard({
 
 function HowItWorks() {
   return (
-    <section id="process" className="bg-white px-5 py-16 md:px-8 md:py-32">
+    <section id="process" className="bg-white px-5 py-20 md:px-8 md:py-32 lg:py-40">
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
+        <h2 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
           How it works
         </h2>
 
-        <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-5 md:mt-20 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:mt-16 md:mt-20 md:gap-8 md:grid-cols-3">
           {steps.map((step) => (
             <article
               key={step.number}
@@ -385,10 +385,10 @@ function HowItWorks() {
 
 function GrowthPhilosophy() {
   return (
-    <section className="relative bg-black px-5 py-16 text-white md:px-8 md:py-32">
+    <section className="relative bg-black px-5 py-20 text-white md:px-8 md:py-32 lg:py-40">
 
       <div className="mx-auto max-w-[1000px] sm:pt-8 md:pt-16">
-        <h2 className="text-center text-3xl font-medium tracking-tight sm:text-4xl md:text-6xl">
+        <h2 className="text-center text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-6xl">
           Our automation philosophy
         </h2>
 
@@ -431,10 +431,10 @@ function ComparisonRow({
 }) {
   return (
     <div
-      className={`flex items-center gap-3 rounded-md px-3 py-3 text-xs font-medium sm:gap-4 sm:px-4 sm:py-4 sm:text-sm ${
+      className={`flex items-center gap-3 rounded-md px-3 py-3 text-xs font-medium transition-all duration-200 sm:gap-4 sm:px-4 sm:py-4 sm:text-sm ${
         tone === "dark"
-          ? "bg-[#151515] text-white"
-          : "bg-white text-black"
+          ? "bg-[#151515] text-white hover:bg-white/5"
+          : "bg-white text-black hover:bg-black/5"
       }`}
     >
       <span
@@ -455,13 +455,13 @@ function ComparisonRow({
 
 function Testimonials() {
   return (
-    <section className="bg-black px-5 py-16 text-white md:px-8 md:py-32">
+    <section className="bg-black px-5 py-20 text-white md:px-8 md:py-32 lg:py-40">
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
+        <h2 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
           What our clients say
         </h2>
 
-        <article className="mt-12 grid overflow-hidden rounded-2xl bg-white text-black sm:mt-16 md:mt-20 md:grid-cols-[0.8fr_1.1fr]">
+        <article className="mt-12 grid overflow-hidden rounded-2xl bg-white text-black shadow-md sm:mt-16 md:mt-20 md:grid-cols-[0.75fr_1.25fr]">
           <div className="min-h-[200px] bg-black flex items-center justify-center p-8 sm:min-h-[240px] sm:p-10 md:min-h-[380px] md:p-12">
             <img
               src={harrisonForbesLogo}
@@ -471,7 +471,7 @@ function Testimonials() {
             />
           </div>
 
-          <div className="flex min-h-[280px] flex-col p-6 sm:min-h-[320px] sm:p-8 md:min-h-[380px] md:p-12">
+          <div className="flex min-h-[280px] flex-col bg-gradient-to-br from-white to-gray-50/30 p-6 sm:min-h-[320px] sm:p-8 md:min-h-[380px] md:p-12">
             <p className="max-w-2xl text-lg font-medium leading-snug tracking-tight sm:text-xl md:text-3xl">
               "Working with Neural Solutions helped us remove repetitive admin,
               respond to leads faster, and create a cleaner operating system for
@@ -496,10 +496,10 @@ function Testimonials() {
               </div>
 
               <div className="flex gap-3">
-                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-black/40 transition hover:bg-black hover:text-white sm:h-10 sm:w-10">
+                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-black/40 transition-all duration-200 hover:bg-black hover:text-white hover:scale-110 sm:h-10 sm:w-10">
                   ←
                 </button>
-                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-black/40 transition hover:bg-black hover:text-white sm:h-10 sm:w-10">
+                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-black/40 transition-all duration-200 hover:bg-black hover:text-white hover:scale-110 sm:h-10 sm:w-10">
                   →
                 </button>
               </div>
@@ -532,10 +532,10 @@ function CaseStudiesPreview() {
   ];
 
   return (
-    <section id="case-studies" className="bg-white px-5 py-16 md:px-8 md:py-32">
+    <section id="case-studies" className="bg-white px-5 py-20 md:px-8 md:py-32 lg:py-40">
       <div className="mx-auto max-w-[1200px]">
         <div className="mb-10 text-center sm:mb-12 md:mb-16">
-          <h2 className="font-sans text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-6xl">
+          <h2 className="font-sans text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl md:text-6xl">
             Real projects, real results
           </h2>
           <p className="font-sans mx-auto mt-3 max-w-2xl text-base text-muted-foreground sm:text-lg sm:mt-4">
@@ -547,7 +547,7 @@ function CaseStudiesPreview() {
           {caseStudies.map((study) => (
             <article
               key={study.name}
-              className="group border border-border rounded-[1.25rem] overflow-hidden bg-white hover:shadow-lg transition-shadow"
+              className="group border border-border rounded-[1.25rem] overflow-hidden bg-gradient-to-br from-white to-gray-50/30 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               <div className={`${study.logoBg} flex items-center justify-center p-6 border-b border-border sm:p-8`}>
                 <img
@@ -605,11 +605,11 @@ function FinalCTA() {
   return (
     <section
       id="contact"
-      className="border-y border-white/10 bg-black px-5 py-20 text-white md:px-8 md:py-40"
+      className="border-y border-white/10 bg-black px-5 py-20 text-white md:px-8 md:py-32 lg:py-40"
     >
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-6xl md:leading-[0.95]">
+          <h2 className="text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-6xl md:leading-[0.95]">
             Move beyond manual operations.
           </h2>
           <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/80 sm:mt-5 md:mt-6">
@@ -632,7 +632,7 @@ function FinalCTA() {
           </TabsList>
 
           <TabsContent value="form">
-            <form onSubmit={handleSubmit} className="border border-white/20 rounded-[1.25rem] p-5 bg-white/5 space-y-4 sm:p-6 sm:space-y-5 md:p-8 md:space-y-6">
+            <form onSubmit={handleSubmit} className="border border-white/40 rounded-[1.25rem] p-5 bg-white/10 shadow-lg shadow-white/10 space-y-5 sm:p-6 sm:space-y-6 md:p-8 md:space-y-8">
               <div className="relative">
                 <label htmlFor="contact-name" className="sr-only">Your Name</label>
                 <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/60" />
@@ -642,7 +642,7 @@ function FinalCTA() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
                   required
-                  className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                  className="pl-10 bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-white/60 focus:ring-2 focus:ring-white/20"
                 />
               </div>
               <div className="relative">
@@ -655,7 +655,7 @@ function FinalCTA() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
-                  className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                  className="pl-10 bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-white/60 focus:ring-2 focus:ring-white/20"
                 />
               </div>
               <div className="relative">
@@ -671,7 +671,7 @@ function FinalCTA() {
                   className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/40 resize-none"
                 />
               </div>
-              <Button type="submit" className="w-full bg-white text-black hover:bg-white/90">
+              <Button type="submit" className="w-full bg-white text-black transition-all duration-200 hover:bg-white/90 active:scale-[0.98]">
                 Send Message
               </Button>
             </form>

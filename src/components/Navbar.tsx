@@ -80,12 +80,21 @@ const Navbar = () => {
 
           {/* Left Navigation - Desktop */}
           <div className="hidden lg:flex items-center gap-8 flex-1">
-            <Link
-              to="/"
-              className={`font-sans text-xs uppercase tracking-wider ${style.textClass} transition-colors duration-200`}
-            >
-              Home
-            </Link>
+            {isLandingPage ? (
+              <button
+                onClick={() => scrollToSection('top')}
+                className={`font-sans text-xs uppercase tracking-wider ${style.textClass} transition-colors duration-200`}
+              >
+                Home
+              </button>
+            ) : (
+              <Link
+                to="/"
+                className={`font-sans text-xs uppercase tracking-wider ${style.textClass} transition-colors duration-200`}
+              >
+                Home
+              </Link>
+            )}
 
             {isLandingPage ? (
               <button
@@ -188,13 +197,22 @@ const Navbar = () => {
       {open && (
         <div className={`lg:hidden ${style.mobileBg} backdrop-blur-md border-t ${isLandingPage ? 'border-white/10' : 'border-border'}`}>
           <div className="px-6 py-6 space-y-4">
-            <Link
-              to="/"
-              onClick={() => setOpen(false)}
-              className={`block font-sans text-sm uppercase tracking-wider ${style.mobileText} py-2`}
-            >
-              Home
-            </Link>
+            {isLandingPage ? (
+              <button
+                onClick={() => scrollToSection('top')}
+                className={`block w-full text-left font-sans text-sm uppercase tracking-wider ${style.mobileText} py-2`}
+              >
+                Home
+              </button>
+            ) : (
+              <Link
+                to="/"
+                onClick={() => setOpen(false)}
+                className={`block font-sans text-sm uppercase tracking-wider ${style.mobileText} py-2`}
+              >
+                Home
+              </Link>
+            )}
 
             {isLandingPage ? (
               <button

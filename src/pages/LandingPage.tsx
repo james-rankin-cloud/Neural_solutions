@@ -295,7 +295,7 @@ function FeatureGrid() {
           >
             {!feature.reverse && <FeatureTextCard {...feature} />}
             <div
-              className={`min-h-[240px] overflow-hidden rounded-2xl bg-neutral-800 sm:min-h-[300px] md:min-h-[360px] ${
+              className={`hidden md:block min-h-[360px] overflow-hidden rounded-2xl bg-neutral-800 ${
                 feature.reverse ? "md:order-first" : ""
               }`}
             >

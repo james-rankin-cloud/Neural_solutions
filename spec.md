@@ -283,7 +283,7 @@ Neural_solutions/
      - **Button design:** Primary button with rounded-xl (12px), white glow shadow effect; Secondary button with glass effect (backdrop-blur-sm), both with enhanced hover states
      - **About:** Smaller logo cards on mobile (h-20 w-44), responsive stats (text-3xl → md:text-6xl), hidden "ABOUT" background text on mobile, 2-column stats grid on mobile
      - **Services cards:** Reduced height (h-[280px] → sm:h-[320px] → md:h-[360px]), smaller padding, responsive text
-     - **Feature cards:** Flexible heights (min-h-[240px] → sm:min-h-[300px] → md:min-h-[360px]), smaller padding on mobile (p-6 → md:p-10), smaller text
+     - **Feature cards:** Flexible heights (min-h-[240px] → sm:min-h-[300px] → md:min-h-[360px]), smaller padding on mobile (p-6 → md:p-10), smaller text, images hidden on mobile (only text cards visible)
      - **How it works:** Smaller card heights (h-[340px] → sm:h-[380px] → md:h-[430px]), responsive text and badges
      - **Growth philosophy:** Smaller heading (text-3xl → md:text-6xl), tighter spacing on comparison rows, smaller icon sizes
      - **Testimonials:** Responsive heights (min-h-[200px] → md:min-h-[380px]), smaller logo and text on mobile, better stat layout

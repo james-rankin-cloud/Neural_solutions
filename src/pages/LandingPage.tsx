@@ -152,35 +152,34 @@ function Hero() {
           muted
           loop
           playsInline
-          className="h-full w-full object-cover opacity-70"
+          className="h-full w-full object-cover opacity-90"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/60 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1200px] items-end justify-center px-5 pb-20 text-center md:px-8 md:pb-28">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl font-medium leading-[0.95] tracking-tight md:text-7xl">
-            AI systems that turn manual work into scalable operations.
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1200px] items-end justify-center px-5 pb-16 text-center md:px-8 md:pb-28">
+        <div className="max-w-4xl">
+          <h1 className="text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-7xl md:leading-[0.95]">
+            The AI-First Product Development Partner for Enterprise
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-            We help growing businesses automate workflows, streamline operations,
-            and build AI powered systems that actually run.
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/90 sm:text-base md:mt-6 md:text-lg">
+            We design, build, and operate mission-critical software for enterprise leaders, embedding AI across the full software lifecycle and directly into our clients' products, so they move faster, reduce costs, and unlock measurable business outcomes.
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:mt-8">
             <a
               onClick={() => scrollToSection('contact')}
-              className="inline-flex cursor-pointer items-center gap-3 rounded-md bg-white px-6 py-4 text-sm font-medium text-black transition hover:bg-white/85"
+              className="w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-medium text-black shadow-lg shadow-white/20 transition-all hover:bg-white/95 hover:shadow-xl hover:shadow-white/30 sm:px-7 sm:py-4.5"
             >
               Book a Free Automation Audit
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               onClick={() => scrollToSection('services')}
-              className="inline-flex cursor-pointer items-center gap-3 rounded-md border border-white/30 px-6 py-4 text-sm font-medium text-white transition hover:bg-white hover:text-black"
+              className="w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl border border-white/30 bg-white/5 px-6 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/50 hover:backdrop-blur-md sm:px-7 sm:py-4.5"
             >
               Explore Services
             </a>
@@ -193,24 +192,24 @@ function Hero() {
 
 function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-white px-5 py-24 md:px-8 md:py-32">
+    <section id="about" className="relative overflow-hidden bg-white px-5 py-16 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1200px]">
-        <div className="mb-24">
-          <p className="text-center text-xs uppercase tracking-wider text-black/40 mb-8">Trusted By</p>
-          <div className="flex items-center justify-center gap-12 md:gap-16 flex-wrap">
-            <div className="bg-white border border-black/10 rounded-xl p-8 flex items-center justify-center h-28 w-56">
+        <div className="mb-16 md:mb-24">
+          <p className="text-center text-xs uppercase tracking-wider text-black/40 mb-6 md:mb-8">Trusted By</p>
+          <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-16 flex-wrap">
+            <div className="bg-white border border-black/10 rounded-xl p-6 flex items-center justify-center h-20 w-44 sm:h-24 sm:w-52 md:h-28 md:w-56">
               <img
                 src={agelessLivingLogo}
                 alt="Ageless Living"
-                className="h-16 w-auto object-contain"
+                className="h-12 w-auto object-contain sm:h-14 md:h-16"
                 loading="lazy"
               />
             </div>
-            <div className="bg-black border border-black/10 rounded-xl p-8 flex items-center justify-center h-28 w-56">
+            <div className="bg-black border border-black/10 rounded-xl p-6 flex items-center justify-center h-20 w-44 sm:h-24 sm:w-52 md:h-28 md:w-56">
               <img
                 src={harrisonForbesLogo}
                 alt="Harrison Forbes Electrical"
-                className="h-16 w-auto object-contain"
+                className="h-12 w-auto object-contain sm:h-14 md:h-16"
                 loading="lazy"
               />
             </div>
@@ -218,25 +217,25 @@ function About() {
         </div>
 
         <div className="relative">
-          <p className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 text-[22vw] font-medium leading-none tracking-tight text-black/[0.035]">
+          <p className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 text-[22vw] font-medium leading-none tracking-tight text-black/[0.035] hidden sm:block">
             ABOUT
           </p>
 
-          <div className="relative z-10 ml-auto max-w-xl">
-            <p className="text-2xl font-medium leading-snug tracking-tight md:text-3xl">
+          <div className="relative z-10 sm:ml-auto max-w-xl">
+            <p className="text-xl font-medium leading-snug tracking-tight sm:text-2xl md:text-3xl">
               We are an AI automation consultancy dedicated to helping businesses
               remove manual work, improve speed, and scale with smarter systems.
               We turn operational complexity into working automation.
             </p>
           </div>
 
-          <div className="relative z-10 mt-24 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+          <div className="relative z-10 mt-12 grid gap-6 grid-cols-2 md:mt-24 md:gap-8 md:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div className="text-5xl font-medium tracking-tight md:text-6xl">
+                <div className="text-3xl font-medium tracking-tight sm:text-4xl md:text-6xl">
                   {stat.value}
                 </div>
-                <p className="mt-3 text-sm text-black/55">{stat.label}</p>
+                <p className="mt-2 text-xs text-black/55 sm:text-sm md:mt-3">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -248,14 +247,14 @@ function About() {
 
 function ServicesPreview() {
   return (
-    <section id="services" className="relative bg-black px-5 py-24 text-white md:px-8 md:py-32">
+    <section id="services" className="relative bg-black px-5 py-16 text-white md:px-8 md:py-32">
 
-      <div className="mx-auto max-w-[1200px] pt-16">
-        <h2 className="max-w-3xl text-5xl font-medium leading-tight tracking-tight md:text-6xl">
+      <div className="mx-auto max-w-[1200px] sm:pt-8 md:pt-16">
+        <h2 className="max-w-3xl text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-6xl">
           What problems we solve
         </h2>
 
-        <div className="mt-20 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-5 md:mt-20 md:gap-6 md:grid-cols-2">
           {services.map((service) => (
             <ImageCard key={service.title} title={service.title} image={service.image} href={service.href} />
           ))}
@@ -268,7 +267,7 @@ function ServicesPreview() {
 function ImageCard({ title, image, href }: { title: string; image: string; href: string }) {
   return (
     <Link to={href}>
-      <article className="group relative h-[360px] overflow-hidden rounded-2xl bg-neutral-900 cursor-pointer">
+      <article className="group relative h-[280px] overflow-hidden rounded-2xl bg-neutral-900 cursor-pointer sm:h-[320px] md:h-[360px]">
         <img
           src={image}
           alt=""
@@ -276,8 +275,8 @@ function ImageCard({ title, image, href }: { title: string; image: string; href:
           onError={handleImageError}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-7">
-          <h3 className="text-2xl font-medium tracking-tight">{title}</h3>
+        <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5 sm:p-6 md:p-7">
+          <h3 className="text-xl font-medium tracking-tight sm:text-2xl">{title}</h3>
           <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
         </div>
       </article>
@@ -287,7 +286,7 @@ function ImageCard({ title, image, href }: { title: string; image: string; href:
 
 function FeatureGrid() {
   return (
-    <section className="bg-[#E5E5E5] px-5 py-16 md:px-8 md:py-24">
+    <section className="bg-[#E5E5E5] px-5 py-12 md:px-8 md:py-24">
       <div className="mx-auto grid max-w-[1200px] gap-4">
         {features.map((feature) => (
           <div
@@ -296,7 +295,7 @@ function FeatureGrid() {
           >
             {!feature.reverse && <FeatureTextCard {...feature} />}
             <div
-              className={`min-h-[360px] overflow-hidden rounded-2xl bg-neutral-800 ${
+              className={`min-h-[240px] overflow-hidden rounded-2xl bg-neutral-800 sm:min-h-[300px] md:min-h-[360px] ${
                 feature.reverse ? "md:order-first" : ""
               }`}
             >
@@ -327,17 +326,17 @@ function FeatureTextCard({
   cta: string;
 }) {
   return (
-    <article className="flex min-h-[360px] flex-col rounded-2xl bg-white p-8 md:p-10">
+    <article className="flex min-h-[240px] flex-col rounded-2xl bg-white p-6 sm:min-h-[300px] sm:p-8 md:min-h-[360px] md:p-10">
       <div>{icon}</div>
-      <div className="mt-12">
-        <h3 className="text-3xl font-medium tracking-tight">{title}</h3>
-        <p className="mt-6 max-w-md text-base leading-relaxed text-black/75">
+      <div className="mt-8 sm:mt-10 md:mt-12">
+        <h3 className="text-2xl font-medium tracking-tight sm:text-3xl">{title}</h3>
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-black/75 sm:text-base sm:mt-6">
           {description}
         </p>
       </div>
       <a
         onClick={() => scrollToSection('contact')}
-        className="mt-auto inline-flex cursor-pointer items-center gap-3 text-sm font-medium"
+        className="mt-auto inline-flex cursor-pointer items-center gap-3 text-sm font-medium pt-6"
       >
         {cta}
         <ArrowRight className="h-4 w-4" />
@@ -348,17 +347,17 @@ function FeatureTextCard({
 
 function HowItWorks() {
   return (
-    <section id="process" className="bg-white px-5 py-24 md:px-8 md:py-32">
+    <section id="process" className="bg-white px-5 py-16 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="text-5xl font-medium tracking-tight md:text-6xl">
+        <h2 className="text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
           How it works
         </h2>
 
-        <div className="mt-20 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-5 md:mt-20 md:grid-cols-3">
           {steps.map((step) => (
             <article
               key={step.number}
-              className="group relative h-[430px] overflow-hidden rounded-2xl bg-neutral-900"
+              className="group relative h-[340px] overflow-hidden rounded-2xl bg-neutral-900 sm:h-[380px] md:h-[430px]"
             >
               <img
                 src={step.image}
@@ -367,12 +366,12 @@ function HowItWorks() {
                 onError={handleImageError}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
-              <div className="absolute left-6 top-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/35 bg-white/20 text-sm text-white backdrop-blur">
+              <div className="absolute left-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/35 bg-white/20 text-sm text-white backdrop-blur sm:left-6 sm:top-6 sm:h-10 sm:w-10">
                 {step.number}
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                <h3 className="text-2xl font-medium tracking-tight">{step.title}</h3>
-                <p className="mt-4 border-t border-white/20 pt-4 text-sm leading-relaxed text-white/85">
+              <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
+                <h3 className="text-xl font-medium tracking-tight sm:text-2xl">{step.title}</h3>
+                <p className="mt-3 border-t border-white/20 pt-3 text-xs leading-relaxed text-white/85 sm:mt-4 sm:pt-4 sm:text-sm">
                   {step.description}
                 </p>
               </div>
@@ -386,19 +385,19 @@ function HowItWorks() {
 
 function GrowthPhilosophy() {
   return (
-    <section className="relative bg-black px-5 py-24 text-white md:px-8 md:py-32">
+    <section className="relative bg-black px-5 py-16 text-white md:px-8 md:py-32">
 
-      <div className="mx-auto max-w-[1000px] pt-16">
-        <h2 className="text-center text-5xl font-medium tracking-tight md:text-6xl">
+      <div className="mx-auto max-w-[1000px] sm:pt-8 md:pt-16">
+        <h2 className="text-center text-3xl font-medium tracking-tight sm:text-4xl md:text-6xl">
           Our automation philosophy
         </h2>
 
-        <div className="mt-20 grid gap-4 md:grid-cols-2 md:gap-6">
+        <div className="mt-12 grid gap-4 sm:mt-16 md:mt-20 md:grid-cols-2 md:gap-6">
           <div>
-            <h3 className="mb-8 text-center text-2xl font-medium">
+            <h3 className="mb-6 text-center text-xl font-medium sm:text-2xl sm:mb-8">
               Traditional Operations
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {oldModel.map((item) => (
                 <ComparisonRow key={item} tone="dark" icon="minus" text={item} />
               ))}
@@ -406,10 +405,10 @@ function GrowthPhilosophy() {
           </div>
 
           <div>
-            <h3 className="mb-8 text-center text-2xl font-medium">
+            <h3 className="mb-6 text-center text-xl font-medium sm:text-2xl sm:mb-8">
               AI Powered Model
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {newModel.map((item) => (
                 <ComparisonRow key={item} tone="light" icon="plus" text={item} />
               ))}
@@ -432,21 +431,21 @@ function ComparisonRow({
 }) {
   return (
     <div
-      className={`flex items-center gap-4 rounded-md px-4 py-4 text-sm font-medium ${
+      className={`flex items-center gap-3 rounded-md px-3 py-3 text-xs font-medium sm:gap-4 sm:px-4 sm:py-4 sm:text-sm ${
         tone === "dark"
           ? "bg-[#151515] text-white"
           : "bg-white text-black"
       }`}
     >
       <span
-        className={`flex h-7 w-7 items-center justify-center rounded ${
+        className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded sm:h-7 sm:w-7 ${
           tone === "dark" ? "bg-black" : "bg-black/5"
         }`}
       >
         {icon === "minus" ? (
-          <Minus className="h-4 w-4" />
+          <Minus className="h-3 w-3 sm:h-4 sm:w-4" />
         ) : (
-          <Plus className="h-4 w-4" />
+          <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
         )}
       </span>
       {text}
@@ -456,51 +455,51 @@ function ComparisonRow({
 
 function Testimonials() {
   return (
-    <section className="bg-black px-5 py-24 text-white md:px-8 md:py-32">
+    <section className="bg-black px-5 py-16 text-white md:px-8 md:py-32">
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="text-5xl font-medium tracking-tight md:text-6xl">
+        <h2 className="text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl">
           What our clients say
         </h2>
 
-        <article className="mt-20 grid overflow-hidden rounded-2xl bg-white text-black md:grid-cols-[0.8fr_1.1fr]">
-          <div className="min-h-[380px] bg-black flex items-center justify-center p-12">
+        <article className="mt-12 grid overflow-hidden rounded-2xl bg-white text-black sm:mt-16 md:mt-20 md:grid-cols-[0.8fr_1.1fr]">
+          <div className="min-h-[200px] bg-black flex items-center justify-center p-8 sm:min-h-[240px] sm:p-10 md:min-h-[380px] md:p-12">
             <img
               src={harrisonForbesLogo}
               alt="Harrison Forbes Electrical"
-              className="h-24 w-auto object-contain"
+              className="h-16 w-auto object-contain sm:h-20 md:h-24"
               loading="lazy"
             />
           </div>
 
-          <div className="flex min-h-[380px] flex-col p-8 md:p-12">
-            <p className="max-w-2xl text-2xl font-medium leading-snug tracking-tight md:text-3xl">
+          <div className="flex min-h-[280px] flex-col p-6 sm:min-h-[320px] sm:p-8 md:min-h-[380px] md:p-12">
+            <p className="max-w-2xl text-lg font-medium leading-snug tracking-tight sm:text-xl md:text-3xl">
               "Working with Neural Solutions helped us remove repetitive admin,
               respond to leads faster, and create a cleaner operating system for
               growth."
             </p>
 
-            <div className="mt-8">
-              <p className="font-medium">Ryder Forbes</p>
-              <p className="text-sm text-black/55">Owner, Harrison Forbes Electrical</p>
+            <div className="mt-6 sm:mt-8">
+              <p className="font-medium text-sm sm:text-base">Ryder Forbes</p>
+              <p className="text-xs text-black/55 sm:text-sm">Owner, Harrison Forbes Electrical</p>
             </div>
 
-            <div className="mt-auto flex flex-col justify-between gap-8 md:flex-row md:items-end">
-              <div className="flex gap-16">
+            <div className="mt-auto flex flex-col justify-between gap-6 pt-6 sm:gap-8 md:flex-row md:items-end">
+              <div className="flex gap-8 sm:gap-12 md:gap-16">
                 <div>
-                  <div className="text-3xl font-medium">30%</div>
-                  <p className="text-sm">less admin time</p>
+                  <div className="text-2xl font-medium sm:text-3xl">30%</div>
+                  <p className="text-xs sm:text-sm">less admin time</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-medium">2.4x</div>
-                  <p className="text-sm">faster response time</p>
+                  <div className="text-2xl font-medium sm:text-3xl">2.4x</div>
+                  <p className="text-xs sm:text-sm">faster response time</p>
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <button className="flex h-10 w-10 items-center justify-center rounded-full border border-black/40 transition hover:bg-black hover:text-white">
+                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-black/40 transition hover:bg-black hover:text-white sm:h-10 sm:w-10">
                   ←
                 </button>
-                <button className="flex h-10 w-10 items-center justify-center rounded-full border border-black/40 transition hover:bg-black hover:text-white">
+                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-black/40 transition hover:bg-black hover:text-white sm:h-10 sm:w-10">
                   →
                 </button>
               </div>
@@ -533,43 +532,43 @@ function CaseStudiesPreview() {
   ];
 
   return (
-    <section id="case-studies" className="bg-white px-5 py-24 md:px-8 md:py-32">
+    <section id="case-studies" className="bg-white px-5 py-16 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1200px]">
-        <div className="mb-16 text-center">
-          <h2 className="font-sans text-5xl font-medium tracking-tight text-foreground md:text-6xl">
+        <div className="mb-10 text-center sm:mb-12 md:mb-16">
+          <h2 className="font-sans text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-6xl">
             Real projects, real results
           </h2>
-          <p className="font-sans mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          <p className="font-sans mx-auto mt-3 max-w-2xl text-base text-muted-foreground sm:text-lg sm:mt-4">
             From wellness clinics to electrical contractors, see how we've helped BC businesses automate and scale.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-5 sm:gap-6 md:gap-8 md:grid-cols-2">
           {caseStudies.map((study) => (
             <article
               key={study.name}
               className="group border border-border rounded-[1.25rem] overflow-hidden bg-white hover:shadow-lg transition-shadow"
             >
-              <div className={`${study.logoBg} flex items-center justify-center p-8 border-b border-border`}>
+              <div className={`${study.logoBg} flex items-center justify-center p-6 border-b border-border sm:p-8`}>
                 <img
                   src={study.logo}
                   alt={`${study.name} logo`}
-                  className="h-16 w-auto object-contain"
+                  className="h-12 w-auto object-contain sm:h-16"
                   loading="lazy"
                 />
               </div>
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
                   {study.industry}
                 </span>
-                <h3 className="font-sans mt-2 text-2xl font-bold text-foreground">
+                <h3 className="font-sans mt-2 text-xl font-bold text-foreground sm:text-2xl">
                   {study.name}
                 </h3>
-                <p className="font-sans mt-3 text-base text-muted-foreground leading-relaxed">
+                <p className="font-sans mt-2 text-sm text-muted-foreground leading-relaxed sm:mt-3 sm:text-base">
                   {study.description}
                 </p>
-                <div className="mt-6 pt-6 border-t border-border">
-                  <p className="font-sans text-sm font-medium text-foreground">
+                <div className="mt-5 pt-5 border-t border-border sm:mt-6 sm:pt-6">
+                  <p className="font-sans text-xs font-medium text-foreground sm:text-sm">
                     {study.highlight}
                   </p>
                 </div>
@@ -578,7 +577,7 @@ function CaseStudiesPreview() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center sm:mt-10 md:mt-12">
           <Button variant="hero" size="lg" asChild>
             <Link to="/case-studies" className="group font-sans">
               View All Case Studies
@@ -606,32 +605,34 @@ function FinalCTA() {
   return (
     <section
       id="contact"
-      className="border-y border-white/10 bg-black px-5 py-32 text-white md:px-8 md:py-40"
+      className="border-y border-white/10 bg-black px-5 py-20 text-white md:px-8 md:py-40"
     >
       <div className="mx-auto max-w-4xl">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl font-medium leading-[0.95] tracking-tight md:text-6xl">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-6xl md:leading-[0.95]">
             Move beyond manual operations.
           </h2>
-          <p className="mx-auto mt-6 max-w-sm text-sm leading-relaxed text-white/80">
+          <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/80 sm:mt-5 md:mt-6">
             Align your tools, workflows, and team into one scalable AI powered system.
           </p>
         </div>
 
         <Tabs defaultValue="form" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-8 bg-white/10">
-            <TabsTrigger value="form" className="text-white data-[state=active]:bg-white data-[state=active]:text-black">
-              <MessageSquare size={16} className="mr-2" />
-              Contact Form
+          <TabsList className="grid w-full grid-cols-2 mb-6 bg-white/10 sm:mb-8">
+            <TabsTrigger value="form" className="text-white text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-black">
+              <MessageSquare size={16} className="mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Contact Form</span>
+              <span className="sm:hidden">Form</span>
             </TabsTrigger>
-            <TabsTrigger value="calendar" className="text-white data-[state=active]:bg-white data-[state=active]:text-black">
-              <Calendar size={16} className="mr-2" />
-              Book Meeting
+            <TabsTrigger value="calendar" className="text-white text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-black">
+              <Calendar size={16} className="mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Book Meeting</span>
+              <span className="sm:hidden">Meeting</span>
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="form">
-            <form onSubmit={handleSubmit} className="border border-white/20 rounded-[1.25rem] p-8 bg-white/5 space-y-6">
+            <form onSubmit={handleSubmit} className="border border-white/20 rounded-[1.25rem] p-5 bg-white/5 space-y-4 sm:p-6 sm:space-y-5 md:p-8 md:space-y-6">
               <div className="relative">
                 <label htmlFor="contact-name" className="sr-only">Your Name</label>
                 <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/60" />
@@ -676,30 +677,30 @@ function FinalCTA() {
             </form>
           </TabsContent>
 
-          <TabsContent value="calendar" className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <TabsContent value="calendar" className="space-y-3 sm:space-y-4">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
               <Button
                 variant={selectedMeeting === "30min" ? "default" : "outline"}
                 onClick={() => setSelectedMeeting("30min")}
-                className={`h-auto py-4 flex flex-col items-start ${
+                className={`h-auto py-3 flex flex-col items-start sm:py-4 ${
                   selectedMeeting === "30min"
                     ? "bg-white text-black"
                     : "border-white/20 text-white hover:bg-white/10"
                 }`}
               >
-                <span className="font-semibold text-base">30-Min Discovery Call</span>
+                <span className="font-semibold text-sm sm:text-base">30-Min Discovery Call</span>
                 <span className="text-xs opacity-80 mt-1">Quick consultation</span>
               </Button>
               <Button
                 variant={selectedMeeting === "45min" ? "default" : "outline"}
                 onClick={() => setSelectedMeeting("45min")}
-                className={`h-auto py-4 flex flex-col items-start ${
+                className={`h-auto py-3 flex flex-col items-start sm:py-4 ${
                   selectedMeeting === "45min"
                     ? "bg-white text-black"
                     : "border-white/20 text-white hover:bg-white/10"
                 }`}
               >
-                <span className="font-semibold text-base">45-Min Strategy Session</span>
+                <span className="font-semibold text-sm sm:text-base">45-Min Strategy Session</span>
                 <span className="text-xs opacity-80 mt-1">Comprehensive analysis</span>
               </Button>
             </div>

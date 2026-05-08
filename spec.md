@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Neural Solutions** is a premium AI automation agency website built as a single-page application (SPA). The site showcases services for businesses seeking AI integration, custom software development, and intelligent automation solutions.
+**Neural Solutions** is an enterprise AI-first product development partner website. The site showcases services for enterprise leaders seeking mission-critical software development with embedded AI across the full software lifecycle and product integration.
 
 - **Project Type:** Marketing/Portfolio Website
 - **Status:** Production-ready
@@ -265,7 +265,7 @@ Neural_solutions/
    - Located in: `src/components/Navbar.tsx`
 
 4. **Landing Page Sections**
-   - Hero with full-screen background image
+   - Hero with full-screen background video
    - About with stats grid (4 stats)
    - Services preview (2 cards)
    - Feature grid (problem-solving features)
@@ -275,6 +275,20 @@ Neural_solutions/
    - Final CTA with contact form + booking tabs
    - Footer
    - Located in: `src/pages/LandingPage.tsx`
+   - **Mobile Optimizations (2026-05-07):**
+     - **Hero:** Reduced heading size (text-4xl → sm:text-5xl → md:text-7xl), better line-height on mobile (leading-[1.05]), smaller padding (pb-16 → md:pb-28), full-width CTA buttons on mobile
+   - **Visual Enhancements (2026-05-07):**
+     - **Video clarity:** Increased video opacity (70% → 90%) for sharper background detail
+     - **Overlay optimization:** Reduced black overlay (55% → 45%), extended gradient to 2/3 height for better center readability
+     - **Button design:** Primary button with rounded-xl (12px), white glow shadow effect; Secondary button with glass effect (backdrop-blur-sm), both with enhanced hover states
+     - **About:** Smaller logo cards on mobile (h-20 w-44), responsive stats (text-3xl → md:text-6xl), hidden "ABOUT" background text on mobile, 2-column stats grid on mobile
+     - **Services cards:** Reduced height (h-[280px] → sm:h-[320px] → md:h-[360px]), smaller padding, responsive text
+     - **Feature cards:** Flexible heights (min-h-[240px] → sm:min-h-[300px] → md:min-h-[360px]), smaller padding on mobile (p-6 → md:p-10), smaller text
+     - **How it works:** Smaller card heights (h-[340px] → sm:h-[380px] → md:h-[430px]), responsive text and badges
+     - **Growth philosophy:** Smaller heading (text-3xl → md:text-6xl), tighter spacing on comparison rows, smaller icon sizes
+     - **Testimonials:** Responsive heights (min-h-[200px] → md:min-h-[380px]), smaller logo and text on mobile, better stat layout
+     - **Case studies:** Smaller logos (h-12 → sm:h-16), reduced padding (p-6 → sm:p-8), responsive text
+     - **Final CTA:** Reduced padding (py-20 → md:py-40), smaller heading, condensed tab labels on mobile, tighter form spacing
    - **Resources dropdown menu** (desktop): DropdownMenu component with glass styling
      - "What is AI Automation?" guide link
      - Expandable for future resource additions
@@ -318,9 +332,9 @@ Neural_solutions/
    - **Schema Generator:** `src/lib/schema/cityLocalBusiness.ts`
    - **Routing:** Static routes generated via `.map()` in `App.tsx` for optimal SEO indexing
 
-### Landing Page Sections (Index.tsx)
+### Landing Page Sections (LandingPage.tsx)
 
-1. **HeroSection** - "Lead with AI. / We'll build it for you." + looping background video (flow.webm/mp4), dark overlay, atmospheric orbs, CTA buttons
+1. **HeroSection** - "The AI-First Product Development Partner for Enterprise" + enterprise value proposition + looping background video (mp_.mp4), optimized overlay (45% black + gradient), premium glass-style CTA buttons with glow effects (Book Audit: white bg with shadow glow, Explore Services: glass with backdrop blur)
 2. **ServicesSection** - 6 interactive service cards
 3. **QuoteSection** - Peter Diamandis AI quote
 4. **ProcessSection** - 3-step process visualization
@@ -493,8 +507,9 @@ App (root)
 
 - **Email:** hello@neuralsolutions.dev
 - **Meta Description:** "Neural Solutions designs and engineers AI-integrated digital products that give your business an unfair advantage."
-- **OG Title:** "Neural Solutions - AI Automation Agency"
-- **OG Description:** "Most agencies promise AI. We ship it."
+- **OG Title:** "Neural Solutions - The AI-First Product Development Partner for Enterprise"
+- **OG Description:** "We design, build, and operate mission-critical software for enterprise leaders, embedding AI across the full software lifecycle."
+- **Hero Message:** "The AI-First Product Development Partner for Enterprise" (Updated 2026-05-07)
 - **Copyright:** 2024-2026 Neural Solutions
 
 ---

@@ -75,8 +75,10 @@ Neural_solutions/
 │   │   ├── Index.tsx            # Landing page (composes sections)
 │   │   ├── Services.tsx         # Services overview page
 │   │   ├── services/            # Service category pages
-│   │   │   ├── AISolutions.tsx           # Industry-specific AI solutions
-│   │   │   └── SoftwareDevelopment.tsx   # Software development services
+│   │   │   ├── AISolutions.tsx                       # Industry-specific AI solutions
+│   │   │   ├── SoftwareDevelopment.tsx               # Software development services
+│   │   │   ├── AIStrategyConsultingGovernance.tsx    # AI Strategy & Governance service page
+│   │   │   └── CustomAIProductDevelopment.tsx        # Custom AI Product Development service page
 │   │   ├── CaseStudies.tsx      # Portfolio with case studies
 │   │   ├── About.tsx            # Team bios
 │   │   ├── BookAudit.tsx        # Contact form
@@ -90,22 +92,23 @@ Neural_solutions/
 │   │   ├── Footer.tsx           # 3-column footer
 │   │   ├── ParticleField.tsx    # Canvas-based particle system
 │   │   ├── ScrollReveal.tsx     # IntersectionObserver scroll animation
-│   │   ├── MarqueeTicker.tsx    # Horizontal scrolling marquee
+│   │   ├── ScrollToTop.tsx      # Auto-scroll on route change
 │   │   ├── CalendarEmbed.tsx    # Cal.com booking widget wrapper
+│   │   ├── SEO.tsx              # Helmet wrapper for meta tags
+│   │   ├── StructuredData.tsx   # JSON-LD schema renderer
 │   │   │
-│   │   ├── sections/            # Landing page sections
-│   │   │   ├── HeroSection.tsx
-│   │   │   ├── ServicesSection.tsx
-│   │   │   ├── QuoteSection.tsx
-│   │   │   ├── ProcessSection.tsx
-│   │   │   ├── CaseStudiesPreview.tsx
-│   │   │   └── CTASection.tsx
-│   │   │
-│   │   └── ui/                  # shadcn/ui components (40+ files)
+│   │   └── ui/                  # shadcn/ui components (11 files)
+│   │       ├── accordion.tsx
 │   │       ├── button.tsx
 │   │       ├── input.tsx
+│   │       ├── textarea.tsx
+│   │       ├── tabs.tsx
+│   │       ├── badge.tsx
 │   │       ├── card.tsx
-│   │       └── [30+ other components]
+│   │       ├── tooltip.tsx
+│   │       ├── toaster.tsx
+│   │       ├── sonner.tsx
+│   │       └── use-toast.ts
 │   │
 │   ├── hooks/
 │   │   ├── use-mobile.tsx       # Responsive breakpoint hook
@@ -120,17 +123,17 @@ Neural_solutions/
 │   │       └── cityLocalBusiness.ts  # City-specific LocalBusiness schema
 │   │
 │   ├── assets/
-│   │   ├── ageless-living.jpg   # Case study logo
-│   │   ├── harrisonforbes.jpg   # Case study logo
-│   │   ├── Jas.PNG              # Jasraj Taneja photo
-│   │   ├── james_headshot.png   # James Rankin photo
-│   │   ├── mehar.PNG            # Meharban Taneja photo
-│   │   ├── flow.webm            # Hero background video (webm)
-│   │   └── flow.mp4             # Hero background video (mp4)
-│   │
-│   ├── content/
-│   │   └── guides/
-│   │       └── what-is-ai-automation.md  # Source content with frontmatter (SEO metadata + markdown)
+│   │   ├── ageless-living.jpg          # Case study logo
+│   │   ├── harrisonforbes.jpg          # Case study logo
+│   │   ├── Jas.PNG                     # Jasraj Taneja photo
+│   │   ├── james_headshot.png          # James Rankin photo
+│   │   ├── mehar.PNG                   # Meharban Taneja photo
+│   │   ├── mp_.mp4                     # Hero background video
+│   │   ├── home-page-ai-solutions.png  # Services preview image
+│   │   ├── home-page-software-development.png  # Services preview image
+│   │   ├── hp1.png, hp2.png, hp3.png   # How it works images
+│   │   ├── software1-4.png             # Software service images
+│   │   └── ai_*.png                    # AI service category images (7 files)
 │   │
 │   ├── test/
 │   │   ├── example.test.ts      # Sample test
@@ -172,9 +175,13 @@ Neural_solutions/
 | Route | Component | Purpose |
 |-------|-----------|---------|
 | `/` | LandingPage.tsx | One-page scroll landing - Hero, About, Services preview, Features, How it Works, Growth Philosophy, Testimonials, CTA with contact form + booking, Footer |
-| `/services` | Services.tsx | Services overview page - 7 service categories (AI Strategy & Governance, Custom AI Product Development, AI Agents & Intelligent Automation, AI Analytics & Decision Intelligence, ML Engineering & MLOps, AI-Enabled Software Delivery, Software Development) with images and descriptions |
-| `/services/ai-solutions` | AISolutions.tsx | AI Solutions page - Hero section, Peter Diamandis quote ("There will be two kinds of companies at the end of this decade: those that are fully utilizing AI, and those that are out of business"), 6 AI service categories (AI Strategy & Governance, Custom AI Product Development, AI Agents & Intelligent Automation, AI Analytics & Decision Intelligence, ML Engineering & MLOps, AI-Enabled Software Delivery) with images and descriptions |
+| `/services` | Services.tsx | Services overview page - 3 service categories (AI Solutions, Software Development, AI Strategy & Governance) with images and descriptions |
+| `/services/ai-solutions` | AISolutions.tsx | AI Solutions page - Hero section, Peter Diamandis quote ("There will be two kinds of companies at the end of this decade: those that are fully utilizing AI, and those that are out of business"), 6 AI service categories (AI Strategy & Governance, Custom AI Product Development, AI Agents & Intelligent Automation, AI Analytics & Decision Intelligence, ML Engineering & MLOps, AI-Enabled Software Delivery) with images and descriptions. Cards link to dedicated service pages where available. |
 | `/services/software-development` | SoftwareDevelopment.tsx | Software development services - 4 service categories (Custom Software Development, Application Development & Modernization, DevOps & Platform Engineering, Quality Engineering) with descriptions and clickable cards |
+| `/services/ai-strategy-consulting-governance` | AIStrategyConsultingGovernance.tsx | Dedicated AI Strategy & Governance service page - Hero section, brand strip, description section, implementation strategies (AI agents & automation, Advanced RAG systems, Prompt to SQL), case studies (Ageless Living, Harrison Forbes), maturity stages (Discovery, Experimentation, Implementation), 8 FAQs with accordion, dual-option booking (calendar + contact form). Accessible from AI Solutions page card. |
+| `/services/custom-ai-product-development` | CustomAIProductDevelopment.tsx | Custom AI Product Development service page - Hero section with dual CTA, breadcrumb navigation, brand strip, description section, 6 AI development services (Custom AI application development, AI agents, Advanced RAG, AI chatbots, Prompt to SQL, AI workflow automation), case studies (Ageless Living, Harrison Forbes), 6 benefits section, 4 related services, 9 FAQs with accordion, dual-option booking (calendar + contact form). Accessible from Services overview page card. |
+| `/services/ai-agents-intelligent-automation` | AIAgentsIntelligentAutomation.tsx | AI Agents & Intelligent Automation service page - Hero section with dual CTA (Book Now, Explore Automation Use Cases), breadcrumb navigation (Home > Services > AI Solutions > AI Agents & Intelligent Automation), brand strip (Ageless Living, Harrison Forbes), description section emphasizing practical AI where automation delivers value, 6 service categories in grid layout (AI agent design & development, Workflow & process automation, LLM powered assistants, System integration & orchestration, Human in the loop automation, Monitoring governance & control) with use case bullets, case studies section (Ageless Living, Harrison Forbes) reusing existing data, maturity stages section (Discovery, Experimentation, Implementation) with detailed offerings, 9 FAQs with accordion covering common questions about AI agents and intelligent automation, dual-option booking section (calendar + contact form with workflow-specific fields: workflow to automate, tools/systems to connect, stage dropdown). Accessible from AI Solutions page card. |
+| `/services/ai-analytics-predictive-insights-decision-intelligence` | AIAnalyticsPredictiveInsights.tsx | AI Analytics, Predictive Insights & Decision Intelligence service page - Hero section with dual CTA (Book Now, Explore Analytics Use Cases), breadcrumb navigation (Home > Services > AI Solutions > AI Analytics, Predictive Insights & Decision Intelligence), brand strip (Ageless Living, Harrison Forbes), description section titled "You envision. We engineer." explaining data transformation into insights, 6 service categories in grid layout (AI analytics dashboards, Predictive modeling & forecasting, Decision intelligence systems, Data integration & reporting automation, Customer and market insights, Optimization and performance intelligence) with use case bullets, case studies section (Ageless Living, Harrison Forbes) reusing existing data, process section titled "Our launch process is swift and simple" with 3 stages (Discovery, Experimentation, Implementation), 9 FAQs with accordion covering data types, timelines, accuracy, security, integration, and automation, dual-option booking section (calendar + contact form with analytics-specific fields: data/reporting challenge, tools/systems data lives in, stage dropdown). Accessible from AI Solutions page card. |
 | `/case-studies` | CaseStudies.tsx | Portfolio - 2 detailed case studies (Ageless Living, Harrison Forbes) |
 | `/about` | About.tsx | Team page - 3 founders with bios |
 | `/book-audit` | BookAudit.tsx | Dual-option contact page - Tab 1: Contact form (mailto), Tab 2: Cal.com calendar booking (30-min/45-min calls) |
@@ -260,6 +267,7 @@ Neural_solutions/
    - **Services dropdown**: Hover-activated with dark backdrop blur (bg-black/90)
      - AI Solutions → /services/ai-solutions
      - Software Development → /services/software-development
+     - Note: AI Strategy & Governance and Custom AI Product Development are NOT in navbar - accessed via service overview page cards
    - **Mobile**: NEURAL logo left, hamburger menu right, full-screen dark menu on open
    - **Design**: Minimal, modern, premium, futuristic - inspired by Mistral/Linear style
    - Located in: `src/components/Navbar.tsx`
@@ -307,17 +315,12 @@ Neural_solutions/
    - Active link detection
    - Located in: `src/components/Navbar.tsx`
 
-5. **Marquee Ticker** *(currently unused)*
-   - Horizontal scrolling text banner component
-   - Located in: `src/components/MarqueeTicker.tsx`
-   - Removed from Index, Services, and CaseStudies pages
-
-6. **Contact Form**
+5. **Contact Form**
    - Icon-prefixed inputs
    - Submits via mailto: link (no backend)
    - Located in: `src/pages/BookAudit.tsx`
 
-7. **Cal.com Booking Integration**
+6. **Cal.com Booking Integration**
    - Dual-option contact page: Contact Form + Calendar Booking
    - Two meeting types: 30-Min Discovery Call, 45-Min Strategy Session
    - Google Meet integration via growth@neuralcoremarketing.com
@@ -356,10 +359,10 @@ Neural_solutions/
 ### Services Offered
 
 **7 AI Services (Services.tsx):**
-1. **AI Strategy & Governance** - Comprehensive roadmap for responsible, scalable AI adoption with frameworks, policies, and oversight mechanisms
-2. **Custom AI Product Development** - Production-grade AI solutions from concept to deployment, tailored to unique business needs
-3. **AI Agents & Intelligent Automation** - Autonomous systems that streamline workflows and boost efficiency
-4. **AI Analytics & Decision Intelligence** - Advanced analytics that reveal patterns and predict future outcomes
+1. **AI Strategy & Governance** - Comprehensive roadmap for responsible, scalable AI adoption with frameworks, policies, and oversight mechanisms (dedicated page: `/services/ai-strategy-consulting-governance`)
+2. **Custom AI Product Development** - Production-grade AI solutions from concept to deployment, tailored to unique business needs (dedicated page: `/services/custom-ai-product-development`)
+3. **AI Agents & Intelligent Automation** - Autonomous systems that streamline workflows and boost efficiency (dedicated page: `/services/ai-agents-intelligent-automation`)
+4. **AI Analytics & Decision Intelligence** - Advanced analytics that reveal patterns and predict future outcomes (dedicated page: `/services/ai-analytics-predictive-insights-decision-intelligence`)
 5. **ML Engineering & MLOps** - Robust ML infrastructure for reliable, scalable AI deployment
 6. **AI-Enabled Software Delivery** - AI-powered tools and processes that enhance every phase of the software lifecycle
 7. **Software Development** - Custom software solutions, application modernization, DevOps, and quality engineering
@@ -442,10 +445,8 @@ Neural_solutions/
 - **Internal linking:** Links to /case-studies, /services, /book-audit, /about
 - **Read time:** 12 minutes (3,600+ words)
 
-**Content Source:** `src/content/guides/what-is-ai-automation.md` (frontmatter metadata + markdown content rendered as JSX)
-
 **Implementation Notes:**
-- Content is hardcoded in JSX (not parsed from markdown file) for performance and control
+- Content is hardcoded in JSX for performance and control
 - Uses Tailwind Typography prose classes for consistent text styling
 - All external links open in new tabs (rel="noopener noreferrer")
 - Mobile-responsive tables and cards
@@ -760,3 +761,81 @@ The site embodies a **"Premium Minimal"** aesthetic:
 6. **Cinematic Layout** - Full-screen hero sections, large image cards, bold typography scale
 7. **Professional Polish** - Rounded corners (`1.25rem`), consistent spacing, refined card design (`rounded-[1.25rem]`)
 8. **High Contrast** - Black text on white backgrounds for maximum readability and accessibility
+
+---
+
+## Codebase Cleanup (May 2026)
+
+A comprehensive cleanup was performed to remove unused code and reduce technical debt:
+
+### Files Removed
+
+**Unused Components (3 files):**
+- `src/components/MarqueeTicker.tsx` - Horizontal scrolling marquee (never imported)
+- `src/components/CustomCursor.tsx` - Custom cursor with purple theme (old design, never imported)
+- `src/components/NavLink.tsx` - Link wrapper component (never used)
+
+**Unused Section Components (7 files + entire folder):**
+- `src/components/sections/HeroSection.tsx` - Old hero section (replaced by inline LandingPage hero)
+- `src/components/sections/ServicesSection.tsx` - Old services section
+- `src/components/sections/ProcessSection.tsx` - Old process section
+- `src/components/sections/QuoteSection.tsx` - Old quote section
+- `src/components/sections/CaseStudiesPreview.tsx` - Old case studies preview
+- `src/components/sections/CTASection.tsx` - Old CTA section
+- `src/components/sections/StatCallouts.tsx` - Old stats section
+
+**Legacy Files (3 files):**
+- `src/lib/RootLayout.tsx` - Leftover from Vike attempt (never imported)
+- `src/App.css` - Default Vite boilerplate styles (unused, using Tailwind + index.css)
+- `src/content/guides/what-is-ai-automation.md` - Markdown source (content hardcoded in JSX)
+
+**Unused Media (2 files):**
+- `src/assets/flow.webm` - Hero video (only used by deleted HeroSection)
+- `src/assets/flow.mp4` - Hero video (only used by deleted HeroSection)
+
+**Unused shadcn/ui Components (39 files):**
+
+Removed completely unused components:
+- accordion, alert-dialog, alert, aspect-ratio, avatar
+- breadcrumb, calendar, carousel, chart, checkbox
+- collapsible, command, context-menu, dropdown-menu, drawer
+- hover-card, input-otp, menubar, navigation-menu, pagination
+- popover, progress, radio-group, resizable, scroll-area
+- select, slider, switch, table, toast, toggle-group
+
+Removed dependency-only components with no active users:
+- sidebar (not imported anywhere)
+- sheet, separator, skeleton (only used by sidebar)
+- form (not imported anywhere)
+- label (only used by form and sidebar)
+- toggle (only used by toggle-group)
+- dialog (only used by command)
+
+**Remaining shadcn/ui Components (10 files):**
+- button, input, textarea, tabs (actively used in forms)
+- badge, card (used in UICodeKit)
+- tooltip, toaster, sonner (app-level providers)
+- use-toast (toast hook)
+
+### Results
+
+- **Total files removed:** 54 files
+  - 3 unused custom components
+  - 7 unused section components
+  - 3 legacy files
+  - 2 unused videos
+  - 39 unused UI components
+- **Reduced from 48 to 10 shadcn/ui components** (79% reduction)
+- **No console.logs** in codebase
+- **No unused imports** found
+- **Cleaner project structure** with only actively used code
+
+### Code Quality
+
+All remaining code verified to be:
+- Actually imported and used
+- Free of console.log statements
+- Free of unused imports
+- Properly typed with TypeScript
+- Following established patterns from CLAUDE.md
+

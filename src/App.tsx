@@ -15,6 +15,10 @@ import CityLanding from "./pages/CityLanding.tsx";
 import Services from "./pages/Services.tsx";
 import AISolutions from "./pages/services/AISolutions.tsx";
 import SoftwareDevelopment from "./pages/services/SoftwareDevelopment.tsx";
+import AIStrategyConsultingGovernance from "./pages/services/AIStrategyConsultingGovernance.tsx";
+import CustomAIProductDevelopment from "./pages/services/CustomAIProductDevelopment.tsx";
+import AIAgentsIntelligentAutomation from "./pages/services/AIAgentsIntelligentAutomation.tsx";
+import AIAnalyticsPredictiveInsights from "./pages/services/AIAnalyticsPredictiveInsights.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { cities } from "@/lib/data/cities";
 
@@ -38,6 +42,10 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/services/ai-solutions" element={<AISolutions />} />
             <Route path="/services/software-development" element={<SoftwareDevelopment />} />
+            <Route path="/services/ai-strategy-consulting-governance" element={<AIStrategyConsultingGovernance />} />
+            <Route path="/services/custom-ai-product-development" element={<CustomAIProductDevelopment />} />
+            <Route path="/services/ai-agents-intelligent-automation" element={<AIAgentsIntelligentAutomation />} />
+            <Route path="/services/ai-analytics-predictive-insights-decision-intelligence" element={<AIAnalyticsPredictiveInsights />} />
             {cities.map((city) => (
               <Route
                 key={city.slug}

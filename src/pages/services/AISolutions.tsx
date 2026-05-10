@@ -16,28 +16,28 @@ const services = [
     icon: <Cpu className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "AI Strategy & Governance",
     description: "Build a comprehensive roadmap for responsible, scalable AI adoption aligned with your business objectives. Establish frameworks, policies, and oversight mechanisms to ensure ethical AI use, regulatory compliance, and long-term value creation.",
-    href: "/services/ai-strategy-governance",
+    href: "/services/ai-strategy-consulting-governance",
     image: aiStrategyImage
   },
   {
     icon: <Code2 className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "Custom AI Product Development",
     description: "Production-grade AI solutions built for your unique business needs, from concept to deployment. We design, develop, and deliver tailored AI products that solve your specific challenges and integrate seamlessly with your existing systems.",
-    href: "/services/custom-ai-development",
+    href: "/services/custom-ai-product-development",
     image: customAiImage
   },
   {
     icon: <Zap className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "AI Agents & Intelligent Automation",
     description: "Autonomous systems that streamline workflows and boost efficiency across your organization. Deploy intelligent agents that handle complex tasks, make decisions, and adapt to changing conditions with minimal human intervention.",
-    href: "/services/ai-agents",
+    href: "/services/ai-agents-intelligent-automation",
     image: aiAgentsImage
   },
   {
     icon: <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "AI Analytics & Decision Intelligence",
     description: "Turn data into actionable intelligence with advanced analytics that reveal patterns and predict future outcomes. Empower your teams with AI-driven insights that improve decision-making, optimize operations, and uncover new opportunities.",
-    href: "/services/ai-analytics",
+    href: "/services/ai-analytics-predictive-insights-decision-intelligence",
     image: aiAnalyticsImage
   },
   {

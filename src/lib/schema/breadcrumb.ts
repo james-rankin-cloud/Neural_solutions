@@ -9,6 +9,23 @@ export const getBreadcrumbSchema = (pathname: string) => {
       { name: "Home", position: 1 },
       { name: "Services", position: 2 }
     ],
+    "/services/ai-solutions": [
+      { name: "Home", position: 1 },
+      { name: "Services", position: 2 },
+      { name: "AI Solutions", position: 3 }
+    ],
+    "/services/ai-agents-intelligent-automation": [
+      { name: "Home", position: 1 },
+      { name: "Services", position: 2 },
+      { name: "AI Solutions", position: 3 },
+      { name: "AI Agents & Intelligent Automation", position: 4 }
+    ],
+    "/services/ai-analytics-predictive-insights-decision-intelligence": [
+      { name: "Home", position: 1 },
+      { name: "Services", position: 2 },
+      { name: "AI Solutions", position: 3 },
+      { name: "AI Analytics, Predictive Insights & Decision Intelligence", position: 4 }
+    ],
     "/case-studies": [
       { name: "Home", position: 1 },
       { name: "Case Studies", position: 2 }

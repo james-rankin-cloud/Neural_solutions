@@ -2,17 +2,16 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ArrowRight, Brain, Monitor } from "lucide-react";
+import { ArrowRight, Brain, Monitor, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const serviceCategories = [
   {
     icon: <Brain className="w-12 h-12" />,
     title: "AI Solutions",
-    description: "Comprehensive AI services including strategy, custom development, intelligent automation, analytics, ML engineering, and AI-enabled software delivery.",
+    description: "Comprehensive AI services including custom development, intelligent automation, analytics, ML engineering, and AI-enabled software delivery.",
     href: "/services/ai-solutions",
     features: [
-      "AI Strategy & Governance",
       "Custom AI Product Development",
       "AI Agents & Intelligent Automation",
       "AI Analytics & Decision Intelligence",
@@ -30,6 +29,20 @@ const serviceCategories = [
       "Application Development & Modernization",
       "DevOps & Platform Engineering",
       "Quality Engineering"
+    ]
+  },
+  {
+    icon: <Shield className="w-12 h-12" />,
+    title: "AI Strategy & Governance",
+    description: "Build a comprehensive roadmap for responsible, scalable AI adoption aligned with your business objectives. Establish frameworks, policies, and oversight mechanisms to ensure ethical AI use, regulatory compliance, and long-term value creation.",
+    href: "/services/ai-strategy-consulting-governance",
+    features: [
+      "AI Readiness Assessment",
+      "AI Strategy & Roadmap Development",
+      "AI Governance Frameworks",
+      "Ethical AI & Compliance",
+      "MLOps & Deployment Strategy",
+      "AI Risk Management"
     ]
   }
 ];

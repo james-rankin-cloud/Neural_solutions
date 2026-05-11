@@ -93,13 +93,15 @@ Navigation uses hamburger menu on mobile
 Current routes:
 
 / → One-page scroll landing
+/services → Services overview
+/services/ai-solutions → AI Solutions category
+/services/software-development → Software Development category
+/services/{service-name} → Individual service pages (9 total)
 /case-studies → Portfolio
 /about → Team
 /book-audit → Contact form + booking
 /ai-agency-{city} → City landing pages (×18)
-/resources/what-is-ai-automation → Educational guide
-
-Note: /services route removed. Services shown on landing page.
+/ui-code-kit → Component reference
 
 Do not break routing structure. Do not introduce unnecessary routes.
 9. Forms & Validation

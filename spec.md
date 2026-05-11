@@ -72,7 +72,7 @@ Neural_solutions/
 │   ├── vite-env.d.ts            # Vite type definitions
 │   │
 │   ├── pages/                   # Full-page components
-│   │   ├── Index.tsx            # Landing page (composes sections)
+│   │   ├── LandingPage.tsx      # Landing page (composes sections)
 │   │   ├── Services.tsx         # Services overview page
 │   │   ├── services/            # Service category pages
 │   │   │   ├── AISolutions.tsx                       # Industry-specific AI solutions
@@ -89,7 +89,6 @@ Neural_solutions/
 │   │   ├── About.tsx            # Team bios
 │   │   ├── BookAudit.tsx        # Contact form
 │   │   ├── CityLanding.tsx      # Reusable city landing page template (18 cities)
-│   │   ├── WhatIsAIAutomation.tsx  # Resource guide: What is AI Automation
 │   │   ├── UICodeKit.tsx        # Architecture & component reference
 │   │   └── NotFound.tsx         # 404 page
 │   │
@@ -195,7 +194,6 @@ Neural_solutions/
 | `/case-studies` | CaseStudies.tsx | Portfolio - 2 detailed case studies (Ageless Living, Harrison Forbes) |
 | `/about` | About.tsx | Team page - 3 founders with bios |
 | `/book-audit` | BookAudit.tsx | Dual-option contact page - Tab 1: Contact form (mailto), Tab 2: Cal.com calendar booking (30-min/45-min calls) |
-| `/resources/what-is-ai-automation` | WhatIsAIAutomation.tsx | Educational guide - Comprehensive 12-min read explaining AI automation for Canadian businesses with examples, use cases, ROI data, FAQ |
 | `/ai-agency-{city}` | CityLanding.tsx | SEO-optimized city landing pages - 18 Canadian cities (Victoria, Vancouver, Toronto, Calgary, Montreal, Edmonton, Ottawa, Winnipeg, Mississauga, Brampton, Surrey, Burnaby, Richmond, Halifax, Kelowna, Saskatoon, Regina, Quebec City) with city-specific SEO, LocalBusiness schema, contact form & calendar booking |
 | `/ui-code-kit` | UICodeKit.tsx | Developer reference - Old design system docs (purple theme - kept for reference) |
 | `*` | NotFound.tsx | 404 page |
@@ -409,58 +407,6 @@ Neural_solutions/
 1. **Jasraj Taneja** - Software Engineer & AI Specialist at Ericsson (Victoria, BC) - *Jas.PNG*
 2. **James Rankin** - ML Engineer & Web Developer, UVic graduate (Victoria, BC) - *james_headshot.png*
 3. **Meharban Taneja** - Customer Relations & Business Development, ex-Baker Tilly (BC) - *mehar.PNG*
-
-### Resource & Guide Pages
-
-**What is AI Automation Guide** (`/resources/what-is-ai-automation`)
-
-**Purpose:** Educational long-form content designed for SEO and lead generation. Targets search queries like "what is AI automation", "AI automation explained", "AI for business".
-
-**Content Structure:**
-- **Hero Section** - Title, category badge (Guides • 12 min read), meta info (author, date)
-- **Introduction** - Definition and value proposition for Canadian businesses
-- **Table of Contents** - Jump links to 10 main sections
-- **10 Main Sections:**
-  1. What is AI Automation? (Definition) - with Traditional vs AI comparison cards
-  2. How AI Automation Works (Simplified) - 3-stage process (Input → Processing → Action) + feedback loop
-  3. AI Automation vs. Traditional Automation - Comparison table + when to use each
-  4. Key Benefits for Canadian Businesses - 6 benefits with real case study examples (Ageless Living, Harrison Forbes)
-  5. Real-World Examples - Detailed case studies from BC businesses
-  6. Common Use Cases by Department - Sales, Customer Service, Marketing, Operations, HR
-  7. Industries Using AI Automation - Healthcare, Construction, Professional Services, Retail, Real Estate, Finance (with internal links)
-  8. Is AI Automation Right for Your Business? - 10-point self-assessment checklist
-  9. How to Get Started - 5-step implementation guide
-  10. FAQ - 8 common questions with detailed answers
-- **CTA Sections** - Book Free Audit CTAs throughout (glass card design)
-- **About Neural Solutions** - Company info, results, team links
-- **Related Resources** - Internal links to Services, Case Studies, Book Audit, About
-- **Footer** - Last updated date
-
-**Design Features:**
-- ScrollReveal animations on all major sections
-- Glass-morphism cards with purple gradient accents
-- Comparison tables with alternating row backgrounds
-- Interactive table of contents with anchor links
-- Inline CTAs strategically placed after benefit sections
-- Typography: Playfair Display (headings), Outfit (body), Space Mono (labels)
-- Color scheme: Purple gradients on white, card-elevated shadows
-- Responsive grid layouts for comparison cards and FAQ sections
-
-**SEO Optimization:**
-- **Meta title:** "What is AI Automation? Complete Guide for Canadian Businesses | Neural Solutions"
-- **Meta description:** 158 characters, keyword-rich
-- **Keywords:** what is AI automation, AI automation explained, how does AI automation work, AI for business, business automation guide
-- **Canonical URL:** https://www.neuralsolutions.cloud/resources/what-is-ai-automation
-- **Article schema:** Published date (2026-05-05), author (Neural Solutions Team), section (Guides)
-- **Internal linking:** Links to /case-studies, /services, /book-audit, /about
-- **Read time:** 12 minutes (3,600+ words)
-
-**Implementation Notes:**
-- Content is hardcoded in JSX for performance and control
-- Uses Tailwind Typography prose classes for consistent text styling
-- All external links open in new tabs (rel="noopener noreferrer")
-- Mobile-responsive tables and cards
-- Scroll-to-top anchor links with offset for fixed navbar
 
 ---
 
@@ -794,10 +740,11 @@ A comprehensive cleanup was performed to remove unused code and reduce technical
 - `src/components/sections/CTASection.tsx` - Old CTA section
 - `src/components/sections/StatCallouts.tsx` - Old stats section
 
-**Legacy Files (3 files):**
+**Legacy Files (4 files):**
 - `src/lib/RootLayout.tsx` - Leftover from Vike attempt (never imported)
 - `src/App.css` - Default Vite boilerplate styles (unused, using Tailwind + index.css)
 - `src/content/guides/what-is-ai-automation.md` - Markdown source (content hardcoded in JSX)
+- `src/pages/WhatIsAIAutomation.tsx` - Educational guide page (not routed, orphaned)
 
 **Unused Media (2 files):**
 - `src/assets/flow.webm` - Hero video (only used by deleted HeroSection)
@@ -829,10 +776,10 @@ Removed dependency-only components with no active users:
 
 ### Results
 
-- **Total files removed:** 54 files
+- **Total files removed:** 55 files
   - 3 unused custom components
   - 7 unused section components
-  - 3 legacy files
+  - 4 legacy files
   - 2 unused videos
   - 39 unused UI components
 - **Reduced from 48 to 10 shadcn/ui components** (79% reduction)

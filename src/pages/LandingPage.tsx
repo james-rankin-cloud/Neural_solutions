@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import agelessLivingLogo from "@/assets/ageless-living.jpg";
 import harrisonForbesLogo from "@/assets/harrisonforbes.jpg";
+import blueSkyHomecareLogo from "@/assets/blue-sky-homecare.png";
 import aiSolutionsImage from "@/assets/home-page-ai-solutions.png";
 import softwareDevelopmentImage from "@/assets/home-page-software-development.png";
 import heroVideo from "@/assets/mp_.mp4";
@@ -209,6 +210,14 @@ function About() {
               <img
                 src={harrisonForbesLogo}
                 alt="Harrison Forbes Electrical"
+                className="h-12 w-auto object-contain sm:h-14 md:h-16"
+                loading="lazy"
+              />
+            </div>
+            <div className="bg-gradient-to-br from-white to-gray-50/40 border border-black/10 rounded-xl p-6 flex items-center justify-center h-20 w-44 sm:h-24 sm:w-52 md:h-28 md:w-56 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+              <img
+                src={blueSkyHomecareLogo}
+                alt="Blue Sky Home Care"
                 className="h-12 w-auto object-contain sm:h-14 md:h-16"
                 loading="lazy"
               />

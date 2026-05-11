@@ -44,14 +44,14 @@ const services = [
     icon: <Layers className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "ML Engineering & MLOps",
     description: "Robust ML infrastructure for reliable, scalable AI deployment that grows with your business. Implement best practices for model development, monitoring, and maintenance to ensure consistent performance and rapid iteration.",
-    href: "/services/ml-engineering",
+    href: "/services/machine-learning-engineering-mlops",
     image: mlOpsImage
   },
   {
     icon: <Code2 className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "AI-Enabled Software Delivery",
     description: "Accelerate development with AI-powered tools and processes that enhance every phase of the software lifecycle. Boost developer productivity, improve code quality, and reduce time-to-market through intelligent automation and assistance.",
-    href: "/services/ai-sdlc",
+    href: "/services/ai-enabled-software-delivery",
     image: aiSdlcImage
   }
 ];

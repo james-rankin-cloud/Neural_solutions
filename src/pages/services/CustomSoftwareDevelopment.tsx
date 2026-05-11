@@ -63,74 +63,79 @@ const caseStudies = [
 
 const faqs = [
   {
-    question: "What is an AI agent?",
+    question: "What are the key benefits of outsourcing software development?",
     answer:
-      "An AI agent is a software system that uses AI models, business logic, and integrations to complete tasks, make decisions, and interact with users or systems toward a defined goal. A good AI agent should have clear boundaries, reliable workflows, and the right human review steps where needed.",
+      "Outsourcing software development gives your business access to specialized technical expertise without needing to hire a full in house team immediately. It can help accelerate delivery, reduce overhead, and give you flexible support for design, development, testing, deployment, and maintenance.",
   },
   {
-    question: "Can AI agents integrate with our existing business systems?",
+    question: "How do I know Neural Solutions is a true partner and not just an execution vendor?",
     answer:
-      "Yes. Neural Solutions designs AI agents to connect with existing tools such as CRMs, calendars, email platforms, websites, databases, spreadsheets, APIs, and internal systems where technically feasible.",
+      "Neural Solutions focuses on business outcomes, not just writing code. We help clarify requirements, challenge assumptions, explain technical tradeoffs, and build software around the workflow, users, and goals behind the project.",
   },
   {
-    question: "How do you manage risk and governance for AI automation?",
+    question: "What engagement model should I choose?",
     answer:
-      "We design AI automation with controls from the start. This can include access permissions, audit trails, monitoring, approval workflows, human review, error handling, data handling rules, and documentation so the system operates within clear boundaries.",
+      "The right model depends on your project. A fixed scope project can work well for a clearly defined build, while ongoing development support is better for evolving products, long term platforms, and businesses that need continuous improvements after launch.",
   },
   {
-    question: "How is intelligent automation different from traditional automation?",
+    question: "How important are architecture and technology choices?",
     answer:
-      "Traditional automation follows fixed rules. Intelligent automation combines AI, business logic, data, and integrations so workflows can handle more complex inputs, support decisions, summarize information, route tasks, and adapt to more variable business processes.",
+      "Architecture and technology choices affect scalability, security, cost, maintainability, and future hiring. We help choose tools based on your goals, budget, timeline, team capabilities, and long term needs instead of forcing one specific stack.",
   },
   {
-    question: "Do AI agents require human oversight?",
+    question: "How do communication and project governance work?",
     answer:
-      "Often, yes. For sensitive workflows, customer facing responses, financial decisions, or anything that requires accuracy and accountability, we design human in the loop steps so people can review, approve, or handle exceptions.",
+      "Successful projects need clear communication, defined decision making, regular updates, and feedback loops. We keep project scope, priorities, timelines, responsibilities, and next steps visible so everyone stays aligned throughout the build.",
   },
   {
-    question: "Is intelligent automation suitable for regulated industries?",
+    question: "How quickly can we start, and what does the launch process look like?",
     answer:
-      "Yes, when it is designed carefully. AI agents and automation can support regulated environments when there are clear controls, access rules, documentation, monitoring, review workflows, and compliance focused design.",
+      "The process usually starts with a discovery conversation to understand your goals, current systems, requirements, and timeline. From there, we define scope, recommend an approach, create a roadmap, and move into design and development once the plan is aligned.",
   },
   {
-    question: "What types of workflows can AI agents automate?",
+    question: "How can I evaluate engineering quality and testing practices?",
     answer:
-      "AI agents can support lead qualification, customer intake, follow up emails, CRM updates, document summaries, internal research, reporting, ticket routing, scheduling, knowledge search, and repetitive admin work.",
+      "Engineering quality shows up in the daily process. We focus on clean implementation, testing, code review, maintainable structure, performance, security considerations, and clear documentation so the product can continue improving after launch.",
   },
   {
-    question: "How long does it take to build an AI agent?",
+    question: "How does Neural Solutions handle security, compliance, and intellectual property?",
     answer:
-      "Timelines depend on the workflow complexity, the systems involved, the quality of the data, and the level of governance required. A simple prototype can usually be planned faster than a production system with integrations, monitoring, security, and human review.",
+      "Security, compliance, and ownership expectations should be defined early in the project. We can help set access controls, follow secure development practices, document technical decisions, and clarify code, data, and handoff expectations before work begins.",
   },
   {
-    question: "Do you only build agents, or do you also help identify automation opportunities?",
+    question: "How should I think about cost when building custom software?",
     answer:
-      "We help with both. Neural Solutions can assess your workflows, identify where AI agents can create value, prioritize use cases, build the automation roadmap, and then implement the approved systems.",
+      "Cost should be viewed in terms of total value, not just hourly rates. Scope clarity, architecture quality, communication, testing, and maintainability all affect long term cost. A cheaper build can become expensive if it creates rework, instability, or technical debt.",
+  },
+  {
+    question: "What happens after the software is delivered?",
+    answer:
+      "After launch, software usually needs monitoring, improvements, bug fixes, user feedback updates, performance optimization, and new features. Neural Solutions can support ongoing maintenance, enhancements, and handoff so the system remains useful as your business grows.",
   },
 ];
 
-const AIAgentsIntelligentAutomation = () => {
+const CustomSoftwareDevelopment = () => {
   const location = useLocation();
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     phone: "",
-    workflow: "",
-    tools: "",
+    softwareType: "",
+    problemToSolve: "",
     stage: "",
   });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = `AI Automation Inquiry from ${formData.name}`;
+    const subject = `Custom Software Development Inquiry from ${formData.name}`;
     const body = `
 Name: ${formData.name}
 Company: ${formData.company}
 Email: ${formData.email}
 Phone: ${formData.phone}
-Workflow to automate: ${formData.workflow}
-Tools/systems to connect: ${formData.tools}
+Software type: ${formData.softwareType}
+Problem to solve: ${formData.problemToSolve}
 Stage: ${formData.stage}
     `.trim();
     window.location.href = `mailto:growth@neuralcoremarketing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -139,10 +144,10 @@ Stage: ${formData.stage}
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <SEO
-        title="AI Agents & Intelligent Automation | Neural Solutions"
-        description="Neural Solutions builds AI agents and intelligent automation systems that streamline workflows, reduce manual effort, and support scalable business operations."
-        keywords="AI agents, intelligent automation, workflow automation, business process automation, AI assistants, CRM automation, lead qualification automation"
-        canonical="https://neuralsolutions.ca/services/ai-agents-intelligent-automation"
+        title="Custom Software Development Services | Neural Solutions"
+        description="Neural Solutions builds custom software, web applications, business platforms, dashboards, portals, and automation systems that help companies operate more efficiently and scale."
+        keywords="custom software development, web application development, business software, custom platforms, software engineering, SaaS development, dashboard development, portal development"
+        canonical="https://neuralsolutions.ca/services/custom-software-development"
       />
       <StructuredData data={getBreadcrumbSchema(location.pathname)} />
       <Navbar />
@@ -152,24 +157,24 @@ Stage: ${formData.stage}
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <ScrollReveal>
             <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-6 block">
-              AI Agents & Intelligent Automation
+              Custom Software Development Services
             </span>
             <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-foreground leading-tight mb-8">
-              AI Agents & Intelligent Automation
+              Custom Software Development Services
             </h1>
             <p className="font-sans text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Streamline workflows, reduce manual effort, and support scalable, reliable operations with AI agents built around your business processes.
+              Neural Solutions helps businesses build custom software that improves operations, supports growth, and creates new digital capabilities. We design and develop web applications, portals, dashboards, automation systems, and business tools built around your workflows.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/book-audit" className="group">
-                  Book Now
+                  Book Free Consultation
                   <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link to="#use-cases" className="group">
-                  Explore Automation Use Cases
+                <Link to="#services" className="group">
+                  Explore Software Services
                   <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -187,9 +192,9 @@ Stage: ${formData.stage}
               <span className="mx-2">/</span>
               <Link to="/services" className="hover:text-foreground transition-colors">Services</Link>
               <span className="mx-2">/</span>
-              <Link to="/services/ai-solutions" className="hover:text-foreground transition-colors">AI Solutions</Link>
+              <Link to="/services/software-development" className="hover:text-foreground transition-colors">Software Development</Link>
               <span className="mx-2">/</span>
-              <span className="text-foreground">AI Agents & Intelligent Automation</span>
+              <span className="text-foreground">Custom Software Development</span>
             </nav>
           </ScrollReveal>
         </div>
@@ -222,47 +227,48 @@ Stage: ${formData.stage}
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-              We apply AI where automation actually delivers value
+              You envision. We engineer.
             </h2>
             <p className="font-sans text-base md:text-lg text-foreground leading-relaxed mb-6">
-              Neural Solutions helps businesses move beyond basic automation by designing AI agents and intelligent automation systems that operate inside real business workflows. We focus on practical use cases where AI can support decisions, coordinate tasks, reduce manual effort, and interact with tools reliably.
+              Neural Solutions combines software engineering, product thinking, and practical delivery to build custom digital solutions that scale with your customers, processes, and long term growth strategy.
             </p>
             <p className="font-sans text-base md:text-lg text-foreground leading-relaxed">
-              Our approach combines AI models, business logic, integrations, and governance so automation is useful, maintainable, and aligned with how your team actually works.
+              We help reduce development risk, improve time to market, and create software that is easier to maintain through clear planning, structured development, testing, and transparent communication.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed mt-6">
-              Whether you need customer intake automation, CRM updates, lead qualification, reporting workflows, internal assistants, or multi step process automation, we design systems that connect into your existing tools and include the right control points.
+              Whether you need a new web application, internal tool, customer portal, automation platform, dashboard, or modernization of an existing system, we guide your project from discovery through deployment and long term support.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* What we do */}
-      <section id="use-cases" className="py-20 md:py-32 px-6 bg-secondary/30">
+      {/* Transform ideas into impact */}
+      <section id="services" className="py-20 md:py-32 px-6 bg-secondary/30">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-12 leading-tight">
-              What we do
+              Transform ideas into impact
             </h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
             <ScrollReveal delay={100}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">AI agent design & development</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Full cycle software development</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We design and build AI agents that perform specific tasks, coordinate workflows, and interact with users, tools, and systems based on defined goals and clear boundaries.
+                  We build custom software from initial concept to launch using modern architecture, clean development practices, and practical product planning.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Lead qualification agents",
-                    "Customer intake agents",
-                    "Internal operations agents",
-                    "Research and reporting agents",
-                    "Follow up and reminder agents"
+                    "Web applications",
+                    "Customer portals",
+                    "Internal business tools",
+                    "SaaS platforms",
+                    "Admin dashboards",
+                    "Workflow systems"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -275,18 +281,19 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={150}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Workflow & process automation</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Web and mobile application development</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We automate multi step business processes by combining AI driven decision support, rules based logic, and integrations with the tools your team already uses.
+                  We design and develop responsive web and mobile experiences that are fast, reliable, and built around the way users actually interact with your business.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "CRM updates",
-                    "Email routing",
-                    "Form intake",
-                    "Quote request workflows",
-                    "Reporting and admin automation"
+                    "Marketing websites",
+                    "Web apps",
+                    "Mobile friendly platforms",
+                    "Booking systems",
+                    "Client portals",
+                    "Service marketplaces"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -299,18 +306,19 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={200}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">LLM powered assistants</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Quality assurance and software testing</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We develop intelligent assistants using large language models to support customer service, internal operations, knowledge search, and repetitive communication tasks.
+                  We help make software more stable, secure, and production ready through structured testing, code review, automation, and quality checks.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Website assistants",
-                    "Internal knowledge assistants",
-                    "Customer support assistants",
-                    "Sales support assistants",
-                    "Employee help desk assistants"
+                    "Functional testing",
+                    "Regression testing",
+                    "Test automation",
+                    "Performance testing",
+                    "Bug fixing",
+                    "Release validation"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -323,18 +331,19 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={250}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">System integration & orchestration</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Support, optimization and long term maintenance</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We connect AI agents with your existing systems, APIs, databases, CRMs, calendars, email platforms, and data sources so workflows can run across your business instead of staying isolated.
+                  We support software after launch by improving performance, resolving issues, reducing technical debt, adding new features, and keeping systems reliable as your business grows.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "CRM integration",
-                    "Calendar and booking integration",
-                    "Email automation",
-                    "Database workflows",
-                    "API orchestration"
+                    "Bug fixes",
+                    "Feature improvements",
+                    "Performance optimization",
+                    "Cloud cost review",
+                    "Technical debt cleanup",
+                    "Ongoing support"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -347,18 +356,19 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={300}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Human in the loop automation</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Legacy software modernization</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We design automation workflows that include human review, approvals, exception handling, and escalation where accuracy, compliance, or customer experience matters.
+                  We help modernize outdated systems without disrupting business critical operations. We review the current architecture, identify risks, and create a phased plan for improvement.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Approval workflows",
-                    "Quality checks",
-                    "Escalation paths",
-                    "Sensitive customer requests",
-                    "High impact business decisions"
+                    "Legacy application review",
+                    "Architecture modernization",
+                    "Migration planning",
+                    "UI improvements",
+                    "Database updates",
+                    "Cloud migration support"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -371,18 +381,19 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={350}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Monitoring, governance & control</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Software integrations and automation</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We implement controls, monitoring, documentation, and governance practices to help manage performance, reliability, security, and risk across automated systems.
+                  We connect your software tools, data, and workflows so your systems work together instead of creating manual admin work for your team.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Workflow monitoring",
-                    "Audit trails",
-                    "Access controls",
-                    "Error handling",
-                    "Performance review"
+                    "CRM integrations",
+                    "API integrations",
+                    "Payment systems",
+                    "Email and calendar workflows",
+                    "Data syncing",
+                    "Automation between tools"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -401,7 +412,7 @@ Stage: ${formData.stage}
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-12 leading-tight">
-              AI consultancy & implementation case studies
+              Custom software development case studies
             </h2>
           </ScrollReveal>
 
@@ -509,15 +520,15 @@ Stage: ${formData.stage}
                   <p className="font-sans text-sm text-muted-foreground mb-6">No idea where to start</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Helping clients understand AI automation, identify practical opportunities, and build a roadmap.
+                  Helping clients understand their needs, define the opportunity, and create a clear software roadmap.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    "AI readiness assessment",
-                    "AI education and awareness workshops",
-                    "Use case discovery and prioritization",
-                    "Workflow and tool review",
-                    "Automation opportunity roadmap",
+                    "Requirements gathering and analysis",
+                    "Technology stack consultation",
+                    "Project scope and timeline planning",
+                    "User journey mapping",
+                    "Feature prioritization",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -534,19 +545,19 @@ Stage: ${formData.stage}
                   <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-2">
                     Stage
                   </span>
-                  <h3 className="font-sans text-2xl font-bold text-foreground mb-2">Experimentation</h3>
-                  <p className="font-sans text-sm text-muted-foreground mb-6">Started working on a prototype</p>
+                  <h3 className="font-sans text-2xl font-bold text-foreground mb-2">Development</h3>
+                  <p className="font-sans text-sm text-muted-foreground mb-6">Ready to build your solution</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Guiding clients through initial AI agent design, automation testing, and workflow validation.
+                  Guiding clients through structured development, product validation, and quality focused delivery.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    "Prototype feasibility review",
-                    "Model selection and experimentation",
-                    "MVP development and testing",
-                    "Workflow validation",
-                    "ROI and effort assessment",
+                    "Architecture design and planning",
+                    "Agile development sprints",
+                    "Frontend and backend development",
+                    "Quality assurance and testing",
+                    "Progress demos and feedback loops",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -563,19 +574,19 @@ Stage: ${formData.stage}
                   <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-2">
                     Stage
                   </span>
-                  <h3 className="font-sans text-2xl font-bold text-foreground mb-2">Implementation</h3>
-                  <p className="font-sans text-sm text-muted-foreground mb-6">Have a working prototype</p>
+                  <h3 className="font-sans text-2xl font-bold text-foreground mb-2">Deployment</h3>
+                  <p className="font-sans text-sm text-muted-foreground mb-6">Have a working product</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Scaling, optimizing, and deploying AI agents and intelligent automation into real business operations.
+                  Scaling, optimizing, and launching software into production with the right support plan in place.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    "MLOps and deployment strategy",
-                    "Production grade AI integration",
-                    "AI governance and scalability plan",
-                    "Monitoring and error handling",
-                    "Team training and adoption support",
+                    "DevOps and deployment strategy",
+                    "Production grade implementation",
+                    "Performance optimization",
+                    "Monitoring and issue resolution",
+                    "Maintenance and support plan",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -619,10 +630,10 @@ Stage: ${formData.stage}
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-                Ready to automate the workflows slowing your team down?
+                Ready to build custom software around your business?
               </h2>
               <p className="font-sans text-lg text-muted-foreground max-w-3xl mx-auto">
-                Book a consultation with Neural Solutions to discuss your current workflows, where manual work is piling up, and how AI agents or intelligent automation could help.
+                Book a consultation with Neural Solutions to discuss your idea, current workflow, users, systems, and what it would take to build a reliable software solution.
               </p>
             </div>
           </ScrollReveal>
@@ -637,7 +648,7 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={200}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-xl font-bold text-foreground mb-6">Tell us what you want to automate</h3>
+                <h3 className="font-sans text-xl font-bold text-foreground mb-6">Tell us what you want to build</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">
                     <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -684,9 +695,9 @@ Stage: ${formData.stage}
                   <div className="relative">
                     <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
                     <Textarea
-                      placeholder="What workflow are you hoping to automate?"
-                      value={formData.workflow}
-                      onChange={(e) => setFormData({ ...formData, workflow: e.target.value })}
+                      placeholder="What type of software are you looking to build?"
+                      value={formData.softwareType}
+                      onChange={(e) => setFormData({ ...formData, softwareType: e.target.value })}
                       className="pl-10 min-h-24"
                       required
                     />
@@ -694,9 +705,9 @@ Stage: ${formData.stage}
                   <div className="relative">
                     <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
                     <Textarea
-                      placeholder="What tools or systems should it connect to?"
-                      value={formData.tools}
-                      onChange={(e) => setFormData({ ...formData, tools: e.target.value })}
+                      placeholder="What problem should it solve?"
+                      value={formData.problemToSolve}
+                      onChange={(e) => setFormData({ ...formData, problemToSolve: e.target.value })}
                       className="pl-10 min-h-20"
                     />
                   </div>
@@ -710,10 +721,11 @@ Stage: ${formData.stage}
                     >
                       <option value="">Select a stage</option>
                       <option value="Discovery">Discovery</option>
-                      <option value="Experimentation">Experimentation</option>
-                      <option value="Implementation">Implementation</option>
-                      <option value="Need help deciding">Need help deciding</option>
-                      <option value="Existing automation needs improvement">Existing automation needs improvement</option>
+                      <option value="Planning">Planning</option>
+                      <option value="Ready to build">Ready to build</option>
+                      <option value="Have an existing product">Have an existing product</option>
+                      <option value="Need modernization">Need modernization</option>
+                      <option value="Need ongoing support">Need ongoing support</option>
                     </select>
                   </div>
                   <Button type="submit" variant="hero" size="lg" className="w-full">
@@ -731,4 +743,4 @@ Stage: ${formData.stage}
   );
 };
 
-export default AIAgentsIntelligentAutomation;
+export default CustomSoftwareDevelopment;

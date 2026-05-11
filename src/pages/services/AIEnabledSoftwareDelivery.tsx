@@ -63,74 +63,74 @@ const caseStudies = [
 
 const faqs = [
   {
-    question: "What is an AI agent?",
+    question: "What does AI-enabled software delivery actually mean in practice?",
     answer:
-      "An AI agent is a software system that uses AI models, business logic, and integrations to complete tasks, make decisions, and interact with users or systems toward a defined goal. A good AI agent should have clear boundaries, reliable workflows, and the right human review steps where needed.",
+      "AI-enabled software delivery means applying AI inside existing planning, development, testing, documentation, and release workflows to reduce manual effort, improve consistency, and support better delivery outcomes. It does not replace teams or remove core engineering controls.",
   },
   {
-    question: "Can AI agents integrate with our existing business systems?",
+    question: "How is this different from just using AI coding tools?",
     answer:
-      "Yes. Neural Solutions designs AI agents to connect with existing tools such as CRMs, calendars, email platforms, websites, databases, spreadsheets, APIs, and internal systems where technically feasible.",
+      "AI coding tools usually focus on helping individual developers write or review code. AI-enabled software delivery looks at the full lifecycle, including planning, development, testing, documentation, release readiness, CI/CD workflows, governance, and quality engineering.",
   },
   {
-    question: "How do you manage risk and governance for AI automation?",
+    question: "Who remains accountable for code and release decisions?",
     answer:
-      "We design AI automation with controls from the start. This can include access permissions, audit trails, monitoring, approval workflows, human review, error handling, data handling rules, and documentation so the system operates within clear boundaries.",
+      "Your team remains accountable. AI can support developers, testers, and delivery leads, but code quality, approvals, release decisions, and production changes should stay under human control with clear review steps.",
   },
   {
-    question: "How is intelligent automation different from traditional automation?",
+    question: "Does this reduce the need for developers or QA engineers?",
     answer:
-      "Traditional automation follows fixed rules. Intelligent automation combines AI, business logic, data, and integrations so workflows can handle more complex inputs, support decisions, summarize information, route tasks, and adapt to more variable business processes.",
+      "No. The goal is to augment delivery teams, not replace them. AI can help with repetitive work, summaries, test support, documentation, and pattern detection so developers and QA professionals can focus on higher value engineering decisions.",
   },
   {
-    question: "Do AI agents require human oversight?",
+    question: "Can AI-enabled delivery work with our current SDLC and CI/CD pipelines?",
     answer:
-      "Often, yes. For sensitive workflows, customer facing responses, financial decisions, or anything that requires accuracy and accountability, we design human in the loop steps so people can review, approve, or handle exceptions.",
+      "Yes. Neural Solutions designs AI-enabled delivery workflows around your existing tools, repositories, ticketing systems, CI/CD pipelines, QA processes, and release practices wherever technically feasible.",
   },
   {
-    question: "Is intelligent automation suitable for regulated industries?",
+    question: "How do you manage risk when AI is involved in software delivery?",
     answer:
-      "Yes, when it is designed carefully. AI agents and automation can support regulated environments when there are clear controls, access rules, documentation, monitoring, review workflows, and compliance focused design.",
+      "We use controls such as human review, validation steps, testing requirements, access permissions, audit trails, secure tool configuration, monitoring, and governance practices to keep AI use transparent and controlled.",
   },
   {
-    question: "What types of workflows can AI agents automate?",
+    question: "Is AI-enabled software delivery suitable for regulated environments?",
     answer:
-      "AI agents can support lead qualification, customer intake, follow up emails, CRM updates, document summaries, internal research, reporting, ticket routing, scheduling, knowledge search, and repetitive admin work.",
+      "Yes, when designed carefully. AI-enabled delivery can support regulated environments by improving traceability, documentation, consistency, review workflows, and audit readiness across the software delivery lifecycle.",
   },
   {
-    question: "How long does it take to build an AI agent?",
+    question: "What parts of the SDLC can AI help with?",
     answer:
-      "Timelines depend on the workflow complexity, the systems involved, the quality of the data, and the level of governance required. A simple prototype can usually be planned faster than a production system with integrations, monitoring, security, and human review.",
+      "AI can support requirements analysis, code generation, refactoring, code review, test generation, test coverage improvement, defect analysis, documentation, release note creation, CI/CD insights, deployment risk review, and knowledge management.",
   },
   {
-    question: "Do you only build agents, or do you also help identify automation opportunities?",
+    question: "Do you help teams create AI usage guidelines for developers?",
     answer:
-      "We help with both. Neural Solutions can assess your workflows, identify where AI agents can create value, prioritize use cases, build the automation roadmap, and then implement the approved systems.",
+      "Yes. Neural Solutions can help create practical AI usage guidelines for engineering teams, including acceptable use, code review expectations, data protection rules, tool approval processes, and governance standards.",
   },
 ];
 
-const AIAgentsIntelligentAutomation = () => {
+const AIEnabledSoftwareDelivery = () => {
   const location = useLocation();
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     phone: "",
-    workflow: "",
+    deliveryChallenge: "",
     tools: "",
     stage: "",
   });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = `AI Automation Inquiry from ${formData.name}`;
+    const subject = `AI-enabled Software Delivery Inquiry from ${formData.name}`;
     const body = `
 Name: ${formData.name}
 Company: ${formData.company}
 Email: ${formData.email}
 Phone: ${formData.phone}
-Workflow to automate: ${formData.workflow}
-Tools/systems to connect: ${formData.tools}
+Part of software delivery to improve: ${formData.deliveryChallenge}
+Tools/systems currently used: ${formData.tools}
 Stage: ${formData.stage}
     `.trim();
     window.location.href = `mailto:growth@neuralcoremarketing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -139,10 +139,10 @@ Stage: ${formData.stage}
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <SEO
-        title="AI Agents & Intelligent Automation | Neural Solutions"
-        description="Neural Solutions builds AI agents and intelligent automation systems that streamline workflows, reduce manual effort, and support scalable business operations."
-        keywords="AI agents, intelligent automation, workflow automation, business process automation, AI assistants, CRM automation, lead qualification automation"
-        canonical="https://neuralsolutions.ca/services/ai-agents-intelligent-automation"
+        title="AI-enabled Software Delivery | Neural Solutions"
+        description="Neural Solutions applies AI across the software delivery lifecycle to improve code quality, testing, documentation, release readiness, and engineering productivity."
+        keywords="AI-enabled software delivery, AI software development, AI testing automation, AI code review, CI/CD automation, DevOps AI, QA automation, engineering productivity"
+        canonical="https://neuralsolutions.ca/services/ai-enabled-software-delivery"
       />
       <StructuredData data={getBreadcrumbSchema(location.pathname)} />
       <Navbar />
@@ -152,13 +152,13 @@ Stage: ${formData.stage}
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <ScrollReveal>
             <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-6 block">
-              AI Agents & Intelligent Automation
+              AI-enabled Software Delivery
             </span>
             <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-foreground leading-tight mb-8">
-              AI Agents & Intelligent Automation
+              AI-enabled Software Delivery for Faster, More Reliable Releases
             </h1>
             <p className="font-sans text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Streamline workflows, reduce manual effort, and support scalable, reliable operations with AI agents built around your business processes.
+              We apply AI across the software delivery lifecycle to improve code quality, reduce manual effort, and help teams deliver software faster without compromising reliability, security, or governance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
@@ -169,7 +169,7 @@ Stage: ${formData.stage}
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
                 <Link to="#use-cases" className="group">
-                  Explore Automation Use Cases
+                  Explore SDLC Use Cases
                   <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -189,7 +189,7 @@ Stage: ${formData.stage}
               <span className="mx-2">/</span>
               <Link to="/services/ai-solutions" className="hover:text-foreground transition-colors">AI Solutions</Link>
               <span className="mx-2">/</span>
-              <span className="text-foreground">AI Agents & Intelligent Automation</span>
+              <span className="text-foreground">AI-enabled Software Delivery</span>
             </nav>
           </ScrollReveal>
         </div>
@@ -222,47 +222,47 @@ Stage: ${formData.stage}
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-              We apply AI where automation actually delivers value
+              We apply AI where software delivery actually benefits
             </h2>
             <p className="font-sans text-base md:text-lg text-foreground leading-relaxed mb-6">
-              Neural Solutions helps businesses move beyond basic automation by designing AI agents and intelligent automation systems that operate inside real business workflows. We focus on practical use cases where AI can support decisions, coordinate tasks, reduce manual effort, and interact with tools reliably.
+              Neural Solutions helps teams apply AI directly inside the software development lifecycle as part of everyday engineering workflows. Our focus is practical AI adoption that supports developers, testers, and delivery teams without disrupting the processes they already rely on.
             </p>
             <p className="font-sans text-base md:text-lg text-foreground leading-relaxed">
-              Our approach combines AI models, business logic, integrations, and governance so automation is useful, maintainable, and aligned with how your team actually works.
+              We integrate AI into planning, development, testing, documentation, and release activities to help teams improve speed, consistency, and quality while maintaining control and accountability.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed mt-6">
-              Whether you need customer intake automation, CRM updates, lead qualification, reporting workflows, internal assistants, or multi step process automation, we design systems that connect into your existing tools and include the right control points.
+              Whether your team needs help with code review support, test automation, release readiness, documentation, or CI/CD workflow improvements, we design AI-enabled delivery systems that fit your existing tools and governance requirements.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* What we do */}
+      {/* How we implement AI-enabled software delivery across the SDLC */}
       <section id="use-cases" className="py-20 md:py-32 px-6 bg-secondary/30">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-12 leading-tight">
-              What we do
+              How we implement AI-enabled software delivery across the SDLC
             </h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
             <ScrollReveal delay={100}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">AI agent design & development</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">AI-assisted code development</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We design and build AI agents that perform specific tasks, coordinate workflows, and interact with users, tools, and systems based on defined goals and clear boundaries.
+                  We apply AI tools and workflows to support code generation, refactoring, code review, and developer productivity while keeping engineering standards and human review in place.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Lead qualification agents",
-                    "Customer intake agents",
-                    "Internal operations agents",
-                    "Research and reporting agents",
-                    "Follow up and reminder agents"
+                    "Code generation support",
+                    "Refactoring assistance",
+                    "Pull request summaries",
+                    "Code review support",
+                    "Engineering standards checks"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -275,18 +275,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={150}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Workflow & process automation</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">AI-augmented testing & quality engineering</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We automate multi step business processes by combining AI driven decision support, rules based logic, and integrations with the tools your team already uses.
+                  We use AI to improve test coverage, identify edge cases, generate test scenarios, and optimize test execution across unit, integration, regression, and acceptance testing.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "CRM updates",
-                    "Email routing",
-                    "Form intake",
-                    "Quote request workflows",
-                    "Reporting and admin automation"
+                    "Test case generation",
+                    "Unit test coverage improvement",
+                    "Regression test optimization",
+                    "Edge case discovery",
+                    "QA workflow automation"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -299,18 +299,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={200}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">LLM powered assistants</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Intelligent defect detection & analysis</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We develop intelligent assistants using large language models to support customer service, internal operations, knowledge search, and repetitive communication tasks.
+                  We apply AI to analyze defects, logs, traces, performance data, and historical issue patterns so teams can surface problems earlier in the delivery cycle.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Website assistants",
-                    "Internal knowledge assistants",
-                    "Customer support assistants",
-                    "Sales support assistants",
-                    "Employee help desk assistants"
+                    "Log analysis",
+                    "Defect pattern detection",
+                    "Root cause support",
+                    "Performance issue summaries",
+                    "Incident trend analysis"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -323,18 +323,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={250}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">System integration & orchestration</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">AI-driven documentation & knowledge support</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We connect AI agents with your existing systems, APIs, databases, CRMs, calendars, email platforms, and data sources so workflows can run across your business instead of staying isolated.
+                  We automate parts of documentation creation and maintenance so codebases, systems, and release processes are easier to understand over time.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "CRM integration",
-                    "Calendar and booking integration",
-                    "Email automation",
-                    "Database workflows",
-                    "API orchestration"
+                    "Codebase documentation",
+                    "Release note drafts",
+                    "Technical summaries",
+                    "Internal knowledge assistants",
+                    "Onboarding documentation"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -347,18 +347,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={300}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Human in the loop automation</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Release & deployment optimization</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We design automation workflows that include human review, approvals, exception handling, and escalation where accuracy, compliance, or customer experience matters.
+                  We use AI-assisted insights to support release readiness, deployment risk assessment, and CI/CD pipeline decisions while keeping final approval under team control.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Approval workflows",
-                    "Quality checks",
-                    "Escalation paths",
-                    "Sensitive customer requests",
-                    "High impact business decisions"
+                    "Release readiness checks",
+                    "Deployment risk summaries",
+                    "CI/CD pipeline insights",
+                    "Change impact analysis",
+                    "Rollback planning support"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -371,18 +371,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={350}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Monitoring, governance & control</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Governance & responsible AI in delivery</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We implement controls, monitoring, documentation, and governance practices to help manage performance, reliability, security, and risk across automated systems.
+                  We help teams use AI in software delivery with clear controls, human review, security practices, and governance standards.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Workflow monitoring",
+                    "AI usage guidelines",
+                    "Human in the loop review",
                     "Audit trails",
-                    "Access controls",
-                    "Error handling",
-                    "Performance review"
+                    "Secure tool adoption",
+                    "Compliance-aware delivery workflows"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -509,15 +509,15 @@ Stage: ${formData.stage}
                   <p className="font-sans text-sm text-muted-foreground mb-6">No idea where to start</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Helping clients understand AI automation, identify practical opportunities, and build a roadmap.
+                  Helping teams understand where AI can support the software delivery lifecycle without adding risk or unnecessary complexity.
                 </p>
                 <ul className="space-y-2">
                   {[
                     "AI readiness assessment",
-                    "AI education and awareness workshops",
+                    "SDLC workflow review",
+                    "Engineering tool audit",
                     "Use case discovery and prioritization",
-                    "Workflow and tool review",
-                    "Automation opportunity roadmap",
+                    "AI adoption roadmap",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -535,18 +535,18 @@ Stage: ${formData.stage}
                     Stage
                   </span>
                   <h3 className="font-sans text-2xl font-bold text-foreground mb-2">Experimentation</h3>
-                  <p className="font-sans text-sm text-muted-foreground mb-6">Started working on a prototype</p>
+                  <p className="font-sans text-sm text-muted-foreground mb-6">Started testing AI tools</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Guiding clients through initial AI agent design, automation testing, and workflow validation.
+                  Guiding teams through early AI-enabled delivery pilots, tool validation, and workflow experiments.
                 </p>
                 <ul className="space-y-2">
                   {[
                     "Prototype feasibility review",
-                    "Model selection and experimentation",
+                    "AI coding and testing workflow pilots",
+                    "Tool selection and experimentation",
                     "MVP development and testing",
-                    "Workflow validation",
-                    "ROI and effort assessment",
+                    "Risk and governance review",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -564,17 +564,17 @@ Stage: ${formData.stage}
                     Stage
                   </span>
                   <h3 className="font-sans text-2xl font-bold text-foreground mb-2">Implementation</h3>
-                  <p className="font-sans text-sm text-muted-foreground mb-6">Have a working prototype</p>
+                  <p className="font-sans text-sm text-muted-foreground mb-6">Ready to scale AI across delivery</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Scaling, optimizing, and deploying AI agents and intelligent automation into real business operations.
+                  Scaling AI-enabled software delivery into production engineering workflows with governance, monitoring, and clear team adoption.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    "MLOps and deployment strategy",
-                    "Production grade AI integration",
-                    "AI governance and scalability plan",
-                    "Monitoring and error handling",
+                    "AI-enabled SDLC implementation",
+                    "CI/CD and DevOps integration",
+                    "Testing and QA automation support",
+                    "Governance and approval workflows",
                     "Team training and adoption support",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
@@ -619,10 +619,10 @@ Stage: ${formData.stage}
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-                Ready to automate the workflows slowing your team down?
+                Ready to improve your software delivery lifecycle with AI?
               </h2>
               <p className="font-sans text-lg text-muted-foreground max-w-3xl mx-auto">
-                Book a consultation with Neural Solutions to discuss your current workflows, where manual work is piling up, and how AI agents or intelligent automation could help.
+                Book a consultation with Neural Solutions to discuss your current development workflow, testing process, CI/CD pipeline, and where AI could help your team move faster without losing control.
               </p>
             </div>
           </ScrollReveal>
@@ -637,7 +637,7 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={200}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-xl font-bold text-foreground mb-6">Tell us what you want to automate</h3>
+                <h3 className="font-sans text-xl font-bold text-foreground mb-6">Tell us about your delivery workflow</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">
                     <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -684,9 +684,9 @@ Stage: ${formData.stage}
                   <div className="relative">
                     <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
                     <Textarea
-                      placeholder="What workflow are you hoping to automate?"
-                      value={formData.workflow}
-                      onChange={(e) => setFormData({ ...formData, workflow: e.target.value })}
+                      placeholder="What part of software delivery are you trying to improve?"
+                      value={formData.deliveryChallenge}
+                      onChange={(e) => setFormData({ ...formData, deliveryChallenge: e.target.value })}
                       className="pl-10 min-h-24"
                       required
                     />
@@ -694,7 +694,7 @@ Stage: ${formData.stage}
                   <div className="relative">
                     <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
                     <Textarea
-                      placeholder="What tools or systems should it connect to?"
+                      placeholder="What tools or systems does your team currently use?"
                       value={formData.tools}
                       onChange={(e) => setFormData({ ...formData, tools: e.target.value })}
                       className="pl-10 min-h-20"
@@ -710,10 +710,10 @@ Stage: ${formData.stage}
                     >
                       <option value="">Select a stage</option>
                       <option value="Discovery">Discovery</option>
-                      <option value="Experimentation">Experimentation</option>
-                      <option value="Implementation">Implementation</option>
+                      <option value="Testing AI tools">Testing AI tools</option>
+                      <option value="Ready to implement">Ready to implement</option>
+                      <option value="Existing workflow needs improvement">Existing workflow needs improvement</option>
                       <option value="Need help deciding">Need help deciding</option>
-                      <option value="Existing automation needs improvement">Existing automation needs improvement</option>
                     </select>
                   </div>
                   <Button type="submit" variant="hero" size="lg" className="w-full">
@@ -731,4 +731,4 @@ Stage: ${formData.stage}
   );
 };
 
-export default AIAgentsIntelligentAutomation;
+export default AIEnabledSoftwareDelivery;

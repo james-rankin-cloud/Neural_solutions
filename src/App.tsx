@@ -19,6 +19,10 @@ import AIStrategyConsultingGovernance from "./pages/services/AIStrategyConsultin
 import CustomAIProductDevelopment from "./pages/services/CustomAIProductDevelopment.tsx";
 import AIAgentsIntelligentAutomation from "./pages/services/AIAgentsIntelligentAutomation.tsx";
 import AIAnalyticsPredictiveInsights from "./pages/services/AIAnalyticsPredictiveInsights.tsx";
+import MLEngineeringMLOps from "./pages/services/MLEngineeringMLOps.tsx";
+import AIEnabledSoftwareDelivery from "./pages/services/AIEnabledSoftwareDelivery.tsx";
+import CustomSoftwareDevelopment from "./pages/services/CustomSoftwareDevelopment.tsx";
+import ApplicationDevelopmentModernization from "./pages/services/ApplicationDevelopmentModernization.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { cities } from "@/lib/data/cities";
 
@@ -46,6 +50,10 @@ const App = () => (
             <Route path="/services/custom-ai-product-development" element={<CustomAIProductDevelopment />} />
             <Route path="/services/ai-agents-intelligent-automation" element={<AIAgentsIntelligentAutomation />} />
             <Route path="/services/ai-analytics-predictive-insights-decision-intelligence" element={<AIAnalyticsPredictiveInsights />} />
+            <Route path="/services/machine-learning-engineering-mlops" element={<MLEngineeringMLOps />} />
+            <Route path="/services/ai-enabled-software-delivery" element={<AIEnabledSoftwareDelivery />} />
+            <Route path="/services/custom-software-development" element={<CustomSoftwareDevelopment />} />
+            <Route path="/services/application-development-modernization" element={<ApplicationDevelopmentModernization />} />
             {cities.map((city) => (
               <Route
                 key={city.slug}

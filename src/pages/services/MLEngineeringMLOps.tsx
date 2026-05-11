@@ -63,74 +63,74 @@ const caseStudies = [
 
 const faqs = [
   {
-    question: "What is an AI agent?",
+    question: "What is the difference between ML engineering and MLOps?",
     answer:
-      "An AI agent is a software system that uses AI models, business logic, and integrations to complete tasks, make decisions, and interact with users or systems toward a defined goal. A good AI agent should have clear boundaries, reliable workflows, and the right human review steps where needed.",
+      "ML engineering focuses on building, improving, and integrating machine learning models and systems. MLOps focuses on the operational practices, tools, pipelines, and infrastructure needed to deploy, monitor, maintain, and improve those models in production. Neural Solutions can support both sides so the model is not only built, but also reliable in real use.",
   },
   {
-    question: "Can AI agents integrate with our existing business systems?",
+    question: "How do you keep machine learning models accurate after deployment?",
     answer:
-      "Yes. Neural Solutions designs AI agents to connect with existing tools such as CRMs, calendars, email platforms, websites, databases, spreadsheets, APIs, and internal systems where technically feasible.",
+      "We use monitoring systems to track model performance, data quality, prediction patterns, and drift. When performance changes, the system can trigger reviews, retraining workflows, or improvement steps. The goal is to keep the model useful as real-world data and business conditions change.",
   },
   {
-    question: "How do you manage risk and governance for AI automation?",
+    question: "Can you work with our existing data science team?",
     answer:
-      "We design AI automation with controls from the start. This can include access permissions, audit trails, monitoring, approval workflows, human review, error handling, data handling rules, and documentation so the system operates within clear boundaries.",
+      "Yes. Neural Solutions can partner with internal data science, analytics, or engineering teams. We can help with model deployment, infrastructure, pipeline automation, monitoring, documentation, and MLOps practices so your team can focus on experimentation and business value.",
   },
   {
-    question: "How is intelligent automation different from traditional automation?",
+    question: "What cloud platforms and tools can you work with?",
     answer:
-      "Traditional automation follows fixed rules. Intelligent automation combines AI, business logic, data, and integrations so workflows can handle more complex inputs, support decisions, summarize information, route tasks, and adapt to more variable business processes.",
+      "We can work with modern cloud platforms, infrastructure tools, model serving systems, workflow orchestration tools, databases, APIs, and ML frameworks depending on your existing environment and project needs. The final stack should be selected based on your goals, budget, data, security needs, and technical constraints.",
   },
   {
-    question: "Do AI agents require human oversight?",
+    question: "How long does it take to get a model into production?",
     answer:
-      "Often, yes. For sensitive workflows, customer facing responses, financial decisions, or anything that requires accuracy and accountability, we design human in the loop steps so people can review, approve, or handle exceptions.",
+      "Timelines depend on the model complexity, data readiness, current infrastructure, integrations, security requirements, and monitoring needs. A focused deployment may move faster if the model and data are already prepared, while a complete MLOps platform or production AI system requires a more structured build.",
   },
   {
-    question: "Is intelligent automation suitable for regulated industries?",
+    question: "What does model governance include?",
     answer:
-      "Yes, when it is designed carefully. AI agents and automation can support regulated environments when there are clear controls, access rules, documentation, monitoring, review workflows, and compliance focused design.",
+      "Model governance can include version tracking, documentation, data lineage, audit trails, access controls, review workflows, explainability, bias checks, approval processes, monitoring, and defined ownership. This helps teams understand how models are built, deployed, changed, and maintained.",
   },
   {
-    question: "What types of workflows can AI agents automate?",
+    question: "Can you deploy models into our existing systems?",
     answer:
-      "AI agents can support lead qualification, customer intake, follow up emails, CRM updates, document summaries, internal research, reporting, ticket routing, scheduling, knowledge search, and repetitive admin work.",
+      "Yes. Where technically feasible, we can integrate models into existing applications, dashboards, CRMs, databases, cloud platforms, APIs, and internal workflows so predictions or insights are available where your team already works.",
   },
   {
-    question: "How long does it take to build an AI agent?",
+    question: "Do we need a fully built model before working with Neural Solutions?",
     answer:
-      "Timelines depend on the workflow complexity, the systems involved, the quality of the data, and the level of governance required. A simple prototype can usually be planned faster than a production system with integrations, monitoring, security, and human review.",
+      "No. Neural Solutions can help at different stages. We can support early discovery and data readiness, build an MVP model, improve an existing prototype, or help deploy and monitor a model that is already working.",
   },
   {
-    question: "Do you only build agents, or do you also help identify automation opportunities?",
+    question: "What types of machine learning systems can you build?",
     answer:
-      "We help with both. Neural Solutions can assess your workflows, identify where AI agents can create value, prioritize use cases, build the automation roadmap, and then implement the approved systems.",
+      "We can support predictive models, classification systems, recommendation tools, forecasting models, NLP systems, computer vision models, anomaly detection, lead scoring, churn prediction, document intelligence, and operational decision support systems.",
   },
 ];
 
-const AIAgentsIntelligentAutomation = () => {
+const MLEngineeringMLOps = () => {
   const location = useLocation();
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     phone: "",
-    workflow: "",
-    tools: "",
+    mlSystem: "",
+    dataLocation: "",
     stage: "",
   });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = `AI Automation Inquiry from ${formData.name}`;
+    const subject = `ML Engineering Inquiry from ${formData.name}`;
     const body = `
 Name: ${formData.name}
 Company: ${formData.company}
 Email: ${formData.email}
 Phone: ${formData.phone}
-Workflow to automate: ${formData.workflow}
-Tools/systems to connect: ${formData.tools}
+ML system type: ${formData.mlSystem}
+Data location: ${formData.dataLocation}
 Stage: ${formData.stage}
     `.trim();
     window.location.href = `mailto:growth@neuralcoremarketing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -139,10 +139,10 @@ Stage: ${formData.stage}
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <SEO
-        title="AI Agents & Intelligent Automation | Neural Solutions"
-        description="Neural Solutions builds AI agents and intelligent automation systems that streamline workflows, reduce manual effort, and support scalable business operations."
-        keywords="AI agents, intelligent automation, workflow automation, business process automation, AI assistants, CRM automation, lead qualification automation"
-        canonical="https://neuralsolutions.ca/services/ai-agents-intelligent-automation"
+        title="Machine Learning Engineering & MLOps | Neural Solutions"
+        description="Neural Solutions builds, deploys, and operationalizes production-ready machine learning systems with ML engineering, MLOps pipelines, model monitoring, and scalable AI infrastructure."
+        keywords="machine learning engineering, MLOps, ML infrastructure, model deployment, model monitoring, production AI, data pipelines, AI infrastructure, ML governance"
+        canonical="https://neuralsolutions.ca/services/machine-learning-engineering-mlops"
       />
       <StructuredData data={getBreadcrumbSchema(location.pathname)} />
       <Navbar />
@@ -152,13 +152,13 @@ Stage: ${formData.stage}
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <ScrollReveal>
             <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-6 block">
-              AI Agents & Intelligent Automation
+              Machine Learning Engineering & MLOps
             </span>
             <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-foreground leading-tight mb-8">
-              AI Agents & Intelligent Automation
+              Machine Learning Engineering & MLOps
             </h1>
             <p className="font-sans text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Streamline workflows, reduce manual effort, and support scalable, reliable operations with AI agents built around your business processes.
+              We build, deploy, and operationalize production-ready machine learning systems through expert ML engineering, automated MLOps pipelines, and reliable infrastructure that helps models perform consistently, scale efficiently, and create measurable business value.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
@@ -168,8 +168,8 @@ Stage: ${formData.stage}
                 </Link>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
-                <Link to="#use-cases" className="group">
-                  Explore Automation Use Cases
+                <Link to="#services" className="group">
+                  Explore MLOps Services
                   <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -189,7 +189,7 @@ Stage: ${formData.stage}
               <span className="mx-2">/</span>
               <Link to="/services/ai-solutions" className="hover:text-foreground transition-colors">AI Solutions</Link>
               <span className="mx-2">/</span>
-              <span className="text-foreground">AI Agents & Intelligent Automation</span>
+              <span className="text-foreground">Machine Learning Engineering & MLOps</span>
             </nav>
           </ScrollReveal>
         </div>
@@ -222,47 +222,48 @@ Stage: ${formData.stage}
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-              We apply AI where automation actually delivers value
+              From prototype to production excellence
             </h2>
             <p className="font-sans text-base md:text-lg text-foreground leading-relaxed mb-6">
-              Neural Solutions helps businesses move beyond basic automation by designing AI agents and intelligent automation systems that operate inside real business workflows. We focus on practical use cases where AI can support decisions, coordinate tasks, reduce manual effort, and interact with tools reliably.
+              Building a machine learning model is only one part of the journey. Deploying it successfully, monitoring it, and keeping it reliable in production requires strong engineering, infrastructure, and operational discipline.
             </p>
             <p className="font-sans text-base md:text-lg text-foreground leading-relaxed">
-              Our approach combines AI models, business logic, integrations, and governance so automation is useful, maintainable, and aligned with how your team actually works.
+              Neural Solutions helps bridge the gap between experimentation and production AI systems. We support the complete ML lifecycle, from model development and training to deployment, monitoring, retraining, and continuous improvement.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed mt-6">
-              Whether you need customer intake automation, CRM updates, lead qualification, reporting workflows, internal assistants, or multi step process automation, we design systems that connect into your existing tools and include the right control points.
+              With MLOps best practices, automated deployment workflows, scalable cloud infrastructure, and clear governance, we help machine learning initiatives move from proof of concept to real business use.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* What we do */}
-      <section id="use-cases" className="py-20 md:py-32 px-6 bg-secondary/30">
+      {/* How we implement ML engineering and MLOps at scale */}
+      <section id="services" className="py-20 md:py-32 px-6 bg-secondary/30">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-12 leading-tight">
-              What we do
+              How we implement machine learning engineering and MLOps at scale
             </h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
             <ScrollReveal delay={100}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">AI agent design & development</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">End to end ML model development</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We design and build AI agents that perform specific tasks, coordinate workflows, and interact with users, tools, and systems based on defined goals and clear boundaries.
+                  We design, build, train, and refine custom machine learning models tailored to specific business problems, workflows, and data environments.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Lead qualification agents",
-                    "Customer intake agents",
-                    "Internal operations agents",
-                    "Research and reporting agents",
-                    "Follow up and reminder agents"
+                    "Predictive models",
+                    "Classification systems",
+                    "Natural language processing",
+                    "Computer vision models",
+                    "Recommendation systems",
+                    "Forecasting models"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -275,18 +276,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={150}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Workflow & process automation</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">MLOps pipeline automation</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We automate multi step business processes by combining AI driven decision support, rules based logic, and integrations with the tools your team already uses.
+                  We streamline machine learning workflows with automated pipelines for training, validation, deployment, monitoring, and continuous improvement.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "CRM updates",
-                    "Email routing",
-                    "Form intake",
-                    "Quote request workflows",
-                    "Reporting and admin automation"
+                    "CI/CD for machine learning",
+                    "Automated model validation",
+                    "Model and data versioning",
+                    "Testing and quality checks",
+                    "Repeatable deployment workflows"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -299,18 +300,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={200}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">LLM powered assistants</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Model deployment & scaling</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We develop intelligent assistants using large language models to support customer service, internal operations, knowledge search, and repetitive communication tasks.
+                  We deploy machine learning models into production environments with the infrastructure needed to support real-time predictions, batch processing, and scalable inference.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Website assistants",
-                    "Internal knowledge assistants",
-                    "Customer support assistants",
-                    "Sales support assistants",
-                    "Employee help desk assistants"
+                    "API based model serving",
+                    "Batch prediction workflows",
+                    "Containerized deployments",
+                    "Cloud deployment",
+                    "Scalable inference systems"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -323,18 +324,19 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={250}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">System integration & orchestration</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">ML infrastructure & platform engineering</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We connect AI agents with your existing systems, APIs, databases, CRMs, calendars, email platforms, and data sources so workflows can run across your business instead of staying isolated.
+                  We build the infrastructure needed to support reliable machine learning development, deployment, and operations across teams.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "CRM integration",
-                    "Calendar and booking integration",
-                    "Email automation",
-                    "Database workflows",
-                    "API orchestration"
+                    "Data pipelines",
+                    "Feature stores",
+                    "Model registries",
+                    "Experiment tracking",
+                    "Cloud infrastructure",
+                    "Secure access controls"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -347,18 +349,18 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={300}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Human in the loop automation</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Model monitoring & performance optimization</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We design automation workflows that include human review, approvals, exception handling, and escalation where accuracy, compliance, or customer experience matters.
+                  We help keep ML systems reliable after launch through monitoring, drift detection, performance reviews, and retraining workflows.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Approval workflows",
-                    "Quality checks",
-                    "Escalation paths",
-                    "Sensitive customer requests",
-                    "High impact business decisions"
+                    "Model accuracy tracking",
+                    "Data drift detection",
+                    "Prediction monitoring",
+                    "Alerting and observability",
+                    "Automated retraining workflows"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -371,18 +373,19 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={350}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">Monitoring, governance & control</h3>
+                <h3 className="font-sans text-2xl font-bold text-foreground mb-4">ML governance, documentation & handoff</h3>
                 <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  We implement controls, monitoring, documentation, and governance practices to help manage performance, reliability, security, and risk across automated systems.
+                  We create the documentation, controls, and operating processes needed to make machine learning systems easier to maintain, audit, and improve over time.
                 </p>
                 <span className="font-sans text-xs uppercase tracking-wider text-muted-foreground block mb-3">Use cases</span>
                 <ul className="space-y-2">
                   {[
-                    "Workflow monitoring",
+                    "Model documentation",
+                    "Version tracking",
                     "Audit trails",
-                    "Access controls",
-                    "Error handling",
-                    "Performance review"
+                    "Review workflows",
+                    "Internal handoff",
+                    "Governance support"
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-sm text-foreground">
                       <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" />
@@ -509,15 +512,15 @@ Stage: ${formData.stage}
                   <p className="font-sans text-sm text-muted-foreground mb-6">No idea where to start</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Helping clients understand AI automation, identify practical opportunities, and build a roadmap.
+                  Helping clients understand machine learning opportunities, data readiness, infrastructure needs, and the path to production.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    "AI readiness assessment",
-                    "AI education and awareness workshops",
+                    "AI and ML readiness assessment",
+                    "Data source review",
                     "Use case discovery and prioritization",
-                    "Workflow and tool review",
-                    "Automation opportunity roadmap",
+                    "Infrastructure gap analysis",
+                    "ML roadmap planning",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -538,15 +541,15 @@ Stage: ${formData.stage}
                   <p className="font-sans text-sm text-muted-foreground mb-6">Started working on a prototype</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Guiding clients through initial AI agent design, automation testing, and workflow validation.
+                  Guiding clients through model experimentation, feasibility testing, and early validation.
                 </p>
                 <ul className="space-y-2">
                   {[
                     "Prototype feasibility review",
                     "Model selection and experimentation",
-                    "MVP development and testing",
-                    "Workflow validation",
-                    "ROI and effort assessment",
+                    "MVP model development and testing",
+                    "Data quality validation",
+                    "Success metric definition",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -567,15 +570,15 @@ Stage: ${formData.stage}
                   <p className="font-sans text-sm text-muted-foreground mb-6">Have a working prototype</p>
                 </div>
                 <p className="font-sans text-sm text-foreground mb-6 leading-relaxed">
-                  Scaling, optimizing, and deploying AI agents and intelligent automation into real business operations.
+                  Scaling, optimizing, and deploying machine learning systems into production with monitoring, governance, and reliable operations.
                 </p>
                 <ul className="space-y-2">
                   {[
                     "MLOps and deployment strategy",
-                    "Production grade AI integration",
+                    "Production grade ML integration",
+                    "Model monitoring and observability",
+                    "Retraining and improvement workflows",
                     "AI governance and scalability plan",
-                    "Monitoring and error handling",
-                    "Team training and adoption support",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 font-sans text-xs text-foreground">
                       <Check size={12} className="text-foreground mt-0.5 shrink-0" />
@@ -619,10 +622,10 @@ Stage: ${formData.stage}
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-                Ready to automate the workflows slowing your team down?
+                Ready to move your ML model from prototype to production?
               </h2>
               <p className="font-sans text-lg text-muted-foreground max-w-3xl mx-auto">
-                Book a consultation with Neural Solutions to discuss your current workflows, where manual work is piling up, and how AI agents or intelligent automation could help.
+                Book a consultation with Neural Solutions to discuss your model, data, infrastructure, and what it would take to deploy a reliable production-ready ML system.
               </p>
             </div>
           </ScrollReveal>
@@ -637,7 +640,7 @@ Stage: ${formData.stage}
 
             <ScrollReveal delay={200}>
               <div className="bg-background rounded-[1.25rem] p-8 border border-border">
-                <h3 className="font-sans text-xl font-bold text-foreground mb-6">Tell us what you want to automate</h3>
+                <h3 className="font-sans text-xl font-bold text-foreground mb-6">Tell us about your ML project</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">
                     <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -684,9 +687,9 @@ Stage: ${formData.stage}
                   <div className="relative">
                     <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
                     <Textarea
-                      placeholder="What workflow are you hoping to automate?"
-                      value={formData.workflow}
-                      onChange={(e) => setFormData({ ...formData, workflow: e.target.value })}
+                      placeholder="What type of model or ML system are you building?"
+                      value={formData.mlSystem}
+                      onChange={(e) => setFormData({ ...formData, mlSystem: e.target.value })}
                       className="pl-10 min-h-24"
                       required
                     />
@@ -694,9 +697,9 @@ Stage: ${formData.stage}
                   <div className="relative">
                     <MessageSquare size={16} className="absolute left-3 top-3 text-muted-foreground" />
                     <Textarea
-                      placeholder="What tools or systems should it connect to?"
-                      value={formData.tools}
-                      onChange={(e) => setFormData({ ...formData, tools: e.target.value })}
+                      placeholder="Where does your data currently live?"
+                      value={formData.dataLocation}
+                      onChange={(e) => setFormData({ ...formData, dataLocation: e.target.value })}
                       className="pl-10 min-h-20"
                     />
                   </div>
@@ -711,9 +714,10 @@ Stage: ${formData.stage}
                       <option value="">Select a stage</option>
                       <option value="Discovery">Discovery</option>
                       <option value="Experimentation">Experimentation</option>
-                      <option value="Implementation">Implementation</option>
-                      <option value="Need help deciding">Need help deciding</option>
-                      <option value="Existing automation needs improvement">Existing automation needs improvement</option>
+                      <option value="Prototype built">Prototype built</option>
+                      <option value="Ready for deployment">Ready for deployment</option>
+                      <option value="Existing model needs monitoring or improvement">Existing model needs monitoring or improvement</option>
+                      <option value="Not sure yet">Not sure yet</option>
                     </select>
                   </div>
                   <Button type="submit" variant="hero" size="lg" className="w-full">
@@ -731,4 +735,4 @@ Stage: ${formData.stage}
   );
 };
 
-export default AIAgentsIntelligentAutomation;
+export default MLEngineeringMLOps;

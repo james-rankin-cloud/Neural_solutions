@@ -14,6 +14,7 @@ import { getBreadcrumbSchema } from "@/lib/schema/breadcrumb";
 import { ArrowRight, Check, User, Mail, Building2, Phone, MessageSquare, ChevronRight } from "lucide-react";
 import agelessLivingLogo from "@/assets/ageless-living.jpg";
 import harrisonForbesLogo from "@/assets/harrisonforbes.jpg";
+import blueSkyHomecareLogo from "@/assets/blue-sky-homecare.png";
 
 const caseStudies = [
   {
@@ -349,6 +350,9 @@ Stage: ${formData.stage}
               </div>
               <div className="bg-black rounded-[1.25rem] p-4 border border-border">
                 <img src={harrisonForbesLogo} alt="Harrison Forbes Electrical" className="h-12 w-auto object-contain" />
+              </div>
+              <div className="bg-white rounded-[1.25rem] p-4 border border-border">
+                <img src={blueSkyHomecareLogo} alt="Blue Sky Home Care" className="h-12 w-auto object-contain" />
               </div>
             </div>
           </ScrollReveal>

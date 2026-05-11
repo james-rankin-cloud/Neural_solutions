@@ -14,25 +14,29 @@ const services = [
     icon: <Code2 className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "Custom Software Development",
     description: "Secure, scalable software tailored to your business requirements and designed to evolve over time.",
-    image: customSoftwareImage
+    image: customSoftwareImage,
+    href: "/services/custom-software-development"
   },
   {
     icon: <RefreshCw className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "Application Development & Modernization",
     description: "Modernize legacy applications and build cloud-native systems to improve performance, scalability, and maintainability.",
-    image: appModernizationImage
+    image: appModernizationImage,
+    href: "/services/application-development-modernization"
   },
   {
     icon: <Workflow className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "DevOps & Platform Engineering",
     description: "Automate infrastructure and delivery pipelines to deploy software faster, more reliably, and at scale.",
-    image: devOpsImage
+    image: devOpsImage,
+    href: "#"
   },
   {
     icon: <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-white" />,
     title: "Quality Engineering",
     description: "Embed automated testing and quality practices across the software lifecycle to ensure reliability and performance.",
-    image: qualityEngineeringImage
+    image: qualityEngineeringImage,
+    href: "#"
   }
 ];
 
@@ -79,7 +83,10 @@ const SoftwareDevelopment = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {services.map((service, idx) => (
               <ScrollReveal key={service.title} delay={idx * 100}>
-                <div className="group relative h-[400px] md:h-[450px] rounded-[1.25rem] overflow-hidden border border-border hover:border-foreground/30 hover:shadow-xl transition-all duration-500 cursor-pointer">
+                <Link
+                  to={service.href}
+                  className="group relative h-[400px] md:h-[450px] rounded-[1.25rem] overflow-hidden border border-border hover:border-foreground/30 hover:shadow-xl transition-all duration-500 cursor-pointer block"
+                >
                   {/* Full Card Background Image */}
                   <div className="absolute inset-0 w-full h-full">
                     <img
@@ -118,7 +125,7 @@ const SoftwareDevelopment = () => {
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

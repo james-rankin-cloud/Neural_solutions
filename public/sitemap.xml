@@ -1,39 +1,286 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
   <url>
     <loc>https://www.neuralsolutions.cloud/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/"/>
   </url>
+
+  <!-- Main Pages -->
   <url>
     <loc>https://www.neuralsolutions.cloud/services</loc>
-    <lastmod>2026-05-05</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services"/>
   </url>
-  <url>
-    <loc>https://www.neuralsolutions.cloud/case-studies</loc>
-    <lastmod>2026-05-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/case-studies"/>
-  </url>
-  <url>
-    <loc>https://www.neuralsolutions.cloud/about</loc>
-    <lastmod>2026-05-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/about"/>
-  </url>
+
   <url>
     <loc>https://www.neuralsolutions.cloud/book-audit</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/book-audit"/>
   </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/case-studies</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/case-studies"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/about</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/about"/>
+  </url>
+
+  <!-- Service Category Pages -->
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/ai-solutions</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/ai-solutions"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/software-development</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/software-development"/>
+  </url>
+
+  <!-- AI Service Detail Pages -->
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/ai-strategy-consulting-governance</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/ai-strategy-consulting-governance"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/custom-ai-product-development</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/custom-ai-product-development"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/ai-agents-intelligent-automation</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/ai-agents-intelligent-automation"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/ai-analytics-predictive-insights-decision-intelligence</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/ai-analytics-predictive-insights-decision-intelligence"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/machine-learning-engineering-mlops</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/machine-learning-engineering-mlops"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/ai-enabled-software-delivery</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/ai-enabled-software-delivery"/>
+  </url>
+
+  <!-- Software Development Service Pages -->
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/custom-software-development</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/custom-software-development"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/services/application-development-modernization</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/services/application-development-modernization"/>
+  </url>
+
+  <!-- City Landing Pages - Tier 1 (Major Markets) -->
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-victoria</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-victoria"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-vancouver</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-vancouver"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-toronto</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-toronto"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-calgary</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-calgary"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-montreal</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-montreal"/>
+  </url>
+
+  <!-- City Landing Pages - Tier 2 -->
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-edmonton</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-edmonton"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-ottawa</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-ottawa"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-winnipeg</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-winnipeg"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-mississauga</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-mississauga"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-brampton</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-brampton"/>
+  </url>
+
+  <!-- City Landing Pages - Tier 3 -->
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-surrey</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-surrey"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-burnaby</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-burnaby"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-richmond</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-richmond"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-halifax</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-halifax"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-kelowna</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-kelowna"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-saskatoon</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-saskatoon"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-regina</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-regina"/>
+  </url>
+
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ai-agency-quebec-city</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ai-agency-quebec-city"/>
+  </url>
+
+  <!-- Internal Reference Pages -->
+  <url>
+    <loc>https://www.neuralsolutions.cloud/ui-code-kit</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.neuralsolutions.cloud/ui-code-kit"/>
+  </url>
+
 </urlset>

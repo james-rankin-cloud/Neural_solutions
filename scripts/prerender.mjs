@@ -1,6 +1,7 @@
 /**
  * Pre-rendering script using Puppeteer
- * Renders all 25 pages to static HTML with full meta tags and content
+ * Renders all 33 pages to static HTML with full meta tags and content
+ * Includes: 1 homepage, 5 main pages, 9 service pages, 18 city pages
  */
 
 import puppeteer from "puppeteer";
@@ -42,6 +43,16 @@ const CITY_SLUGS = [
 const ROUTES = [
   "/",
   "/services",
+  "/services/ai-solutions",
+  "/services/software-development",
+  "/services/ai-strategy-consulting-governance",
+  "/services/custom-ai-product-development",
+  "/services/ai-agents-intelligent-automation",
+  "/services/ai-analytics-predictive-insights-decision-intelligence",
+  "/services/machine-learning-engineering-mlops",
+  "/services/ai-enabled-software-delivery",
+  "/services/custom-software-development",
+  "/services/application-development-modernization",
   "/case-studies",
   "/about",
   "/book-audit",

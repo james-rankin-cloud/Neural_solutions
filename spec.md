@@ -705,6 +705,121 @@ Add to your deployment pipeline:
 
 ---
 
+## SEO & Static Site Generation (SSG)
+
+### Overview
+
+Neural Solutions implements Static Site Generation (SSG) to optimize for search engine indexing and Core Web Vitals. All pages are pre-rendered to static HTML at build time, ensuring Google and other search engines can immediately access full content without waiting for JavaScript execution.
+
+### Implementation
+
+**Pre-rendering Script:** `scripts/prerender.mjs`
+- Uses Puppeteer to render all pages to static HTML
+- Renders **33 total pages**: 1 homepage, 5 main pages, 9 service pages, 18 city pages
+- Generates fully-hydrated HTML with all meta tags, structured data, and content
+- Minifies HTML output for optimal performance
+- Run with: `npm run build:ssg` (builds + pre-renders) or `npm run prerender` (pre-render only)
+
+**Sitemap Generation:** `vite.config.ts` + `public/sitemap.xml`
+- Automated sitemap generation via vite-plugin-sitemap
+- Manual sitemap in `public/sitemap.xml` with priority values
+- Includes all 33 pages with proper SEO metadata
+- Updated: 2026-05-11
+
+### Page Inventory (33 Total Pages)
+
+**Core Pages (6):**
+1. `/` - Homepage (priority: 1.0)
+2. `/services` - Services overview (priority: 0.9)
+3. `/book-audit` - Contact/booking page (priority: 0.9)
+4. `/case-studies` - Portfolio (priority: 0.8)
+5. `/about` - Team page (priority: 0.7)
+6. `/ui-code-kit` - Internal reference (priority: 0.3)
+
+**Service Category Pages (2):**
+1. `/services/ai-solutions` (priority: 0.8)
+2. `/services/software-development` (priority: 0.8)
+
+**AI Service Detail Pages (7):**
+1. `/services/ai-strategy-consulting-governance` (priority: 0.8)
+2. `/services/custom-ai-product-development` (priority: 0.8)
+3. `/services/ai-agents-intelligent-automation` (priority: 0.8)
+4. `/services/ai-analytics-predictive-insights-decision-intelligence` (priority: 0.8)
+5. `/services/machine-learning-engineering-mlops` (priority: 0.8)
+6. `/services/ai-enabled-software-delivery` (priority: 0.8)
+7. `/services/custom-software-development` (priority: 0.8)
+8. `/services/application-development-modernization` (priority: 0.8)
+
+**City Landing Pages (18):**
+All with priority: 0.7
+- `/ai-agency-victoria`
+- `/ai-agency-vancouver`
+- `/ai-agency-toronto`
+- `/ai-agency-calgary`
+- `/ai-agency-montreal`
+- `/ai-agency-edmonton`
+- `/ai-agency-ottawa`
+- `/ai-agency-winnipeg`
+- `/ai-agency-mississauga`
+- `/ai-agency-brampton`
+- `/ai-agency-surrey`
+- `/ai-agency-burnaby`
+- `/ai-agency-richmond`
+- `/ai-agency-halifax`
+- `/ai-agency-kelowna`
+- `/ai-agency-saskatoon`
+- `/ai-agency-regina`
+- `/ai-agency-quebec-city`
+
+### Build Commands
+
+```bash
+# Development build (no pre-rendering)
+npm run build
+
+# Production build with SSG (recommended for deployment)
+npm run build:ssg
+
+# Pre-render only (requires dist/ folder from previous build)
+npm run prerender
+
+# Development server
+npm run dev
+
+# Preview built site
+npm run preview
+```
+
+### SEO Best Practices Implemented
+
+1. **Static HTML Generation** - All pages rendered at build time for instant indexing
+2. **Comprehensive Sitemap** - All 33 pages with proper priority values (1.0 → 0.3)
+3. **Meta Tags** - Unique titles, descriptions, and keywords per page via SEO.tsx component
+4. **Structured Data** - JSON-LD schema (LocalBusiness, Breadcrumb) for rich snippets
+5. **Geographic Meta Tags** - City pages include geo.region, geo.placename, geo.position
+6. **Semantic HTML** - Proper heading hierarchy, alt text on images, accessible markup
+7. **Fast Load Times** - Pre-rendered HTML, code splitting, minified assets
+8. **Mobile Responsive** - All pages optimized for mobile-first indexing
+
+### Next Steps for Enhanced SEO
+
+**Completed:**
+- ✅ Static HTML pre-rendering for all 33 pages
+- ✅ Complete XML sitemap with priority values
+- ✅ Unique meta tags per page
+- ✅ Structured data (JSON-LD)
+- ✅ City-specific SEO optimization
+
+**Future Enhancements:**
+- Server-Side Rendering (SSR) with Next.js, Remix, or Vike for dynamic content
+- robots.txt optimization
+- Automated sitemap updates via CI/CD
+- Open Graph image generation per page
+- Schema.org enrichment (FAQPage, Service, Organization)
+- Core Web Vitals monitoring
+
+---
+
 ## Design Philosophy
 
 The site embodies a **"Premium Minimal"** aesthetic:

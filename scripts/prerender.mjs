@@ -1,10 +1,12 @@
 /**
- * Pre-rendering script using Puppeteer
+ * Pre-rendering script using Puppeteer with serverless Chromium
  * Renders all 33 pages to static HTML with full meta tags and content
  * Includes: 1 homepage, 5 main pages, 9 service pages, 18 city pages
+ * Uses @sparticuz/chromium for Vercel/serverless compatibility
  */
 
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -145,12 +147,53 @@ async function main() {
     // Start preview server
     serverProcess = await startPreviewServer();
 
-    // Launch browser
+    // Launch browser with serverless Chromium
     console.log("Launching headless browser...\n");
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
+
+    // Detect if running in serverless environment (Vercel, AWS Lambda, etc.)
+    const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME;
+
+    let launchConfig;
+
+    if (isServerless) {
+      // Use @sparticuz/chromium for serverless environments
+      console.log("Detected serverless environment, using @sparticuz/chromium");
+      launchConfig = {
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+      };
+    } else {
+      // For local development, try to use system Chrome
+      console.log("Local development mode");
+      const chromePaths = [
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // Windows
+        "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe", // Windows 32-bit
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", // macOS
+        "/usr/bin/google-chrome", // Linux
+        "/usr/bin/chromium-browser", // Linux Chromium
+      ];
+
+      let executablePath;
+      for (const chromePath of chromePaths) {
+        try {
+          await fs.access(chromePath);
+          executablePath = chromePath;
+          break;
+        } catch (e) {
+          // Path doesn't exist, try next
+        }
+      }
+
+      launchConfig = {
+        args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+        executablePath,
+        headless: true,
+      };
+    }
+
+    browser = await puppeteer.launch(launchConfig);
 
     // Pre-render all pages
     let successCount = 0;

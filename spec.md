@@ -793,13 +793,19 @@ npm run preview
 ### Deployment Configuration
 
 **Vercel:** Configured via `vercel.json`
-- Build command: `npm run build:ssg`
+- Build command: `npm run build:ssg` (Vite build + SSG pre-rendering)
 - Output directory: `dist`
 - Rewrites: SPA routing with exclusions for robots.txt, sitemap.xml, and assets
 - Security headers: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy
 - Cache headers: 1-year cache for static assets (js, css, images, fonts, videos)
 
-The site automatically deploys with pre-rendered HTML for all 33 pages when pushed to the connected Git repository.
+**Pre-rendering Implementation:** Uses `@sparticuz/chromium` for serverless compatibility
+- Puppeteer-core with serverless Chromium binary optimized for Vercel
+- Automatically detects serverless environment (Vercel, AWS Lambda)
+- Falls back to system Chrome for local development
+- Pre-renders all 33 pages to static HTML with full meta tags and content
+
+**Local Development:** Script automatically uses system Chrome installation when running `npm run build:ssg` locally.
 
 ### SEO Best Practices Implemented
 

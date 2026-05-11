@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npx puppeteer browsers install chrome && npm run build:ssg",
+  "buildCommand": "npm run build:ssg",
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [

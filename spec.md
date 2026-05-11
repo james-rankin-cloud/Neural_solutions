@@ -790,6 +790,17 @@ npm run dev
 npm run preview
 ```
 
+### Deployment Configuration
+
+**Vercel:** Configured via `vercel.json`
+- Build command: `npm run build:ssg`
+- Output directory: `dist`
+- Rewrites: SPA routing with exclusions for robots.txt, sitemap.xml, and assets
+- Security headers: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy
+- Cache headers: 1-year cache for static assets (js, css, images, fonts, videos)
+
+The site automatically deploys with pre-rendered HTML for all 33 pages when pushed to the connected Git repository.
+
 ### SEO Best Practices Implemented
 
 1. **Static HTML Generation** - All pages rendered at build time for instant indexing

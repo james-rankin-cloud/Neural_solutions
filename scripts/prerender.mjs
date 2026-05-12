@@ -180,17 +180,29 @@ async function main() {
         try {
           await fs.access(chromePath);
           executablePath = chromePath;
+          console.log(`Found Chrome at: ${chromePath}`);
           break;
         } catch (e) {
           // Path doesn't exist, try next
         }
       }
 
-      launchConfig = {
-        args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
-        executablePath,
-        headless: true,
-      };
+      if (!executablePath) {
+        // Fallback to serverless Chromium for local if system Chrome not found
+        console.log("System Chrome not found, falling back to @sparticuz/chromium");
+        launchConfig = {
+          args: chromium.args,
+          defaultViewport: chromium.defaultViewport,
+          executablePath: await chromium.executablePath(),
+          headless: chromium.headless,
+        };
+      } else {
+        launchConfig = {
+          args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+          executablePath,
+          headless: true,
+        };
+      }
     }
 
     browser = await puppeteer.launch(launchConfig);

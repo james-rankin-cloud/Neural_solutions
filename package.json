@@ -13,10 +13,14 @@
     "prerender": "node scripts/prerender.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:schema": "vitest run src/test/schema-validation.test.ts",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test:e2e:schema": "playwright test tests/schema-markup.spec.ts",
     "test:city-seo": "playwright test tests/city-seo.spec.ts",
+    "test:all": "node scripts/run-all-tests.mjs",
     "validate:city-seo": "node scripts/validate-city-seo.js",
+    "validate:schema": "npm run test:schema && npm run test:e2e:schema",
     "security": "node security/index.js"
   },
   "dependencies": {

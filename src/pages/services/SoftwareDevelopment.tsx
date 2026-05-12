@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
 import { ArrowRight, Code2, RefreshCw, Workflow, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import customSoftwareImage from "@/assets/software1.png";
@@ -43,18 +43,13 @@ const services = [
 const SoftwareDevelopment = () => {
   return (
     <>
-      <Helmet>
-        <title>Software Development Services | Custom Solutions & Modernization | Neural Solutions</title>
-        <meta
-          name="description"
-          content="Professional software development services including custom development, application modernization, DevOps, and quality engineering for Canadian businesses."
-        />
-        <meta
-          name="keywords"
-          content="custom software development, application modernization, DevOps services, platform engineering, quality engineering, automated testing"
-        />
-        <link rel="canonical" href="https://www.neuralsolutions.cloud/services/software-development" />
-      </Helmet>
+      <SEO
+        title="Software Development Services | Custom Solutions & Modernization"
+        description="Professional software development services including custom development, application modernization, DevOps, and quality engineering for Canadian businesses."
+        canonical="https://www.neuralsolutions.cloud/services/software-development"
+        keywords="custom software development, application modernization, DevOps services, platform engineering, quality engineering, automated testing"
+        useSimpleTitle={true}
+      />
 
       <Navbar />
 

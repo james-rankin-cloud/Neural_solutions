@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
 import { ArrowRight, Brain, Monitor, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -50,18 +50,13 @@ const serviceCategories = [
 const Services = () => {
   return (
     <>
-      <Helmet>
-        <title>Our Services | AI Solutions & Software Development | Neural Solutions</title>
-        <meta
-          name="description"
-          content="Explore our AI solutions and software development services. From AI strategy to custom development, we deliver solutions that transform your business."
-        />
-        <meta
-          name="keywords"
-          content="AI services, software development, custom AI, application development, DevOps, quality engineering"
-        />
-        <link rel="canonical" href="https://www.neuralsolutions.cloud/services" />
-      </Helmet>
+      <SEO
+        title="Our Services | AI Solutions & Software Development"
+        description="Explore our AI solutions and software development services. From AI strategy to custom development, we deliver solutions that transform your business."
+        canonical="https://www.neuralsolutions.cloud/services"
+        keywords="AI services, software development, custom AI, application development, DevOps, quality engineering"
+        useSimpleTitle={true}
+      />
 
       <Navbar />
 

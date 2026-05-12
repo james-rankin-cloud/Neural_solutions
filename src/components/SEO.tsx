@@ -17,8 +17,8 @@ interface SEOProps {
 const SEO = ({
   title,
   description,
-  canonical = "https://neuralsolutions.ca",
-  ogImage = "https://neuralsolutions.ca/og-image.jpg",
+  canonical = "https://www.neuralsolutions.cloud/",
+  ogImage = "https://www.neuralsolutions.cloud/og-image.jpg",
   ogType = "website",
   keywords,
   noindex = false,
@@ -40,6 +40,14 @@ const SEO = ({
 
       {/* Canonical URL */}
       <link rel="canonical" href={canonical} />
+
+      {/* Robots */}
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+
+      {/* Author, Publisher, Creator */}
+      <meta name="author" content="Neural Solutions" />
+      <meta name="publisher" content="Neural Solutions" />
+      <meta name="creator" content="Neural Solutions" />
 
       {/* Geographic Targeting */}
       <meta name="geo.region" content={geoRegion || "CA-BC"} />
@@ -65,11 +73,7 @@ const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {/* Robots */}
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
-
-      {/* Business Information */}
-      <meta name="author" content="Neural Solutions" />
+      {/* Business Contact */}
       <meta name="contact" content="growth@neuralcoremarketing.com" />
     </Helmet>
   );

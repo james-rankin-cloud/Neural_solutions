@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CalendarEmbed from "@/components/CalendarEmbed";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
 import agelessLivingLogo from "@/assets/ageless-living.jpg";
 import harrisonForbesLogo from "@/assets/harrisonforbes.jpg";
 import blueSkyHomecareLogo from "@/assets/blue-sky-homecare.png";
@@ -124,22 +126,122 @@ const scrollToSection = (id: string) => {
 };
 
 export default function LandingPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.neuralsolutions.cloud/#organization",
+        "name": "Neural Solutions",
+        "url": "https://www.neuralsolutions.cloud/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.neuralsolutions.cloud/logo.png"
+        },
+        "description": "AI automation, custom software development, and intelligent business solutions for Canadian enterprises",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Victoria",
+          "addressRegion": "BC",
+          "addressCountry": "CA"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Sales",
+          "email": "growth@neuralcoremarketing.com"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.neuralsolutions.cloud/#business",
+        "name": "Neural Solutions",
+        "image": "https://www.neuralsolutions.cloud/logo.png",
+        "description": "We build AI systems, automations, and custom software that help businesses reduce manual work and grow faster",
+        "url": "https://www.neuralsolutions.cloud/",
+        "priceRange": "$$",
+        "areaServed": ["Canada", "British Columbia", "Vancouver", "Victoria"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "AI and Software Development Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Strategy Consulting & Governance",
+                "description": "Strategic AI roadmap development and governance frameworks"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom AI Product Development",
+                "description": "End-to-end AI product design and development"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Agents & Intelligent Automation",
+                "description": "Autonomous AI agents for business process automation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Software Development",
+                "description": "Bespoke software solutions tailored to business needs"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.neuralsolutions.cloud/#website",
+        "url": "https://www.neuralsolutions.cloud/",
+        "name": "Neural Solutions",
+        "description": "AI Automation and Custom Software for Canadian Businesses",
+        "publisher": {
+          "@id": "https://www.neuralsolutions.cloud/#organization"
+        },
+        "inLanguage": "en-CA"
+      }
+    ]
+  };
+
   return (
-    <div className="min-h-screen bg-white text-black">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <ServicesPreview />
-        <FeatureGrid />
-        <HowItWorks />
-        <GrowthPhilosophy />
-        <Testimonials />
-        <CaseStudiesPreview />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <SEO
+        title="AI Automation and Custom Software for Canadian Businesses"
+        description="Neural Solutions helps Canadian businesses automate operations, generate leads, integrate AI tools, and build custom software that saves time and improves growth."
+        canonical="https://www.neuralsolutions.cloud/"
+        keywords="AI automation Canada, AI consulting Vancouver, AI consulting Victoria BC, business automation, lead generation automation, custom software development, AI integration, workflow automation, Neural Solutions"
+      />
+      <StructuredData data={structuredData} />
+      <div className="min-h-screen bg-white text-black">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <ServicesPreview />
+          <FeatureGrid />
+          <HowItWorks />
+          <GrowthPhilosophy />
+          <Testimonials />
+          <CaseStudiesPreview />
+          <FinalCTA />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 
@@ -172,14 +274,22 @@ function Hero() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:mt-8">
             <a
-              onClick={() => scrollToSection('contact')}
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact');
+              }}
               className="group w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-sm font-medium text-black shadow-lg shadow-white/20 transition-all duration-200 hover:bg-white/95 hover:shadow-xl hover:shadow-white/30 active:scale-[0.98] sm:px-7 sm:py-4.5"
             >
               Book a Free Automation Audit
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </a>
             <a
-              onClick={() => scrollToSection('services')}
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('services');
+              }}
               className="w-full sm:w-auto inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl border border-white/30 bg-white/5 px-6 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:border-white/50 hover:backdrop-blur-md hover:scale-[1.02] sm:px-7 sm:py-4.5"
             >
               Explore Services
@@ -196,12 +306,14 @@ function About() {
     <section id="about" className="relative overflow-hidden bg-white px-5 py-20 md:px-8 md:py-32 lg:py-40">
       <div className="mx-auto max-w-[1200px]">
         <div className="mb-16 md:mb-24">
-          <p className="text-center text-xs uppercase tracking-wider text-black/40 mb-6 md:mb-8">Trusted By</p>
+          <p className="text-center text-xs uppercase tracking-wider text-black/60 mb-6 md:mb-8">Trusted By</p>
           <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-16 flex-wrap">
             <div className="bg-gradient-to-br from-white to-gray-50/40 border border-black/10 rounded-xl p-6 flex items-center justify-center h-20 w-44 sm:h-24 sm:w-52 md:h-28 md:w-56 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
               <img
                 src={agelessLivingLogo}
                 alt="Ageless Living"
+                width="200"
+                height="64"
                 className="h-12 w-auto object-contain sm:h-14 md:h-16"
                 loading="lazy"
               />
@@ -210,6 +322,8 @@ function About() {
               <img
                 src={harrisonForbesLogo}
                 alt="Harrison Forbes Electrical"
+                width="200"
+                height="64"
                 className="h-12 w-auto object-contain sm:h-14 md:h-16"
                 loading="lazy"
               />
@@ -218,6 +332,8 @@ function About() {
               <img
                 src={blueSkyHomecareLogo}
                 alt="Blue Sky Home Care"
+                width="200"
+                height="64"
                 className="h-12 w-auto object-contain sm:h-14 md:h-16"
                 loading="lazy"
               />
@@ -244,7 +360,7 @@ function About() {
                 <div className="text-3xl font-medium tracking-tight sm:text-4xl md:text-6xl">
                   {stat.value}
                 </div>
-                <p className="mt-2 text-xs text-black/65 sm:text-sm md:mt-3">{stat.label}</p>
+                <p className="mt-2 text-xs text-black/75 sm:text-sm md:mt-3">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -279,9 +395,12 @@ function ImageCard({ title, image, href }: { title: string; image: string; href:
       <article className="group relative h-[280px] overflow-hidden rounded-2xl bg-neutral-900 cursor-pointer sm:h-[320px] md:h-[360px]">
         <img
           src={image}
-          alt=""
+          alt={`${title} - Neural Solutions service offering`}
+          width="1200"
+          height="800"
           className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
           onError={handleImageError}
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5 sm:p-6 md:p-7">
@@ -310,9 +429,12 @@ function FeatureGrid() {
             >
               <img
                 src={feature.image}
-                alt=""
+                alt={`${feature.title} - workflow automation visualization`}
+                width="1200"
+                height="800"
                 className="h-full w-full object-cover"
                 onError={handleImageError}
+                loading="lazy"
               />
             </div>
             {feature.reverse && <FeatureTextCard {...feature} />}
@@ -339,12 +461,16 @@ function FeatureTextCard({
       <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-black/5 p-3">{icon}</div>
       <div className="mt-8 sm:mt-10 md:mt-12">
         <h3 className="text-2xl font-bold leading-[1.1] tracking-tight sm:text-3xl md:text-4xl">{title}</h3>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-black/70 sm:text-base sm:mt-6">
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-black/80 sm:text-base sm:mt-6">
           {description}
         </p>
       </div>
       <a
-        onClick={() => scrollToSection('contact')}
+        href="#contact"
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection('contact');
+        }}
         className="group mt-auto inline-flex cursor-pointer items-center gap-3 text-sm font-medium pt-6"
       >
         {cta}
@@ -370,9 +496,12 @@ function HowItWorks() {
             >
               <img
                 src={step.image}
-                alt=""
+                alt={`Step ${step.number}: ${step.title} - ${step.description}`}
+                width="800"
+                height="600"
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 onError={handleImageError}
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
               <div className="absolute left-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/35 bg-white/20 text-sm text-white backdrop-blur sm:left-6 sm:top-6 sm:h-10 sm:w-10">
@@ -475,6 +604,8 @@ function Testimonials() {
             <img
               src={harrisonForbesLogo}
               alt="Harrison Forbes Electrical"
+              width="240"
+              height="96"
               className="h-16 w-auto object-contain sm:h-20 md:h-24"
               loading="lazy"
             />
@@ -489,7 +620,7 @@ function Testimonials() {
 
             <div className="mt-6 sm:mt-8">
               <p className="font-medium text-sm sm:text-base">Ryder Forbes</p>
-              <p className="text-xs text-black/55 sm:text-sm">Owner, Harrison Forbes Electrical</p>
+              <p className="text-xs text-black/70 sm:text-sm">Owner, Harrison Forbes Electrical</p>
             </div>
 
             <div className="mt-auto flex flex-col justify-between gap-6 pt-6 sm:gap-8 md:flex-row md:items-end">
@@ -562,6 +693,8 @@ function CaseStudiesPreview() {
                 <img
                   src={study.logo}
                   alt={`${study.name} logo`}
+                  width="200"
+                  height="64"
                   className="h-12 w-auto object-contain sm:h-16"
                   loading="lazy"
                 />

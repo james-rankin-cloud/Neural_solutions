@@ -5,7 +5,10 @@
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
       "Bash(ls:*)",
-      "Bash(npm run build:ssg:*)"
+      "Bash(npm run build:ssg:*)",
+      "Bash(chmod:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run test:e2e:*)"
     ]
   }
 }

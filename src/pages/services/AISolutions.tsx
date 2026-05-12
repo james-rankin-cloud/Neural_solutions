@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
 import { ArrowRight, Cpu, Zap, TrendingUp, Layers, Code2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import aiStrategyImage from "@/assets/ai_strategy_and_governance.png";
@@ -59,18 +59,13 @@ const services = [
 const AISolutions = () => {
   return (
     <>
-      <Helmet>
-        <title>AI Solutions & Services | Custom AI Development & Automation | Neural Solutions</title>
-        <meta
-          name="description"
-          content="Comprehensive AI services including strategy, custom development, intelligent automation, analytics, ML engineering, and AI-enabled software delivery for Canadian businesses."
-        />
-        <meta
-          name="keywords"
-          content="AI services, AI strategy, custom AI development, intelligent automation, AI analytics, ML engineering, MLOps, AI software development"
-        />
-        <link rel="canonical" href="https://www.neuralsolutions.cloud/services/ai-solutions" />
-      </Helmet>
+      <SEO
+        title="AI Solutions & Services | Custom AI Development & Automation"
+        description="Comprehensive AI services including strategy, custom development, intelligent automation, analytics, ML engineering, and AI-enabled software delivery for Canadian businesses."
+        canonical="https://www.neuralsolutions.cloud/services/ai-solutions"
+        keywords="AI services, AI strategy, custom AI development, intelligent automation, AI analytics, ML engineering, MLOps, AI software development"
+        useSimpleTitle={true}
+      />
 
       <Navbar />
 
